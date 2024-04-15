@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestParam;
+import jakarta.servlet.http.HttpServletRequest;
+import java.time.LocalTime;
 
 @RestController
 @RequestMapping("/home")
@@ -22,7 +24,8 @@ public class AddFlight {
     FlightService flightService;
 
     @PostMapping("/add_flight")
-    public ResponseEntity<String> register(@ModelAttribute Chuyenbay chuyenbay, 
+    public ResponseEntity<String> register(HttpServletRequest request,
+                                            @ModelAttribute Chuyenbay chuyenbay, 
                                             @ModelAttribute TrungGian trunggian, 
                                             @ModelAttribute CtHangve cthangve) {
         
@@ -39,16 +42,40 @@ public class AddFlight {
 
                     cthangve.setMaChuyenBay(chuyenbay.getMaChuyenBay());
                     cthangve.setMaHangve("HANG1");
+                    String SoLuong1 = request.getParameter("soLuong1");
+                    cthangve.setSoLuong(Integer.parseInt(SoLuong1));
                     flightService.createCtHangve(cthangve);
 
                     cthangve.setMaChuyenBay(chuyenbay.getMaChuyenBay());
                     cthangve.setMaHangve("HANG2");
+                    String SoLuong2 = request.getParameter("soLuong2");
+                    cthangve.setSoLuong(Integer.parseInt(SoLuong2));
                     flightService.createCtHangve(cthangve);
                     
-                    if(trunggian.getMaSanBayTG() != null && trunggian.getThoiGianDung() != null) {
+                    String MaSanBayTG1 = request.getParameter("maSanBayTG1");
+                    System.out.println(MaSanBayTG1);
+                    String ThoiGianDung1 = request.getParameter("thoiGianDung1");
+                    if(MaSanBayTG1 != null && ThoiGianDung1 != null) {
                         trunggian.setMaChuyenBay(chuyenbay.getMaChuyenBay());
+                        trunggian.setMaSanBayTG(MaSanBayTG1);
+                        trunggian.setThoiGianDung(LocalTime.parse(ThoiGianDung1));
+                        String GhiChu1 = request.getParameter("ghiChu1");
+                        trunggian.setGhiChu(GhiChu1);   
                         flightService.createTrunggian(trunggian);
                     }
+
+                    String MaSanBayTG2 = request.getParameter("maSanBayTG2");
+                    System.out.println(MaSanBayTG2);
+                    String ThoiGianDung2 = request.getParameter("thoiGianDung2");
+                    if(MaSanBayTG2 != null && ThoiGianDung2 != null) {
+                        trunggian.setMaChuyenBay(chuyenbay.getMaChuyenBay());
+                        trunggian.setMaSanBayTG(MaSanBayTG2);
+                        trunggian.setThoiGianDung(LocalTime.parse(ThoiGianDung2));
+                        String GhiChu2 = request.getParameter("ghiChu2");
+                        trunggian.setGhiChu(GhiChu2);   
+                        flightService.createTrunggian(trunggian);
+                    }
+
                     response = ResponseEntity.status(HttpStatus.CREATED)
                             .body("Flight is created successfully for flight = " + chuyenbay.getMaChuyenBay());
                 }
