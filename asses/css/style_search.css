@@ -1,0 +1,258 @@
+* {
+  box-sizing: border-box;
+}
+html {
+  font-size: 62.5%;
+}
+body {
+  font-size: 1.6rem;
+  font-family: "Sora", sans-serif;
+}
+:root {
+  --font-heading: "Sora";
+  --font-content: "Open Sans";
+  --primary-color: #21A9DE;
+  --header-bg: #00256C;
+  --partners-bg: #F6FBFF;
+}
+
+/* ========== common ========== */
+/* se co nhung the khong an theo thuoc tinh chung */
+input,
+textarea,
+select,
+button {
+  font-family: inherit;
+  font-size: inherit;
+}
+.container {
+  width: 1170px;
+  margin: 0 auto;
+  max-width: calc(100% - 48px);
+}
+a {
+  text-decoration: none;
+}
+.btn {
+  /* box chua */
+  display: inline-block;
+  min-width: 205px;
+  line-height: 60px;
+  border-radius: 30px;
+  background: var(--primary-color);
+
+  /* text */
+  text-align: center;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 400;
+}
+.btn:hover {
+  /* Lam mo nen */
+  opacity: 0.9;
+}
+.section-heading {
+  color: var(--header-bg);
+  font-size: 5rem;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -1px;
+}
+.section-desc {
+  color: #575f66;
+  font-size: 1.8rem;
+  font-weight: 300;
+  line-height: 1.67;
+}
+.control {
+  display: flex;
+  column-gap: 18px;
+  align-items: center;
+}
+.control__btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #575f66;
+  background: #fff;
+  cursor: pointer;
+  transition: 0.25s;
+}
+.control__btn:hover {
+  background: var(--primary-color);
+  border-color: var(--primary-color);
+  color: #fff;
+}
+.control__btn--next {
+  rotate: 180deg;
+}
+
+/* ========== header ========== */
+.header {
+  background: var(--header-bg);
+  min-width: 100vw;
+}
+.menu {
+  padding: 10px;
+  width: 1400px;
+  margin: 0 auto;
+  max-width: calc(100% - 48px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.navbar__list {
+  display: flex;
+}
+.header__action--login,
+.navbar__link {
+  padding: 8px 21px;
+  color: #c9d2da;
+  font-size: 1.6rem;
+  font-weight: 300;
+  line-height: 1.75;
+}
+.navbar__link:hover,
+.navbar__link--active {
+  color: #fff;
+  /* font-weight: 400; -> ko dung vi no se day cac ptu khi weight thay doi */
+  text-shadow: 1px 0 0 currentColor;
+  line-height: 1.75;
+}
+.header__action--signup {
+  min-width: 104px;
+  line-height: 44px;
+  font-size: 1.6rem;
+}
+.header__action--login {
+  margin-right: 7px;
+}
+
+/* ========== main ========== */
+
+
+/* ========== main ========== */
+
+/* ===== hero ===== */
+.hero__heading {
+  color: #FFF;
+  text-align: center;
+  font-size: 7rem;
+  font-weight: 600;
+  line-height: 1.14;
+  letter-spacing: -1.4px;
+}
+.hero__desc {
+  margin-top: 30px;
+  color: #c9d2da;
+  font-size: 1.8rem;
+  font-weight: 400;
+  line-height: 1.67;
+  width:  458px;
+  text-align: center;
+}
+.hero__row {
+  margin-top: 40px;
+  display: flex;
+  align-items: center;
+  column-gap: 40px;
+}
+.hero__phone {
+  color: #fff;
+  font-size: 1.8rem;
+  font-weight: 400;
+  line-height: 1.67;
+}
+.hero{
+  display: flex;
+  position: relative;
+}
+.hero__content {
+  margin: 130px 320px;
+  width: 57.1%;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; 
+  align-items: center;
+  text-align: center; 
+}
+.hero__img {
+  min-width: 100vw;
+  object-fit: cover;
+}
+
+/* ========== footer ========== */
+.footer {
+  padding-top: 30px;
+  background: var(--header-bg);
+  font-family: "Open Sans", "sans-serif";
+}
+.footer__top {
+  /* display: grid;
+  grid-template-columns: 1fr 0.4fr 0.4fr 0.6fr 1fr;
+  column-gap: 60px; */
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+.footer__social{
+  padding: 10px;
+  justify-content: center;
+}
+.footer__heading{
+  margin-top: 35px;
+  color: #fff;
+  font-size: 1.6rem;
+  font-weight: 600;
+  line-height: 1.75;
+}
+.footer__desc {
+  max-width: 336px;
+  color: #a9b3bb;
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 1.75;
+}
+.address__column{
+  max-width: 250px;
+}
+.footer__link {
+  color: #a9b3bb;
+  font-size: 1.4rem;
+  font-weight: 400;
+  line-height: 1.86;
+  /* khong cho thuoc tinh xuong hang */
+  white-space: nowrap;
+}
+.footer__list {
+  margin: 20px 0 28px;
+}
+.footer__item {
+  margin: 10px 0 auto;
+}
+.footer__link:hover {
+  text-decoration: underline;
+}
+.footer__social {
+  display: flex;
+  margin: 20px 0 28px;
+  gap: 10px;
+}
+.footer__bottom {
+  border-top: 1px solid #406181;
+}
+.footer__bottom-text {
+  padding: 28px 0 42px;
+  color: #aab3ba;
+  text-align: center;
+  font-size: 1.4rem;
+  font-weight: 400;
+  line-height: 1.86;
+}
+
+
+

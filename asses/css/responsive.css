@@ -1,0 +1,322 @@
+/* PC */
+@media (min-width: 992px) {
+  /* cách khắc phục khi mà mấy cái icon thò ra trên PC vì chúng ta chỉ code cho mobile */
+  .mobile-header {
+    display: none;
+  }
+}
+
+/* Table & mobile */
+@media (max-width: 991.98px) {
+  /* 1. ẩn navbar trên tablet và mobile */
+  .navbar {
+    display: none;
+  }
+
+  /* 2. chuyển logo vao chính giữa */
+  .header-top {
+    position: relative;
+  }
+  .header__logo {
+    position: absolute;
+    left: 50%;
+    translate: -50% -50%;
+  }
+
+  /* 3. căn lại vị trí của menu icon */
+  .menu-header__icon {
+    position: absolute;
+    top: 38px;
+    left: 26px;
+    color: #fff;
+    width: 24px;
+  }
+
+  /*4. overlay */
+  .menu-overlay {
+    position: fixed;
+    background: rgba(0, 0, 0, 0.3);
+    /* cách 0 ở 4 hướng */
+    inset: 0;
+    /* ưu tiên hơn 1 lớp */
+    z-index: 1;
+    opacity: 0;
+    /* ẩn lớp overlay khỏi giao diện để tương tác các phần tử*/
+    visibility: hidden;
+    transition: 0.25s;
+  }
+
+  /* 5. kiểm tra xem menu-check có đc checked thì hiện overlay*/
+  .menu-checkbox:checked ~ .menu-overlay {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  /* 6. code cho menu drawer */
+  .menu-drawer {
+    padding: 60px;
+    position: fixed;
+    background: #2e1019;
+    inset: 0 40% 0 0;
+    z-index: 2;
+    transform: translateX(-100%);
+    transition: 0.25s;
+  }
+
+  /* 7. kiểm tra nếu checkbox đc check hiện lại menu */
+  .menu-checkbox:checked ~ .menu-drawer {
+    transform: translateX(0);
+  }
+
+  /* 8. menu top */
+  .close__menu {
+    width: 24px;
+    height: 24px;
+    color: #fff;
+  }
+  .menu-drawer__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .navbar__list {
+    margin-top: 25px;
+    flex-direction: column;
+  }
+  #navbar__list--mobile {
+    margin-top: 25px;
+  }
+  .navbar__link {
+    display: block;
+    font-size: 2rem;
+  }
+  .navbar__link:hover {
+    background-color: #00ffff37;
+  }
+
+  /* Khoi hero */
+  .hero {
+    flex-direction: column;
+    row-gap: 50px;
+  }
+  .hero__content{
+    margin: 22px auto;
+    order: 2;
+    width: 80%;
+    text-align: center;
+  }
+  .hero__media{
+    order: 1;
+  }
+  .hero__row{
+    justify-content: center;
+  }
+
+  /* Khoi service */
+  .service__row{
+    flex-direction: column;
+    row-gap: 20px;
+  }
+  .service__img{
+    width: 100%;
+  }
+  .service-item{
+    width: 90%;
+    text-align: start;
+  }
+  .service__list{
+    text-align: center;
+  }
+
+   /* Khoi work */
+  .works__list{
+    grid-template-columns: 1fr;
+    row-gap: 30px;
+  }
+
+   /* Khoi about */
+   .about-row{
+    flex-direction: column;
+    row-gap: 30px;
+   }
+   .about__image--small{
+    display: none;
+   }
+   .about__media{
+    width: 100%;
+   }
+   .about__image--large{
+    width: 100%;
+    border-radius: 15px;
+    margin: 15px auto;
+   }
+   .about-content{
+    margin-left: 0;
+    width: 90%;
+    text-align: center;
+   }
+
+   /* Khoi team list */
+   .team__list{
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 30px;
+   }
+   .team-item__thumb{
+    margin: 0 auto;
+   }
+
+   /* Khoi install */
+   .install__img{
+    display: none;
+   }
+   .install__content{
+    width: 90%;
+    margin: 0 auto;
+   }
+
+   /* Khoi bog */
+   .bog__inner{
+    flex-direction: column;
+    row-gap: 30px;
+   }
+   .bog__list{
+    order: 1;
+   }
+   .bog__content{
+    order: 2;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+   }
+   .bog__heading{
+    max-width: 90%;
+   }
+
+}
+
+/* Table  */
+@media (min-width: 768px) and (max-width: 991.98px) {
+
+    /* Khoi footer */
+    .footer-hidden-tablet{
+        display: none;
+    }
+    .footer__top{
+        grid-template-columns: 0.5fr 0.5fr 1fr;
+    }
+    .show-on-mobile{
+      display: none;
+    }
+
+}
+
+/* mobile */
+@media (max-width: 767.98px) {
+  /* menu */
+  .header__action{
+    display: none;
+  }
+  .menu-header__icon{
+    top: 16px;
+  }
+  .menu-drawer{
+    inset: 0 20% 0 0;
+    padding: 40px;
+  }
+  .navbar__item{
+    /* bo note */
+    list-style-type: none;
+  }
+  .saparate{
+    border-top: 1.5px solid #8c8b8b;
+    margin-top: 10px;
+  }
+
+  /* hero */
+  .hero__img-small{
+    display: none;
+  }
+  .hero__img-large{
+    width: 100%;
+    height: auto;
+  }
+  .hero__heading{
+    font-size: 3rem;
+  }
+  .hero__row{
+    flex-direction: column;
+    row-gap: 20px;
+  }
+
+  /* service */
+  .services {
+    padding: 70px 0;
+  }
+  .service__desc {
+    width: 100%;
+  }
+  .service__img {
+    height: auto;
+  }
+
+  /* work */
+  .works__heading,
+  .works__desc{
+    width: 100%;
+    text-align: center;
+  }
+  .works-item{
+    padding: 20px;
+  }
+
+  /* about */
+  .about{
+    margin-top: 20px;
+    padding: 40px 0;
+  }
+  .section-heading {
+    font-size: 3rem;
+  }
+
+  /* team */
+  .team__list{
+    grid-template-columns: 1fr;
+  }
+
+  /* install */
+  .install__inner{
+    margin: 40px 0 ;
+    padding: 0 8px;
+  }
+  .install__content{
+    min-width: 250px;
+  }
+  .install__desc{
+    font-size: 1.3rem;
+  }
+  .bog__list{
+    grid-template-columns: 1fr;
+    row-gap: 30px;
+  }
+  .bog__heading{
+    text-align: center;
+  }
+
+  /* appointment */
+  .appointment__inner{
+    padding: 30px 5px;
+  }
+
+   /* footer */
+  .footer__top{
+    grid-template-columns: 1fr;
+    row-gap: 30px;
+  }
+  .footer__bottom{
+    margin-top: 20px;
+  }
+  
+}
+
+/* tạm ân phần không liên quan */
