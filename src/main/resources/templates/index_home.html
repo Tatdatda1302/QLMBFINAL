@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="shortcut icon"
+      href="/asses/favicon/Logo_Img.svg"
+      type="VietHub Airline"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wdth,wght@0,75..100,300..800;1,75..100,300..800&family=Sora:wght@100..800&display=swap"
+      rel="stylesheet"/>
+
+    <!-- font icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    
+    <!-- reset css -->
+    <link rel="stylesheet" href="/asses/css/reset.css" />
+    <!-- style css -->
+    <link rel="stylesheet" href="/asses/css/style_home.css" />
+    
+    <title>VietHub Airline</title>
+  </head>
+  <body>
+
+    <!-- header -->
+    <header class="header">
+        <div class="menu">
+          <!-- Logo -->
+          <a href="./"
+            ><img
+              src="/asses/favicon/Logo_Gr.svg"
+              alt="Shine smile"
+              class="logo header__logo"
+          /></a>
+          <!-- Navbar  -->
+          <nav class="navbar">
+            <ul class="navbar__list" id="navbar__list--pc">
+              <li class="navbar__item">
+                <a href="/index_home.html" class="navbar__link navbar__link--active">Home</a>
+              </li>
+              <li class="navbar__item">
+                <a href="index_search.html" class="navbar__link">Search</a>
+              </li>
+              <li class="navbar__item">
+                <a href="/index_booking.html" class="navbar__link">Booking</a>
+              </li>
+              <li class="navbar__item">
+                <a href="/index_home.html" class="navbar__link">About</a>
+              </li>
+              <li class="navbar__item">
+                <a href="/index_home.html" class="navbar__link">Contact</a>
+              </li>
+            </ul>
+          </nav>
+          <!-- cta action -->
+          <div class="header__action">
+            <a href="#!" class="header__action--login">Log in</a>
+            <a href="#!" class="btn header__action--signup">Sign up</a>
+          </div>
+        </div>
+    </header>
+
+    <!-- main -->
+    <main>
+
+      <!-- hero -->
+      <section class="hero">
+        <img
+          class="hero__img "
+          src="/asses/img/Plane_0.svg"
+          alt="Plane_0"
+        />
+        <div class="hero__content">
+          <h1 class="hero__heading">VietHub <br> always accompanies <br> you on every flight</h1>
+          <p class="hero__desc">
+            Enjoy your trip and receive the personal service you deserve. with world-leading services
+          </p>
+          <div class="hero__row">
+            <a href="#!" class="btn">Book Online</a>
+            <span class="hero__phone">or call (123) 456-789</span>
+          </div>
+        </div> 
+      </section>
+
+      <!-- partners -->
+      <section class="partners">
+        <div class="container">
+          <h2 class="section-heading partners__heading">Airline partners</h2>
+          <div class="partners__box">
+            <figure class="list-image image__top">
+              <img src="/asses/partner/img_11.svg" alt="img_11.svg">
+              <img src="/asses/partner/img_12.svg" alt="img_12.svg">
+              <img src="/asses/partner/img_13.svg" alt="img_13.svg">
+              <img src="/asses/partner/img_14.svg" alt="img_14.svg">
+              <img src="/asses/partner/img_15.svg" alt="img_15.svg">
+              <img src="/asses/partner/img_16.svg" alt="img_16.svg">
+            </figure>
+
+            <figure class="list-image image__bottom">
+              <img src="/asses/partner/img_21.svg" alt="img_21.svg">
+              <img src="/asses/partner/img_22.svg" alt="img_22.svg">
+              <img src="/asses/partner/img_23.svg" alt="img_23.svg">
+              <img src="/asses/partner/img_24.svg" alt="img_24.svg">
+              <img src="/asses/partner/img_25.svg" alt="img_25.svg">
+              <img src="/asses/partner/img_26.svg" alt="img_26.svg">
+            </figure>
+          </div>
+          <control class="control destination__control">
+            <!-- previous -->
+            <button class="control__btn">
+              <svg
+                class="control-icon"
+                xmlns="http://www.w3.org/2000/svg"
+                width="6"
+                height="12"
+                viewBox="0 0 6 12"
+                fill="none"
+              >
+                <path
+                  d="M5.5 1L0.5 6L5.5 11"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </button>
+            <!-- next -->
+            <button class="control__btn control__btn--next">
+              <svg
+                class="control-icon"
+                xmlns="http://www.w3.org/2000/svg"
+                width="6"
+                height="12"
+                viewBox="0 0 6 12"
+                fill="none"
+              >
+                <path
+                  d="M5.5 1L0.5 6L5.5 11"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </button>
+          </control>
+        </div>
+
+      </section>
+
+      <!-- server -->
+      <section class="services">
+        <div class="container">
+
+          <h2 class="service__heading section-heading">Our services</h2>
+          <p class="service__desc section-desc">
+            Here is our booking process. For more information please click see more.
+          </p>
+
+          <div class="service__row">
+            <!-- services left -->
+            <figure>
+              <img
+                class="service__img"
+                src="/asses/img/Our_Services.svg"
+                alt="Our_Services"
+                data-aos="flip-up"
+              />
+            </figure>
+
+            <!-- services right -->
+            <div class="service__list">
+              <!-- item 1 -->
+              <section class="service-item">
+                <div class="service-tiem__icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 512 512">
+                  <path d="M190.5 68.8L225.3 128H224 152c-22.1 0-40-17.9-40-40s17.9-40 40-40h2.2c14.9 0 28.8 7.9 36.3 20.8zM64 88c0 14.4 3.5 28 9.6 40H32c-17.7 0-32 14.3-32 32v64c0 17.7 14.3 32 32 32H480c17.7 0 32-14.3 32-32V160c0-17.7-14.3-32-32-32H438.4c6.1-12 9.6-25.6 9.6-40c0-48.6-39.4-88-88-88h-2.2c-31.9 0-61.5 16.9-77.7 44.4L256 85.5l-24.1-41C215.7 16.9 186.1 0 154.2 0H152C103.4 0 64 39.4 64 88zm336 0c0 22.1-17.9 40-40 40H288h-1.3l34.8-59.2C329.1 55.9 342.9 48 357.8 48H360c22.1 0 40 17.9 40 40zM32 288V464c0 26.5 21.5 48 48 48H224V288H32zM288 512H432c26.5 0 48-21.5 48-48V288H288V512z" fill="currentColor"/></svg>
+                </div>
+                <div class="service-tiem__body">
+                  <div class="service-tiem__heading">VietHub Airline gift</div>
+                  <div class="service-tiem__desc">
+                    VietHub Airline's souvenirs are always loved by customers.
+                  </div>
+                </div>
+              </section>
+
+              <!-- item 2 -->
+              <section class="service-item">
+                <div class="service-tiem__icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="40" viewBox="0 0 384 512">
+                  <path d="M144 56c0-4.4 3.6-8 8-8h80c4.4 0 8 3.6 8 8v72H144V56zm176 72H288V56c0-30.9-25.1-56-56-56H152C121.1 0 96 25.1 96 56v72H64c-35.3 0-64 28.7-64 64V416c0 35.3 28.7 64 64 64c0 17.7 14.3 32 32 32s32-14.3 32-32H256c0 17.7 14.3 32 32 32s32-14.3 32-32c35.3 0 64-28.7 64-64V192c0-35.3-28.7-64-64-64zM112 224H272c8.8 0 16 7.2 16 16s-7.2 16-16 16H112c-8.8 0-16-7.2-16-16s7.2-16 16-16zm0 128H272c8.8 0 16 7.2 16 16s-7.2 16-16 16H112c-8.8 0-16-7.2-16-16s7.2-16 16-16z" fill="currentColor"/></svg>
+                </div>
+                <div class="service-tiem__body">
+                  <div class="service-tiem__heading">Buy extra luggage</div>
+                  <div class="service-tiem__desc">
+                    You can increase the weight of your checked baggage in diverse and flexible packages.
+                  </div>
+                </div>
+              </section>
+
+              <!-- item 3 -->
+              <section class="service-item">
+                <div class="service-tiem__icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="30" height="35" viewBox="0 0 448 512">
+                  <path d="M416 0C400 0 288 32 288 176V288c0 35.3 28.7 64 64 64h32V480c0 17.7 14.3 32 32 32s32-14.3 32-32V352 240 32c0-17.7-14.3-32-32-32zM64 16C64 7.8 57.9 1 49.7 .1S34.2 4.6 32.4 12.5L2.1 148.8C.7 155.1 0 161.5 0 167.9c0 45.9 35.1 83.6 80 87.7V480c0 17.7 14.3 32 32 32s32-14.3 32-32V255.6c44.9-4.1 80-41.8 80-87.7c0-6.4-.7-12.8-2.1-19.1L191.6 12.5c-1.8-8-9.3-13.3-17.4-12.4S160 7.8 160 16V150.2c0 5.4-4.4 9.8-9.8 9.8c-5.1 0-9.3-3.9-9.8-9L127.9 14.6C127.2 6.3 120.3 0 112 0s-15.2 6.3-15.9 14.6L83.7 151c-.5 5.1-4.7 9-9.8 9c-5.4 0-9.8-4.4-9.8-9.8V16zm48.3 152l-.3 0-.3 0 .3-.7 .3 .7z" fill="currentColor"/></svg>
+                </div>
+                <div class="service-tiem__body">
+                  <div class="service-tiem__heading">
+                    Culinary services
+                  </div>
+                  <div class="service-tiem__desc">
+                    Enjoy optional culinary services directly on VietHub Airline flights.
+                  </div>
+                </div>
+              </section>
+
+              <a href="#!" class="btn service__btn">all Services</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- how -->
+      <section class="book">
+        <div class="container">
+          <h2 class="book__heading section-heading">How to book</h2>
+          <p class="book__desc section-desc">
+            Here is our booking process. For more information please click see more.
+          </p>
+          <div class="book__list">
+            <!-- item 1 -->
+            <section class="book-item">
+              <div class="book-tiem__icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="72" height="72" viewBox="0 0 72 72" fill="none">
+                  <path d="M68.7624 63.9901L46.7326 41.9446L46.691 41.9862C50.4943 36.99 52.2574 30.7356 51.6236 24.4886C50.9897 18.2416 48.0063 12.4687 43.277 8.3383C38.5477 4.20788 32.4259 2.02842 26.1504 2.24102C19.875 2.45362 13.9147 5.0424 9.47576 9.48342C5.03686 13.9244 2.45094 19.886 2.24135 26.1615C2.03176 32.4371 4.21415 38.5579 8.34684 43.2852C12.4795 48.0125 18.2538 50.9932 24.5011 51.624C30.7484 52.2549 37.002 50.4887 41.9964 46.6831L41.9615 46.7179L63.9879 68.7601C64.6207 69.3932 65.4791 69.749 66.3743 69.7492C67.2695 69.7494 68.1281 69.394 68.7612 68.7612C69.3944 68.1283 69.7502 67.2699 69.7504 66.3747C69.7506 65.4796 69.3952 64.6209 68.7624 63.9878V63.9901ZM27.0001 45.0001C23.44 45.0001 19.9599 43.9444 16.9998 41.9665C14.0398 39.9886 11.7327 37.1774 10.3703 33.8884C9.0079 30.5993 8.65144 26.9801 9.34597 23.4884C10.0405 19.9968 11.7548 16.7895 14.2722 14.2721C16.7895 11.7548 19.9968 10.0405 23.4885 9.34593C26.9801 8.65139 30.5993 9.00785 33.8884 10.3702C37.1775 11.7326 39.9887 14.0397 41.9666 16.9998C43.9444 19.9599 45.0001 23.44 45.0001 27.0001C44.9995 31.7738 43.1029 36.3518 39.7274 39.7273C36.3518 43.1029 31.7738 44.9995 27.0001 45.0001Z" fill="#00256C"/>
+                </svg>
+              </div>
+              <div class="book-item__body">
+                <h3 class="book-item__heading">Search flights</h3>
+                <p class="book-item__desc">
+                  Search for flights that suit your preferences and needs.
+                </p>
+                <a href="#!" class="book-item__link">Learn More</a>
+              </div>
+            </section>
+
+            <!-- item 2 -->
+            <section class="book-item">
+              <div class="book-tiem__icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="72" height="72" viewBox="0 0 72 72" fill="none">
+                  <path d="M50.625 64.125C53.4068 64.1266 56.12 63.2615 58.3875 61.65L66.9375 70.2C67.1309 70.4579 67.3775 70.6712 67.6605 70.8255C67.9435 70.9798 68.2564 71.0715 68.578 71.0944C68.8995 71.1172 69.2222 71.0707 69.5243 70.958C69.8263 70.8453 70.1005 70.669 70.3285 70.441C70.5564 70.2131 70.7327 69.9388 70.8454 69.6368C70.9582 69.3348 71.0047 69.0121 70.9818 68.6905C70.959 68.369 70.8673 68.0561 70.713 67.7731C70.5587 67.49 70.3454 67.2434 70.0875 67.05L61.5375 58.5C63.3058 56.0378 64.1939 53.052 64.0589 50.0236C63.9238 46.9952 62.7734 44.1004 60.7929 41.8053C58.8124 39.5103 56.1171 37.9486 53.141 37.3718C50.165 36.795 47.0814 37.2366 44.3869 38.6255C41.6924 40.0144 39.5437 42.2698 38.287 45.0285C37.0303 47.7872 36.7386 50.8885 37.459 53.8331C38.1793 56.7777 39.8698 59.3942 42.2581 61.2611C44.6464 63.1281 47.5936 64.1369 50.625 64.125ZM50.625 41.625C52.405 41.625 54.1451 42.1529 55.6251 43.1418C57.1052 44.1307 58.2587 45.5364 58.9399 47.1809C59.6211 48.8254 59.7993 50.635 59.4521 52.3808C59.1048 54.1267 58.2476 55.7303 56.9889 56.989C55.7303 58.2477 54.1266 59.1048 52.3808 59.4521C50.635 59.7994 48.8254 59.6211 47.1808 58.94C45.5363 58.2588 44.1307 57.1052 43.1418 55.6252C42.1528 54.1451 41.625 52.4051 41.625 50.625C41.625 48.2381 42.5732 45.9489 44.261 44.2611C45.9489 42.5732 48.238 41.625 50.625 41.625Z" fill="#00256C"/>
+                  <path d="M32.625 50.625C32.6059 47.1092 33.6233 43.6658 35.55 40.725C35.3719 40.1039 35.2959 39.458 35.325 38.8125V37.125C37.6217 35.0066 39.2617 32.2733 40.05 29.25C42.8625 29.25 43.425 23.5125 43.425 22.725C43.425 21.9375 43.5375 18.45 40.725 18.45C46.8 3.93747 30.825 -3.71252 18.9 4.61248C13.95 4.61248 13.6125 11.25 15.4125 18.45C12.6 18.45 12.7125 21.825 12.7125 22.725C12.7125 23.625 13.3875 29.25 16.0875 29.25C16.8817 32.2708 18.5208 35.0026 20.8125 37.125V38.925C20.8125 40.725 20.8125 43.425 11.7 45.225C2.5875 47.025 1.125 55.125 1.125 55.125H33.1875C32.8098 53.6549 32.6208 52.1428 32.625 50.625Z" fill="#00256C"/>
+                </svg>
+              </div>
+              <div class="book-item__body">
+                <h3 class="book-item__heading">Check information</h3>
+                <p class="book-item__desc">
+                  Check again. Please ensure that the information you provide is completely accurate and valid.
+                </p>
+                <a href="#!" class="book-item__link">Learn More</a>
+              </div>
+            </section>
+
+            <!-- item 3 -->
+            <section class="book-item">
+              <div class="book-tiem__icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="72" viewBox="0 0 576 512">
+                  <path d="M64 32C28.7 32 0 60.7 0 96v32H576V96c0-35.3-28.7-64-64-64H64zM576 224H0V416c0 35.3 28.7 64 64 64H512c35.3 0 64-28.7 64-64V224zM112 352h64c8.8 0 16 7.2 16 16s-7.2 16-16 16H112c-8.8 0-16-7.2-16-16s7.2-16 16-16zm112 16c0-8.8 7.2-16 16-16H368c8.8 0 16 7.2 16 16s-7.2 16-16 16H240c-8.8 0-16-7.2-16-16z" fill="#00256C"/></svg>
+              </div>
+              <div class="book-item__body">
+                <h3 class="book-item__heading">Ticket payment</h3>
+                <p class="book-item__desc">
+                  You can pay directly at the counter or pay via bank.
+                </p>
+                <a class="book-item__link" href="#!">Learn More</a>
+              </div>
+            </section>
+          </div>
+        </div>
+      </section>
+
+      <!-- destination -->
+      <section class="destination">
+        <div class="container">
+          <div class="destination-header">
+            <h2 class="destination__heading section-heading">What is the destination in your plan?</h2>
+          </div>
+
+          <div class="destination__top">
+            <h3 class="destination__title">Domestic</h3>
+            <div class="destination__list ">
+              <!-- item 1 -->
+              <article class="destination-item">
+                <div class="destination-item__img-bg">
+                  <img
+                    src="/asses/img/Ho_Chi_Minh.svg"
+                    alt=""
+                    class="destination-item__thumb"
+                  />
+                </div>
+                <h3 class="destination-item__name">Ho Chi Minh</h3>
+                <p class="destination-item__desc">Ho Chi Minh - Viet Nam</p>
+              </article>
+              
+              <!-- item 2 -->
+              <article class="destination-item">
+                <div class="destination-item__img-bg">
+                  <img
+                    src="/asses/img/Da_Nang.svg"
+                    alt=""
+                  />
+                </div>
+                <h3 class="destination-item__name">Da Nang</h3>
+                <p class="destination-item__desc">Da Nang - Viet Nam</p>
+              </article>
+  
+              <!-- item 3 -->
+              <article class="destination-item">
+                <div class="destination-item__img-bg">
+                  <img
+                    src="/asses/img/Ha_Noi.svg"
+                    alt=""
+                    class="destination-item__thumb"
+                  />
+                </div>
+                <h3 class="destination-item__name">Ha Noi</h3>
+                <p class="destination-item__desc">Ha Noi - Viet Nam</p>
+              </article>
+  
+              <!-- item 4 -->
+              <article class="destination-item">
+                <div class="destination-item__img-bg">
+                  <img
+                    src="/asses/img/Vung_Tau.svg"
+                    alt=""
+                    class="destination-item__thumb"
+                  />
+                </div>
+                <h3 class="destination-item__name">Vung Tau</h3>
+                <p class="destination-item__desc">Vung Tau - Viet Nam</p>
+              </article>
+            </div>
+            <control class="control destination__control">
+              <!-- previous -->
+              <button class="control__btn">
+                <svg
+                  class="control-icon"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="6"
+                  height="12"
+                  viewBox="0 0 6 12"
+                  fill="none"
+                >
+                  <path
+                    d="M5.5 1L0.5 6L5.5 11"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </button>
+              <!-- next -->
+              <button class="control__btn control__btn--next">
+                <svg
+                  class="control-icon"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="6"
+                  height="12"
+                  viewBox="0 0 6 12"
+                  fill="none"
+                >
+                  <path
+                    d="M5.5 1L0.5 6L5.5 11"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </button>
+            </control>
+          </div>
+
+          <div class="destination__bottom">
+            <h3 class="destination__title">International</h3>
+            <div class="destination__list">
+              <!-- item 1 -->
+              <article class="destination-item">
+                <div class="destination-item__img-bg">
+                  <img
+                    src="/asses/img/Thai_Lan.svg"
+                    alt=""
+                    class="destination-item__thumb"
+                  />
+                </div>
+                <h3 class="destination-item__name">Bangkok</h3>
+                <p class="destination-item__desc">Bangkok - Thailand</p>
+              </article>
+              
+              <!-- item 2 -->
+              <article class="destination-item">
+                <div class="destination-item__img-bg">
+                  <img
+                    src="/asses/img/Han_Quoc.svg"
+                    alt=""
+                  />
+                </div>
+                <h3 class="destination-item__name">Seoul</h3>
+                <p class="destination-item__desc">Seoul - Korean</p>
+              </article>
+  
+              <!-- item 3 -->
+              <article class="destination-item">
+                <div class="destination-item__img-bg">
+                  <img
+                    src="/asses/img/Nhat_Ban.svg"
+                    alt=""
+                    class="destination-item__thumb"
+                  />
+                </div>
+                <h3 class="destination-item__name">Tokyo</h3>
+                <p class="destination-item__desc">Tokyo - Japan</p>
+              </article>
+  
+              <!-- item 4 -->
+              <article class="destination-item">
+                <div class="destination-item__img-bg">
+                  <img
+                    src="/asses/img/Trung_Quoc.svg"
+                    alt=""
+                    class="destination-item__thumb"
+                  />
+                </div>
+                <h3 class="destination-item__name">Beijing</h3>
+                <p class="destination-item__desc">Beijing - China</p>
+              </article>
+            </div>
+            <control class="control destination__control">
+              <!-- previous -->
+              <button class="control__btn">
+                <svg
+                  class="control-icon"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="6"
+                  height="12"
+                  viewBox="0 0 6 12"
+                  fill="none"
+                >
+                  <path
+                    d="M5.5 1L0.5 6L5.5 11"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </button>
+              <!-- next -->
+              <button class="control__btn control__btn--next">
+                <svg
+                  class="control-icon"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="6"
+                  height="12"
+                  viewBox="0 0 6 12"
+                  fill="none"
+                >
+                  <path
+                    d="M5.5 1L0.5 6L5.5 11"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </button>
+            </control>
+          </div>
+        </div>
+      </section>
+
+      <!-- mobile -->
+      <section class="install">
+        <div class="container">
+          <div class="install__inner">
+            <!-- install left -->
+            <figure>
+              <img src="/asses/img/phone.svg" alt="" class="install__img" />
+            </figure>
+
+            <!-- install right -->
+            <section class="install__content">
+              <h2 class="section-heading install__heading">
+                VietHub Airline App
+              </h2>
+              <p class="install__desc">
+                The application is available on mobile devices. Don't hesitate to download it immediately to make the ticket booking process more convenient.
+              </p>
+              <div class="install__row">
+                <a href="#1">
+                  <img
+                    src="/asses/favicon/Google Play.svg"
+                    alt=""
+                    class="install__btn-img"
+                  />
+                </a>
+                <a href="#1">
+                  <img
+                    src="/asses/favicon/App Store.svg"
+                    alt=""
+                    class="install__btn-img"
+                  />
+                </a>
+              </div>
+            </section>
+          </div>
+        </div>
+      </section>
+
+      <!-- blog -->
+      <section class="blog">
+        <div class="container">
+          <div class="blog__inner">
+            <!-- left blog -->
+            <div class="blog__content">
+              <h2 class="section-heading blog__heading">
+                Read Latest News & Events.
+              </h2>
+              <a href="#!" class="blog__link">Read All Blog</a>
+
+              <control class="control blog__control">
+                <!-- previous -->
+                <button class="control__btn">
+                  <svg
+                    class="control-icon"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="6"
+                    height="12"
+                    viewBox="0 0 6 12"
+                    fill="none"
+                  >
+                    <path
+                      d="M5.5 1L0.5 6L5.5 11"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </button>
+                <!-- next -->
+                <button class="control__btn control__btn--next">
+                  <svg
+                    class="control-icon"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="6"
+                    height="12"
+                    viewBox="0 0 6 12"
+                    fill="none"
+                  >
+                    <path
+                      d="M5.5 1L0.5 6L5.5 11"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </button>
+              </control>
+            </div>
+
+            <!-- right blog -->
+            <div class="blog__list">
+              <!-- item1 -->
+              <article class="blog-item">
+                <figure class="blog-item__wrap">
+                  <img
+                    src="asses/img/Booking_Tickets.svg"
+                    alt=""
+                    class="blog-item__thumb"
+                  />
+                </figure>
+                <section class="blog-item__body">
+                  <h3>
+                    <a href="" class="blog-item__heading"
+                      >Are you having difficulty booking tickets?</a
+                    >
+                  </h3>
+                  <p class="blog-item__desc">
+                    Don't hesitate to download it immediately to make the ticket booking process convenient.
+                  </p>
+                  <a href="#!" class="blog-item__more">Learn More</a>
+                </section>
+              </article>
+
+              <!-- item2 -->
+              <article class="blog-item">
+                <figure class="blog-item__wrap">
+                  <img
+                    src="asses/img/Change_Tickets.svg"
+                    alt=""
+                    class="blog-item__thumb"
+                  />
+                </figure>
+                <section class="blog-item__body">
+                  <h3>
+                    <a href="" class="blog-item__heading"
+                      >How to change tickets or upgrade tickets?</a
+                    >
+                  </h3>
+                  <p class="blog-item__desc">
+                    Don't hesitate to download it immediately to make the ticket booking process convenient.
+                  </p>
+                  <a href="#!" class="blog-item__more">Learn More</a>
+                </section>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- footer -->
+    <footer class="footer">
+      <div class="container">
+        <!-- top footer -->
+        <div class="footer__top">
+
+          <!-- column 1 -->
+          <div class="footer__column footer-hidden-tablet">
+            <a href="./"
+              ><img src="/asses/favicon/Logo_Gr.svg" alt=""
+            /></a>
+            <p class="footer__desc">
+              You want to have a great trip. VietHub Airline is available to accompany you on every trip.
+            </p>
+
+            <div class="footer__social">
+              <svg xmlns="http://www.w3.org/2000/svg" width="156" height="21" viewBox="0 0 156 21" fill="none">
+                <path d="M7.90987 21C4.99837 21 2.28436 20.1409 0 18.6586C1.93949 18.7859 5.36226 18.481 7.49122 16.4209C4.28857 16.2718 2.84424 13.7799 2.65584 12.715C2.92797 12.8215 4.22577 12.9493 4.9584 12.6511C1.27431 11.714 0.709135 8.43408 0.834729 7.43306C1.5255 7.92292 2.69771 8.09331 3.15822 8.05071C-0.274686 5.55882 0.960323 1.81034 1.56736 1.00101C4.03094 4.46356 7.72308 6.40826 12.2907 6.51643C12.2046 6.13324 12.1591 5.7343 12.1591 5.32454C12.1591 2.38388 14.5021 0 17.3922 0C18.9023 0 20.263 0.650775 21.2181 1.69172C22.2272 1.45184 23.7459 0.890279 24.4883 0.404665C24.1141 1.76775 22.949 2.90484 22.2443 3.32629C22.2386 3.31189 22.2502 3.34062 22.2443 3.32629C22.8634 3.23129 24.5383 2.90473 25.2 2.44929C24.8728 3.21505 23.6376 4.48827 22.6239 5.20108C22.8125 13.6391 16.4488 21 7.90987 21Z" fill="white"/>
+                <path d="M62.1743 11.7233L62.8273 7.95146H58.7424V5.50485C58.7424 4.47271 59.312 3.46602 61.1416 3.46602H62.9999V0.254854C62.9999 0.254854 61.3141 0 59.7032 0C56.3375 0 54.1397 1.8069 54.1397 5.0767V7.95146H50.3999V11.7233H54.1397V20.842C54.8904 20.9465 55.6586 21 56.441 21C57.2235 21 57.9916 20.9465 58.7424 20.842V11.7233H62.1743Z" fill="white"/>
+                <path d="M93.2659 2.53822C93.2659 3.94005 92.1319 5.07645 90.7329 5.07645C89.334 5.07645 88.2 3.94005 88.2 2.53822C88.2 1.1364 89.334 0 90.7329 0C92.1319 0 93.2659 1.1364 93.2659 2.53822Z" fill="white"/>
+                <path d="M88.5463 6.94215H92.8762V21H88.5463V6.94215Z" fill="white"/>
+                <path d="M99.8474 6.94215H95.5175V21H99.8474C99.8474 21 99.8474 16.5744 99.8474 13.8073C99.8474 12.1464 100.377 10.4783 102.489 10.4783C104.875 10.4783 104.861 12.6518 104.85 14.3356C104.835 16.5367 104.87 18.7828 104.87 21H109.2V13.5806C109.163 8.84307 108.011 6.66012 104.221 6.66012C101.97 6.66012 100.574 7.75509 99.8474 8.74574V6.94215Z" fill="white"/>
+                <path d="M152.25 4.725C152.25 5.59485 151.545 6.3 150.675 6.3C149.805 6.3 149.1 5.59485 149.1 4.725C149.1 3.85515 149.805 3.15 150.675 3.15C151.545 3.15 152.25 3.85515 152.25 4.725Z" fill="white"/>
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M144.9 15.75C147.799 15.75 150.15 13.3995 150.15 10.5C150.15 7.6005 147.799 5.25 144.9 5.25C142 5.25 139.65 7.6005 139.65 10.5C139.65 13.3995 142 15.75 144.9 15.75ZM144.9 13.65C146.64 13.65 148.05 12.2397 148.05 10.5C148.05 8.7603 146.64 7.35 144.9 7.35C143.16 7.35 141.75 8.7603 141.75 10.5C141.75 12.2397 143.16 13.65 144.9 13.65Z" fill="white"/>
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M134.4 10.08C134.4 6.55167 134.4 4.7875 135.087 3.43986C135.691 2.25444 136.654 1.29066 137.84 0.686659C139.187 0 140.952 0 144.48 0H145.32C148.848 0 150.612 0 151.96 0.686659C153.145 1.29066 154.109 2.25444 154.713 3.43986C155.4 4.7875 155.4 6.55167 155.4 10.08V10.92C155.4 14.4483 155.4 16.2125 154.713 17.5601C154.109 18.7456 153.145 19.7093 151.96 20.3133C150.612 21 148.848 21 145.32 21H144.48C140.952 21 139.187 21 137.84 20.3133C136.654 19.7093 135.691 18.7456 135.087 17.5601C134.4 16.2125 134.4 14.4483 134.4 10.92V10.08ZM144.48 2.1H145.32C147.119 2.1 148.342 2.10163 149.287 2.17886C150.207 2.25408 150.678 2.39042 151.007 2.55777C151.797 2.96044 152.439 3.60296 152.842 4.39324C153.009 4.72168 153.146 5.19251 153.221 6.11318C153.298 7.05837 153.3 8.28118 153.3 10.08V10.92C153.3 12.7188 153.298 13.9416 153.221 14.8868C153.146 15.8075 153.009 16.2783 152.842 16.6068C152.439 17.397 151.797 18.0396 151.007 18.4422C150.678 18.6096 150.207 18.7459 149.287 18.8211C148.342 18.8984 147.119 18.9 145.32 18.9H144.48C142.681 18.9 141.458 18.8984 140.513 18.8211C139.592 18.7459 139.122 18.6096 138.793 18.4422C138.003 18.0396 137.36 17.397 136.958 16.6068C136.79 16.2783 136.654 15.8075 136.579 14.8868C136.502 13.9416 136.5 12.7188 136.5 10.92V10.08C136.5 8.28118 136.502 7.05837 136.579 6.11318C136.654 5.19251 136.79 4.72168 136.958 4.39324C137.36 3.60296 138.003 2.96044 138.793 2.55777C139.122 2.39042 139.592 2.25408 140.513 2.17886C141.458 2.10163 142.681 2.1 144.48 2.1Z" fill="white"/>
+              </svg>
+            </div>
+        </div>
+
+          <!-- column 2 -->
+          <div class="footer__column">
+            <h3 class="footer__heading">Company</h3>
+            <ul class="footer__list">
+              <li class="footer__item">
+                <a href="#!" class="footer__link">About Us</a>
+              </li>
+              <li class="footer__item">
+                <a href="#!" class="footer__link">Our Pricing</a>
+              </li>
+              <li class="footer__item">
+                <a href="#!" class="footer__link">Latest News</a>
+              </li>
+              <li class="footer__item">
+                <a href="#!" class="footer__link">Contact us</a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- column 3 -->
+          <div class="footer__column">
+            <h3 class="footer__heading">Support</h3>
+            <ul class="footer__list">
+              <li class="footer__item">
+                <a href="#!" class="footer__link">FAQ's</a>
+              </li>
+              <li class="footer__item">
+                <a href="#!" class="footer__link">Help center</a>
+              </li>
+              <li class="footer__item">
+                <a href="#!" class="footer__link">Book tickets</a>
+              </li>
+              <li class="footer__item">
+                <a href="#!" class="footer__link">Account information</a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- column 4 -->
+          <div class="footer__column">
+            <h3 class="footer__heading">Terms & Policies</h3>
+            <ul class="footer__list">
+              <li class="footer__item">
+                <a href="#!" class="footer__link">Privacy Policy</a>
+              </li>
+              <li class="footer__item">
+                <a href="#!" class="footer__link">Terms of Use</a>
+              </li>
+              <li class="footer__item">
+                <a href="#!" class="footer__link">Terms of Carriage</a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- column 5 -->
+          <div class="footer__column address__column">
+            <h3 class="footer__heading">Address</h3>
+            <ul class="foote__list">
+                <li class="footer__item">
+                    <a class="footer__desc"><b>Location:</b> Han Thuyen St, Thu Duc, Ho Chi Minh, Viet Nam</a>
+                </li>
+                <li class="footer__item">
+                    <p class="footer__desc"><b>Email:</b> VietHubAirline@gmail.vn</p>
+                </li>
+                <li class="footer__item">
+                    <p class="footer__desc"><b>Phone:</b> +000 1234 567 890</p>
+                </li>
+            </ul>
+        </div>
+        </div>    
+        
+        <!-- bottom footer -->
+        <div class="footer__bottom">
+          <p class="footer__bottom-text">
+            ©2024 VietHub Airline Copyright. All Rights Reserved.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+
+
+
+  </body>
+</html>
