@@ -4,6 +4,7 @@ html {
 h1 {
   color: #00256C;
   position: relative;
+  font-weight: 600;
   font-size: 30px;
   text-align: left;
 }
@@ -169,12 +170,13 @@ a {
   justify-content: space-between;
 }
 .itinerary__box1{
-  width: 200px;
-  font-size:27px;
+  width: 150px;
+  font-size:24px;
   color:var(--header-bg);
 }
 .itinerary__box2{
   color:var(--header-bg);
+  text-align: center;
 }
 .itinerary__des{
   padding:10px;
@@ -203,9 +205,9 @@ a {
   padding-bottom: 30px;
 }
 .information__require{
-  padding: 10px;
-  padding-left: 20px;
-  font-size: 1rem;
+  margin: 15px;
+  padding-left: 10px;
+  font-size: 1.5rem;
 }
 .information__note{
   padding:15px ;
@@ -226,7 +228,7 @@ a {
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
 .passenger__heading{
-  font-size: 3rem;
+  font-size: 2.5rem;
   font-weight: 600;
   color: var(--header-bg)
 }
