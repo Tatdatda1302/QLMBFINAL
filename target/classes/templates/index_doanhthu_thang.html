@@ -7,7 +7,7 @@
     <h1>Annual Revenue Report</h1>
     <form th:action="@{/{role}/BCDT_Thang(role=${role})}" method="POST">
         <label for="year">Enter Month:</label><br>
-        <input type="number" name="month" placeholder="Enter month"/><br>
+        <input type="number" name="month" placeholder="Enter month" value="0"/><br>
         <label for="year">Enter Year:</label><br>
         <input type="number" name="year" placeholder="Enter year" required /><br>
         <input type="submit" value="Generate Report" />

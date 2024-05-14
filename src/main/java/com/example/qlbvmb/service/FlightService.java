@@ -289,6 +289,11 @@ public class FlightService {
         return dtThangRepo.findByThangAndNam(thang, nam);
     }
 
+    public boolean isBCThangExist(int thang, int nam) {
+        List<CT_BCDT_Thang> ctbcDtThang = dtThangRepo.findByThangAndNam(thang, nam);
+        return !ctbcDtThang.isEmpty();
+    }
+
     public CT_BCDT_Nam getBCNam(int thang, int nam) {
         return dtNamRepo.findByThangAndNam(thang, nam);
     }

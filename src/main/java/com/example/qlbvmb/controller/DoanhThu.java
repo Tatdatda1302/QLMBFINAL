@@ -38,16 +38,20 @@ public class DoanhThu {
         Iterable<CT_BCDT_Thang> ct_bcdt_thang = flightService.getBCThangByThangNam(month, year);
 
         DecimalFormat df = new DecimalFormat("#.##");
-        double result = (ct_bcdt_nam.getDoanhThu() / bcdt_nam.getTongDoanhThu())*100;
-        String tiLe = df.format(result);
-        ct_bcdt_nam.setTiLe(Double.parseDouble(tiLe));
-        flightService.createCTBCDTNam(ct_bcdt_nam);
+        if(ct_bcdt_nam != null) {
+            double result = (ct_bcdt_nam.getDoanhThu() / bcdt_nam.getTongDoanhThu())*100;
+            String tiLe = df.format(result);
+            ct_bcdt_nam.setTiLe(Double.parseDouble(tiLe));
+            flightService.createCTBCDTNam(ct_bcdt_nam);
 
-        for (CT_BCDT_Thang ct : ct_bcdt_thang) {
-            result = (ct.getDoanhThu() / ct_bcdt_nam.getDoanhThu())*100;
-            tiLe = df.format(result);
-            ct.setTiLe(Double.parseDouble(tiLe));
-            flightService.createCTBCDTThang(ct);
+            if(ct_bcdt_thang != null) {
+                for (CT_BCDT_Thang ct : ct_bcdt_thang) {
+                    result = (ct.getDoanhThu() / ct_bcdt_nam.getDoanhThu())*100;
+                    tiLe = df.format(result);
+                    ct.setTiLe(Double.parseDouble(tiLe));
+                    flightService.createCTBCDTThang(ct);
+                }
+            }
         }
 
         Iterable<CT_BCDT_Nam> tct_bcdt_nam = flightService.getBCNamByNam(year);
