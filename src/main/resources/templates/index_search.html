@@ -1,98 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="shortcut icon"
-      href="/asses/favicon/Logo_Img.svg"
-      type="VietHub Airline"
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<head>
+<meta charset="UTF-8">  
+<title>Search Flight</title>
+</head>
+<body>     
+    <h1>Flight Search</h1>
+    <form th:action="@{'/' + ${role} + '/SearchFlight'}" method="POST">
+        <label for="departureAirport">Departure Destination:</label><br>
+        <select name="maSanBayDi">
+          <option disabled selected>Select destination</option>
+          <option th:each="sanbay: ${sanbay}" th:value="${sanbay.maSanBay}" th:text="${sanbay.diaChi + ' (' + sanbay.maSanBay + ')'}"></option>
+        </select> <br>
+        <label for="arrivalAirport">Arrival Destination:</label><br>
+        <select name="maSanBayDen">
+          <option disabled selected>Select destination</option>
+          <option th:each="sanbay: ${sanbay}" th:value="${sanbay.maSanBay}" th:text="${sanbay.diaChi + ' (' + sanbay.maSanBay + ')'}"></option>
+      </select><br>
+      <label for="departureTime">Departure Time:</label><br>
+      <input type="date" id="departureTime" name="ngayKhoiHanh"><br>
+      <label class="form-label" for="Seat">Cabin Class</label><br>
+      <select class="form-input" id="Seat" name="maHangVe">
+          <option disabled selected>Select cabin class</option>
+          <option value="HANG1">HANG1</option>
+          <option value="HANG2">HANG2</option>
+      </select><br>
+      <button type="submit">Search</button>
+    </form><br> 
 
-    <!-- font -->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wdth,wght@0,75..100,300..800;1,75..100,300..800&family=Sora:wght@100..800&display=swap"
-      rel="stylesheet"/>
-
-    <!-- font icon -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    
-    <!-- reset css -->
-    <link rel="stylesheet" href="/asses/css/reset.css" />
-    <!-- style css -->
-    <link rel="stylesheet" href="/asses/css/style_search.css" />
-    
-    <title>VietHub Airline</title>
-  </head>
-  <body>
-
-    <!-- header -->
-    <header class="header">
-      <div class="menu">
-        <!-- Logo -->
-        <a href="./"
-          ><img
-            src="/asses/favicon/Logo_Gr.svg"
-            alt="Shine smile"
-            class="logo header__logo"
-        /></a>
-        <!-- Navbar  -->
-        <nav class="navbar">
-          <ul class="navbar__list" id="navbar__list--pc">
-            <li class="navbar__item">
-              <a href="/index_home.html" class="navbar__link">Home</a>
-            </li>
-            <li class="navbar__item">
-              <a href="index_search.html" class="navbar__link navbar__link--active">Search</a>
-            </li>
-            <li class="navbar__item">
-              <a href="/index_booking.html" class="navbar__link">Booking</a>
-            </li>
-            <li class="navbar__item">
-              <a href="/index_home.html" class="navbar__link">About</a>
-            </li>
-            <li class="navbar__item">
-              <a href="/index_home.html" class="navbar__link">Contact</a>
-            </li>
-          </ul>
-        </nav>
-        <!-- cta action -->
-        <div class="header__action">
-          <a href="#!" class="header__action--login">Log in</a>
-          <a href="#!" class="btn header__action--signup">Sign up</a>
-        </div>
-      </div>
-    </header>
-
-    <!-- main -->
-    <main>
-
-      <!-- hero -->
-      <section class="hero">
-        <img
-          class="hero__img "
-          src="/asses/img/Plane_Search.svg"
-          alt="Plane_0"
-        />
-        <div class="hero__content">
-          <h1 class="hero__heading">Có làm gì đâu mà xem</h1>
-          <p class="hero__desc">
-            Enjoy your trip and receive the personal service you deserve. with world-leading services
-          </p>
-          <div class="hero__row">
-            <a href="#!" class="btn">Book Online</a>
-            <span class="hero__phone">or call (123) 456-789</span>
-          </div>
-        </div> 
-      </section>
-
-    </main>
-
-    
-
-
-
-  </body>
+         
+    <h2>Flight Results</h2>
+    <table border="1">
+        <tr>
+            <th>MaChuyenBay</th>
+            <th>MaMB</th>
+            <th>MaSanBayDi</th>
+            <th>MaSanBayDen</th>
+            <th>NgayGioBay</th>
+            <th>ThoiGianBay</th>
+            <th>HangVe</th>
+            <th>SoGheDat</th>
+            <th>SoGheTrong</th>
+            <th>DonGiaHangVe</th>
+        </tr>
+        <tr th:each="flightWithCTHV : ${flightWithCTHV}">
+            <td th:text="${flightWithCTHV.flight.maChuyenBay}"></td>
+            <td th:text="${flightWithCTHV.flight.maMB}"></td>
+            <td th:text="${flightWithCTHV.flight.maSanBayDi}"></td>
+            <td th:text="${flightWithCTHV.flight.maSanBayDen}"></td>
+            <td th:text="${flightWithCTHV.flight.ngayGioBay}"></td>
+            <td th:text="${flightWithCTHV.flight.thoiGianBay}"></td>
+            <td th:text="${flightWithCTHV.cthangve.maHangve}"></td>
+            <td th:text="${flightWithCTHV.cthangve.soGheDat}"></td>
+            <td th:text="${flightWithCTHV.cthangve.soGheConLai}"></td>
+            <td th:text="${flightWithCTHV.cthangve.donGiaHV}"></td>
+            <td>
+              <a th:if="${flightWithCTHV.cthangve.soGheConLai > 0}" th:href="@{'/' + ${role} + '/BookFlight/' + ${flightWithCTHV.flight.maChuyenBay} + '/' + ${flightWithCTHV.cthangve.maHangve}}">Book</a>
+            </td>
+        </tr>
+    </table>
+</body>
 </html>

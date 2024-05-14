@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Admin Page</title>
+</head>
+<body>
+    <h2>Maybay Details</h2>
+    <table border="1">
+        <tr>
+            <th>Maybay Code</th>
+            <th>Maybay Name</th>
+            <th>HangMBSX Code</th>
+            <th>Seat Quantity</th>
+        </tr>
+        <tr th:each="maybay : ${maybay}">
+            <td th:value="${maybay.maMB}" th:text="${maybay.maMB}"></td>
+            <td th:value="${maybay.tenMB}" th:text="${maybay.tenMB}"></td>
+            <td th:value="${maybay.maHMB}" th:text="${maybay.maHMB}"></td>
+            <td th:value="${maybay.slGhe}" th:text="${maybay.slGhe}"></td>
+            <td>
+                <a th:href="@{/{role}/deleteMaybay/{maMB}(role=${role} ,maMB=${maybay.maMB})}">Delete</a>
+            </td>
+        </tr>
+    </table>
+    <a th:href="@{/{role}/addMaybay(role=${role})}">Add Maybay</a><br>
+</body>
+</html>

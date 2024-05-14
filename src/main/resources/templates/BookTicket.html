@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Đặt vé máy bay</title>
+</head>
+<body>
+    <h1>Đặt vé máy bay</h1>
+    <form action="/submit_booking" method="post">
+        <label for="name">Tên khách hàng:</label><br>
+        <input type="text" id="name" name="name" required><br>
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" required><br>
+        <label for="phone">Số điện thoại:</label><br>
+        <input type="tel" id="phone" name="phone" required><br>
+        <label for="date">Ngày bay:</label><br>
+        <input type="date" id="date" name="date" required><br>
+        <label for="tickets">Số lượng vé:</label><br>
+        <input type="number" id="tickets" name="tickets" min="1" required><br>
+        <label for="flightCode">Mã chuyến bay:</label><br>
+        <select id="flightCode" name="flightCode" required>
+            <option th:each="flight : ${flights}" th:value="${flight.maChuyenBay}" th:text="${flight.maChuyenBay}"></option>
+        </select> <br>
+        <input type="submit" value="Đặt vé">
+    </form>
+</body>
+</html>

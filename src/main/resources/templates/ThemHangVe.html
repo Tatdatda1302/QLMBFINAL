@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Admin Page</title>
+</head>
+<body>
+    <form th:action="@{/{role}/addHangVe(role=${role})}" method="POST">
+        <label for="maHangVe">HangVe Code:</label><br>
+        <input type="text" id="maHangVe" name="maHangVe"><br>
+        <label for="tenHangVe">HangVe Name:</label><br>
+        <input type="text" id="tenHangVe" name="tenHangVe"><br>
+        <label for="tiLeGiaHangVe">HangVe Price Ratio:</label><br>
+        <input type="text" id="tiLeGiaHangVe" name="tiLeGiaHangVe"><br>
+        <input type="submit" value="Add HangVe">
+    </form>
+</body>
+</html>

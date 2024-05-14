@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Admin Page</title>
+</head>
+<body>
+    <form th:action="@{/{role}/addLoaiHK(role=${role})}" method="POST">
+        <label for="maLHK">LoaiHK Code:</label><br>
+        <input type="text" id="maLHK" name="maLHK"><br>
+        <label for="tenLHK">LoaiHK Name:</label><br>
+        <input type="text" id="tenLHK" name="tenLHK"><br>
+        <label for="tiLeLHK">LoaiHK Ratio:</label><br>
+        <input type="text" id="tiLeLHK" name="tiLeLHK"><br>
+        <input type="submit" value="Add LoaiHK">
+    </form>
+</body>
+</html>

@@ -7,4 +7,5 @@ import java.util.List;
 @Repository
 public interface SanBayRepo extends CrudRepository<SanBay, String>{
     List<SanBay> findByMaSanBay(String maSanBay);
+    
 }

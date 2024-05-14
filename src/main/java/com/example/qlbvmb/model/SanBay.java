@@ -16,4 +16,7 @@ public class SanBay implements java.io.Serializable{
 
     @Column(name = "TenSanBay")
     private String tenSanBay;
+
+    @Column(name = "DiaChi")
+    private String diaChi;
 }

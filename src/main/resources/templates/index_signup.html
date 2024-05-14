@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="shortcut icon"
+      th:href="@{/favicon/Logo_Img.svg}"
+      type="VietHub Airline"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wdth,wght@0,75..100,300..800;1,75..100,300..800&family=Sora:wght@100..800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- font icon -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+
+    <!-- reset css -->
+    <link rel="stylesheet" th:href="@{/css/reset.css}" />
+    <!-- style css -->
+    <link rel="stylesheet" th:href="@{/css/style_signin.css}" />
+
+    <title>VietHub Airline</title>
+  </head>
+  <body>
+    <!-- header -->
+    <header class="header">
+      <div class="menu">
+        <!-- Logo -->
+        <img
+            th:src="@{/favicon/Logo_Gr.svg}"
+            alt="Shine smile"
+            class="logo header__logo"
+        />
+        <!-- Navbar  -->
+        <nav class="navbar">
+          <ul class="navbar__list" id="navbar__list--pc">
+            <li class="navbar__item">
+              <a href="/Wan" class="navbar__link">Home</a>
+            </li>
+            <li class="navbar__item">
+              <a th:href="@{index_search.html}" class="navbar__link navbar">Search</a>
+            </li>
+            <li class="navbar__item">
+              <a th:href="@{/index_booking.html}" class="navbar__link">Booking</a>
+            </li>
+            <li class="navbar__item">
+              <a href="/Wan" class="navbar__link">About</a>
+            </li>
+            <li class="navbar__item">
+              <a href="/Wan" class="navbar__link">Contact</a>
+            </li>
+          </ul>
+        </nav>
+        <!-- cta action -->
+        <div class="header__action">
+            <a href="/Wan/login" class="header__action--login">Sign in</a>
+            <a href="/Wan/signup" class="btn header__action--signup">Sign up</a>
+          </div>
+      </div>
+    </header>
+    <!-- sign up form -->
+    <section class="container forms">
+      <!-- Sign in Form -->
+      <div class="form Sign up">
+        <div class="form-content">
+          <header>Sign up</header>
+          <form th:action="@{/signup}" method="POST">
+            <div class="field input-field">
+              <input type="text" name="hoTen" placeholder="Full name" class="input" />
+            </div>
+
+            <div class="field input-field">
+              <input type="text" name="dinhDanh" placeholder="User ID" class="input" />
+            </div>
+
+            <div class="field input-field">
+              <input
+                type="text"
+                name="soDienThoai"
+                placeholder="Phone number"
+                class="input"
+              />
+            </div>
+
+            <div class="field input-field">
+                <input
+                  type="text"
+                  name="email"
+                  placeholder="Email address"
+                  class="input"
+                />
+            </div>
+
+            <div class="field input-field">
+              <input
+                type="text"
+                name="userName"
+                placeholder="User Name"
+                class="input"
+              />
+            </div>
+
+            <div class="field input-field">
+              <input
+                type="password"
+                name="passWord1"
+                placeholder="Create password"
+                class="password"
+              />
+            </div>
+
+            <div class="field input-field">
+              <input
+                type="password"
+                name="passWord2"
+                placeholder="Confirm password"
+                class="password"
+              />
+              <i class="bx bx-hide eye-icon"></i>
+            </div>
+
+            <div class="field button-field">
+              <button>Sign up</button>
+            </div>
+          </form>
+
+          <div th:if="${response}" th:text="${response}"></div>
+
+          <div class="form-link">
+            <span
+              >Back to Sign in?
+              <a href="/Wan/login" class="link signin-link">Sign in</a></span
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+    <script th:src="@{/js/signup.js}"></script>
+  </body>
+</html>

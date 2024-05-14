@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Admin Page</title>
+</head>
+<body>
+    <form th:action="@{/{role}/addHangMBSX(role=${role})}" method="POST">
+        <label for="maHMB">HangMBSX Code:</label><br>
+        <input type="text" id="maHMB" name="maHMB"><br>
+        <label for="tenHMB">HangMBSX Name:</label><br>
+        <input type="text" id="tenHMB" name="tenHMB"><br>
+        <input type="submit" value="Add HangMBSX">
+    </form>
+</body>
+</html>

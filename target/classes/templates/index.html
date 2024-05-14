@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
       rel="shortcut icon"
-      href="/asses/favicon/Logo_Img.svg"
+      th:href="@{/favicon/Logo_Img.svg}"
       type="VietHub Airline"
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -20,9 +20,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     
     <!-- reset css -->
-    <link rel="stylesheet" href="/asses/css/reset.css" />
+    <link rel="stylesheet" th:href="@{/css/reset.css}"/>
     <!-- style css -->
-    <link rel="stylesheet" href="/asses/css/style_home.css" />
+    <link rel="stylesheet" th:href="@{/css/style_home.css}" />
     
     <title>VietHub Airline</title>
   </head>
@@ -32,36 +32,38 @@
     <header class="header">
         <div class="menu">
           <!-- Logo -->
-          <a href="./"
-            ><img
-              src="/asses/favicon/Logo_Gr.svg"
+          <img
+              th:src="@{/favicon/Logo_Gr.svg}"
               alt="Shine smile"
               class="logo header__logo"
-          /></a>
+          />
           <!-- Navbar  -->
           <nav class="navbar">
             <ul class="navbar__list" id="navbar__list--pc">
               <li class="navbar__item">
-                <a href="/index_home.html" class="navbar__link navbar__link--active">Home</a>
+                <a href="/Wan" class="navbar__link navbar__link--active">Home</a>
               </li>
               <li class="navbar__item">
-                <a href="index_search.html" class="navbar__link">Search</a>
+                <a href="/index_search.html" class="navbar__link">Search</a>
               </li>
               <li class="navbar__item">
-                <a href="/index_booking.html" class="navbar__link">Booking</a>
+                <a href="/booking" class="navbar__link">Booking</a>
               </li>
               <li class="navbar__item">
-                <a href="/index_home.html" class="navbar__link">About</a>
+                <a href="/Wan" class="navbar__link">About</a>
               </li>
               <li class="navbar__item">
-                <a href="/index_home.html" class="navbar__link">Contact</a>
+                <a href="/Wan" class="navbar__link">Contact</a>
+              </li>
+              <li class="navbar__item">
+                <a href="/bookTicket" class="navbar__link">BookTicket</a>
               </li>
             </ul>
           </nav>
           <!-- cta action -->
           <div class="header__action">
-            <a href="#!" class="header__action--login">Log in</a>
-            <a href="#!" class="btn header__action--signup">Sign up</a>
+            <a href="/Wan/login" class="header__action--login">Sign in</a>
+            <a href="/Wan/signup" class="btn header__action--signup">Sign up</a>
           </div>
         </div>
     </header>
@@ -73,7 +75,7 @@
       <section class="hero">
         <img
           class="hero__img "
-          src="/asses/img/Plane_0.svg"
+          th:src="@{/img/Plane_0.svg}"
           alt="Plane_0"
         />
         <div class="hero__content">
@@ -94,21 +96,21 @@
           <h2 class="section-heading partners__heading">Airline partners</h2>
           <div class="partners__box">
             <figure class="list-image image__top">
-              <img src="/asses/partner/img_11.svg" alt="img_11.svg">
-              <img src="/asses/partner/img_12.svg" alt="img_12.svg">
-              <img src="/asses/partner/img_13.svg" alt="img_13.svg">
-              <img src="/asses/partner/img_14.svg" alt="img_14.svg">
-              <img src="/asses/partner/img_15.svg" alt="img_15.svg">
-              <img src="/asses/partner/img_16.svg" alt="img_16.svg">
+              <img th:src="@{/partner/img_11.svg}" alt="img_11.svg">
+              <img th:src="@{/partner/img_12.svg}" alt="img_12.svg">
+              <img th:src="@{/partner/img_13.svg}" alt="img_13.svg">
+              <img th:src="@{/partner/img_14.svg}" alt="img_14.svg">
+              <img th:src="@{/partner/img_15.svg}" alt="img_15.svg">
+              <img th:src="@{/partner/img_16.svg}" alt="img_16.svg">
             </figure>
 
             <figure class="list-image image__bottom">
-              <img src="/asses/partner/img_21.svg" alt="img_21.svg">
-              <img src="/asses/partner/img_22.svg" alt="img_22.svg">
-              <img src="/asses/partner/img_23.svg" alt="img_23.svg">
-              <img src="/asses/partner/img_24.svg" alt="img_24.svg">
-              <img src="/asses/partner/img_25.svg" alt="img_25.svg">
-              <img src="/asses/partner/img_26.svg" alt="img_26.svg">
+              <img th:src="@{/partner/img_21.svg}" alt="img_21.svg">
+              <img th:src="@{/partner/img_22.svg}" alt="img_22.svg">
+              <img th:src="@{/partner/img_23.svg}" alt="img_23.svg">
+              <img th:src="@{/partner/img_24.svg}" alt="img_24.svg">
+              <img th:src="@{/partner/img_25.svg}" alt="img_25.svg">
+              <img th:src="@{/partner/img_26.svg}" alt="img_26.svg">
             </figure>
           </div>
           <control class="control destination__control">
@@ -167,7 +169,7 @@
             <figure>
               <img
                 class="service__img"
-                src="/asses/img/Our_Services.svg"
+                th:src="@{/img/Our_Services.svg}"
                 alt="Our_Services"
                 data-aos="flip-up"
               />
@@ -298,7 +300,7 @@
               <article class="destination-item">
                 <div class="destination-item__img-bg">
                   <img
-                    src="/asses/img/Ho_Chi_Minh.svg"
+                    th:src="@{/img/Ho_Chi_Minh.svg}"
                     alt=""
                     class="destination-item__thumb"
                   />
@@ -311,7 +313,7 @@
               <article class="destination-item">
                 <div class="destination-item__img-bg">
                   <img
-                    src="/asses/img/Da_Nang.svg"
+                    th:src="@{/img/Da_Nang.svg}"
                     alt=""
                   />
                 </div>
@@ -323,7 +325,7 @@
               <article class="destination-item">
                 <div class="destination-item__img-bg">
                   <img
-                    src="/asses/img/Ha_Noi.svg"
+                    th:src="@{/img/Ha_Noi.svg}"
                     alt=""
                     class="destination-item__thumb"
                   />
@@ -336,7 +338,7 @@
               <article class="destination-item">
                 <div class="destination-item__img-bg">
                   <img
-                    src="/asses/img/Vung_Tau.svg"
+                    th:src="@{/img/Vung_Tau.svg}"
                     alt=""
                     class="destination-item__thumb"
                   />
@@ -392,7 +394,7 @@
               <article class="destination-item">
                 <div class="destination-item__img-bg">
                   <img
-                    src="/asses/img/Thai_Lan.svg"
+                    th:src="@{/img/Thai_Lan.svg}"
                     alt=""
                     class="destination-item__thumb"
                   />
@@ -405,7 +407,7 @@
               <article class="destination-item">
                 <div class="destination-item__img-bg">
                   <img
-                    src="/asses/img/Han_Quoc.svg"
+                    th:src="@{/img/Han_Quoc.svg}"
                     alt=""
                   />
                 </div>
@@ -417,7 +419,7 @@
               <article class="destination-item">
                 <div class="destination-item__img-bg">
                   <img
-                    src="/asses/img/Nhat_Ban.svg"
+                    th:src="@{/img/Nhat_Ban.svg}"
                     alt=""
                     class="destination-item__thumb"
                   />
@@ -430,7 +432,7 @@
               <article class="destination-item">
                 <div class="destination-item__img-bg">
                   <img
-                    src="/asses/img/Trung_Quoc.svg"
+                    th:src="@{/img/Trung_Quoc.svg}"
                     alt=""
                     class="destination-item__thumb"
                   />
@@ -487,7 +489,7 @@
           <div class="install__inner">
             <!-- install left -->
             <figure>
-              <img src="/asses/img/phone.svg" alt="" class="install__img" />
+              <img th:src="@{/img/phone.svg}" alt="" class="install__img" />
             </figure>
 
             <!-- install right -->
@@ -501,14 +503,14 @@
               <div class="install__row">
                 <a href="#1">
                   <img
-                    src="/asses/favicon/Google Play.svg"
+                    th:src="@{/favicon/Google Play.svg}"
                     alt=""
                     class="install__btn-img"
                   />
                 </a>
                 <a href="#1">
                   <img
-                    src="/asses/favicon/App Store.svg"
+                    th:src="@{/favicon/App Store.svg}"
                     alt=""
                     class="install__btn-img"
                   />
@@ -576,7 +578,7 @@
               <article class="blog-item">
                 <figure class="blog-item__wrap">
                   <img
-                    src="asses/img/Booking_Tickets.svg"
+                    th:src="@{/img/Booking_Tickets.svg}"
                     alt=""
                     class="blog-item__thumb"
                   />
@@ -598,7 +600,7 @@
               <article class="blog-item">
                 <figure class="blog-item__wrap">
                   <img
-                    src="asses/img/Change_Tickets.svg"
+                    th:src="@{/img/Change_Tickets.svg}"
                     alt=""
                     class="blog-item__thumb"
                   />
@@ -629,9 +631,7 @@
 
           <!-- column 1 -->
           <div class="footer__column footer-hidden-tablet">
-            <a href="./"
-              ><img src="/asses/favicon/Logo_Gr.svg" alt=""
-            /></a>
+              <img th:src="@{/favicon/Logo_Gr.svg}" alt=""/>
             <p class="footer__desc">
               You want to have a great trip. VietHub Airline is available to accompany you on every trip.
             </p>

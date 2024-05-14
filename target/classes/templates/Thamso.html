@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Parameters</title>
+
+</head>
+<body>
+    <h1>Edit Parameters</h1>
+    <form th:action = "@{/{role}/ThamSo (role=${role})}" method="POST">
+    <table border="1">
+        <tr>
+            <th>Parameter</th>
+            <th>Value</th>
+            <th>Action</th>
+        </tr>
+        <tr>
+            <td>Minimum Flight Time</td>
+            <td name="tgBayToiThieu" th:value="${thamso.tgBayToiThieu}" th:text="${thamso.tgBayToiThieu}"></td>
+            <td><a onclick="editParameter(this.parentElement.previousElementSibling)"><span>Edit</span></a></td>
+        </tr>
+        <tr>
+            <td>Minimum Stop Time</td>
+            <td name="tgDungToiThieu" th:value="${thamso.tgDungToiThieu}" th:text="${thamso.tgDungToiThieu}"></td>
+            <td><a onclick="editParameter(this.parentElement.previousElementSibling)"><span>Edit</span></a></td>
+        </tr>
+        <tr>
+            <td>Maximum Stop Time</td>
+            <td name="tgDungToiDa" th:value="${thamso.tgDungToiDa}" th:text="${thamso.tgDungToiDa}"></td>
+            <td><a onclick="editParameter(this.parentElement.previousElementSibling)"><span>Edit</span></a></td>
+        </tr>
+        <tr>
+            <td>Maximum Number of Stop Airports</td>
+            <td name="soSanBayTGToiDa" th:value="${thamso.soSanBayTGToiDa}" th:text="${thamso.soSanBayTGToiDa}"></td>
+            <td><a onclick="editParameter(this.parentElement.previousElementSibling)"><span>Edit</span></a></td>
+        </tr>
+        <tr>
+            <td>Latest Ticket Booking Time</td>
+            <td name="tgDatVeChamNhat" th:value="${thamso.tgDatVeChamNhat}" th:text="${thamso.tgDatVeChamNhat}"></td>
+            <td><a onclick="editParameter(this.parentElement.previousElementSibling)"><span>Edit</span></a></td>
+        </tr>
+        <tr>
+            <td>Latest Cancellation Time</td>
+            <td name="tgHuyChamNhat" th:value="${thamso.tgHuyChamNhat}" th:text="${thamso.tgHuyChamNhat}"></td>
+            <td><a onclick="editParameter(this.parentElement.previousElementSibling)"><span>Edit</span></a></td>
+        </tr>
+    </table>
+    <button onclick="saveChanges()">Save</button>
+    </form>
+
+    <script>
+
+        function editParameter(element) {
+          
+            // Tạo phần tử input
+            var input = document.createElement('input');
+            
+            // Gán giá trị hiện tại của ô chứa tham số vào phần tử input
+            input.value = element.innerText.trim();
+
+            input.name = element.getAttribute('name');
+
+            // Thay thế nội dung của ô chứa tham số bằng phần tử input
+            element.innerHTML = '';
+            element.appendChild(input);
+
+                        
+            input.selectionStart = input.selectionEnd = input.value.length;
+            
+            // Xác định sự kiện khi người dùng kết thúc chỉnh sửa
+            input.addEventListener('blur', function() {
+        });
+            
+            input.select();
+        }
+    </script>
+</body>
+</html>

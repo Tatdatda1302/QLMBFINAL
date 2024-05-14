@@ -17,6 +17,9 @@ public class Chuyenbay implements java.io.Serializable{
     @Column(name = "MaChuyenBay")
     private String maChuyenBay;
 
+    @Column(name = "MaMB")
+    private String maMB;
+
     @Column(name = "MaSanBayDi")
     private String maSanBayDi;
 
@@ -24,11 +27,11 @@ public class Chuyenbay implements java.io.Serializable{
     private String maSanBayDen;
 
     @Column(name = "NgayGioBay")
-    private LocalDateTime ngayGioBay;
+    private String ngayGioBay;
 
     @Column(name = "ThoiGianBay")
-    private LocalTime thoiGianBay;
+    private String thoiGianBay;
 
-    @Column(name = "GiaVe")
-    private float giaVe;
+    @Column(name = "DonGia")
+    private float donGia;
 }

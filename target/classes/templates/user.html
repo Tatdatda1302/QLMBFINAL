@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Staff Page</title>
+</head>
+<body>
+    <h1>This is user page</h1>
+    <p>Username: <span th:text="${user.username}"></span></p>
+    <p>Role: <span th:text="${user.authorities}"></span></p>
+
+    <a th:href="@{/{role}/SearchFlight(role=${user.authorities})}">SearchFlight</a><br>
+    <a th:href="@{/{role}/FlightTicket/{maHK}(role=${user.authorities}, maHK=${hanhKhach.maHK})}">SearchTicket</a><br>
+    <a th:href="@{/{role}/PhieuDatCho/{maHK}(role=${user.authorities}, maHK=${hanhKhach.maHK})}">PhieuDatCho</a><br>
+    <a href="/Wan/login">Logout</a>
+</body>
+</html>

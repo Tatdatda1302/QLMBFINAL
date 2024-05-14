@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Admin Page</title>
+</head>
+<body>
+    <h2>Airport Details</h2>
+    <table border="1">
+        <tr>
+            <th>Airport Code</th>
+            <th>Airport Name</th>
+            <th>Address</th>
+        </tr>
+        <tr th:each="sanBay : ${sanBay}">
+            <td th:value="${sanBay.maSanBay}" th:text="${sanBay.maSanBay}"></td>
+            <td th:value="${sanBay.tenSanBay}" th:text="${sanBay.tenSanBay}"></td>
+            <td th:value="${sanBay.diaChi}" th:text="${sanBay.diaChi}"></td>
+            <td>
+                <a th:href="@{/{role}/deleteAirport/{maSanBay}(role=${role} ,maSanBay=${sanBay.maSanBay})}">Delete</a>
+            </td>
+        </tr>
+    </table>
+    <a th:href="@{/{role}/addAirport(role=${role})}">Add Airport</a><br>
+</body>
+</html>

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
       rel="shortcut icon"
-      href="/asses/favicon/Logo_Img.svg"
+      th:href="@{/favicon/Logo_Img.svg}"
       type="VietHub Airline"
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -20,9 +20,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     
     <!-- reset css -->
-    <link rel="stylesheet" href="/asses/css/reset.css" />
+    <link rel="stylesheet" th:href="@{/css/reset.css}" />
     <!-- style css -->
-    <link rel="stylesheet" href="/asses/css/style_booking.css" />
+    <link rel="stylesheet" th:href="@{/css/style_booking.css}" />
     
     <title>VietHub Airline</title>
   </head>
@@ -34,7 +34,7 @@
         <!-- Logo -->
         <a href="./"
           ><img
-            src="/asses/favicon/Logo_Gr.svg"
+            th:src="@{/favicon/Logo_Gr.svg}"
             alt="Shine smile"
             class="logo header__logo"
         /></a>
@@ -77,12 +77,12 @@
             <div class="container__itinerary">
                   <div class="itinerary__box1"> Outbound  Flight</div>
                   <div class="itinerary__box2">
-                    <p><strong> SGN </strong> Ho Chi Minh 
+                    <p><strong th:text="${chuyenbay.maSanBayDi + ' ' + sanbaydi.diaChi}"></strong></p>
                       <svg xmlns="http://www.w3.org/2000/svg" width="30" height="15" viewBox="0 0 142 24" fill="none">
                       <path d="M3 21H133L106.869 3" stroke="#00256C" stroke-width="5" stroke-linecap="round"/>
                       </svg>
-                      <strong>ICN<strong> Seoul/Incheon<p>
-                    <p class="itinerary__des">Fri, Apr 19, 2024, 07:50-15:15 <strong> KE478 </strong> Economy Class<p>
+                    <p><strong th:text="${chuyenbay.maSanBayDen + ' ' + sanbayden.diaChi}"></strong></p>
+                    <p class="itinerary__des" th:text="${chuyenbay.ngayGioBay + ', ' + chuyenbay.maMB + ', ' + maHangve}"></p>
                   </div> 
                   <div class="itinerary__box3">
                     <button class="btn_box">Details</button>
@@ -98,56 +98,45 @@
 
           <div class="passenger">
             <div class="container">
-              <h1 class="passenger__heading"> Passenger 1</h1>
-              <form action="#">
+              <h1 class="passenger__heading"> Passenger</h1>
+              <form th:action="@{/{role}/BookFlight/{maChuyenBay}/{HV}(role=${role}, maChuyenBay=${chuyenbay.maChuyenBay}, HV=${maHangve})}" method="POST">
                   <div class="details personal">
                       <div class="fields">
                           <div class="input-field">
                               <label>Full Name</label>
-                              <input class="click" type="text" placeholder="Enter your name" required>
+                              <input class="click" type="text" name="hoTen" placeholder="Enter your name" required>
                           </div>
                           <div class="input-field">
-                              <label>ID</label>
-                              <input type="text" placeholder="Enter your name" required>
-                          </div>
-                          <div class="input-field">
-                              <label>Date of Birth</label>
-                              <input type="date" placeholder="Enter birth date" required>
+                              <label>CCCD/CMND</label>
+                              <input type="text" name="dinhDanh" placeholder="Nhập số cccd/cmnd" required>
                           </div>
                           <div class="input-field">
                               <label>Email</label>
-                              <input type="text" placeholder="Enter your email" required>
+                              <input type="text" name="email" placeholder="Enter your email" required>
                           </div>
                           <div class="input-field">
                               <label>Mobile Number</label>
-                              <input type="text" placeholder="Enter mobile number" required>
-                          </div>
-                          <div class="input-field">
-                              <label>Gender</label>
-                              <select required>
-                                  <option disabled selected>Select gender</option>
-                                  <option>Male</option>
-                                  <option>Female</option>
-                                  <option>Others</option>
-                              </select>
+                              <input type="text" name="soDienThoai" placeholder="Enter mobile number" required>
                           </div>
                           <div class="input-field">
                               <label>Passenger Type</label>
-                              <select required>
+                              <select name="maLHK" required>
                                   <option disabled selected>Select passenger type</option>
-                                  <option>Adult (From 12 years old and up)</option>
-                                  <option>Child (From 2 to under 12 years old)</option>
-                                  <option>Infant (Under 2 years old)</option>
+                                  <option value="NL">Adult (From 12 years old and up)</option>
+                                  <option value="TE">Child (From 2 to under 12 years old)</option>
+                                  <option value="SS">Infant (Under 2 years old)</option>
                               </select>
                           </div>
                           <div class="input-field">
                               <label>Chair Number</label>
-                              <select required>
-                                  <option disabled selected>Select chair number</option>
+                              <select name="soGhe" required>
+                                <option disabled selected>Select chair number</option>
+                                <option th:each="dsghe : ${dsghe}" th:value="${dsghe.soGhe}" th:text="${dsghe.soGhe}"></option>
                               </select>
                           </div>
                       </div>
                   </div>
+                  <button type="submit">Book</button>
               </form>
             </div>
           </div>
@@ -167,13 +156,14 @@
           <div class="calculation__container">
             <h1 class="calculation__heading">Air transportation charge</h1>
             <ul class="container__calculation">
-              <li class="calculation__li">Fare</li>
-              <li class="calculation__li">VND</li>
-              <li class="calculation__li">Discount</li>
-              <li class="calculation__li">VND</li>
-              <li class="calculation__li">Total amount</li>
+              <li class="calculation__li">Total amount: 
+                <span th:if="${phieuDatCho != null}" th:text="${phieuDatCho.giaVe}"></span>
+                <span th:if="${phieuDatCho == null}">Not available</span>
+              </li>
             </ul>
-            <button class="calculation__pay">Pay Now</button>
+            <a th:href="@{/{role}/FlightTicket/{maHK}(role=${role}, maHK=${phieuDatCho.maHK})}">
+              <button class="calculation__pay">Pay Now</button>
+          </a>
         </div>
       </div>
 

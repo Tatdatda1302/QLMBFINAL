@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="shortcut icon"
+      th:href="@{/favicon/Logo_Img.svg}"
+      type="VietHub Airline"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wdth,wght@0,75..100,300..800;1,75..100,300..800&family=Sora:wght@100..800&display=swap"
+      rel="stylesheet"/>
+
+    <!-- font icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    
+    <!-- reset css -->
+    <link rel="stylesheet" th:href="@{/css/reset.css}" />
+    <!-- style css -->
+    <link rel="stylesheet" th:href="@{/css/style_adding.css}" />
+    
+    <title>VietHub Airline</title>
+  </head>
+  <body>
+
+    <!-- header -->
+    <header class="header">
+        <div class="menu">
+          <!-- Logo -->
+          <img
+              th:src="@{/favicon/Logo_Gr.svg}"
+              alt="Shine smile"
+              class="logo header__logo"
+          />
+          <!-- Navbar  -->
+          <nav class="navbar">
+            <ul class="navbar__list" id="navbar__list--pc">
+              <li class="navbar__item">
+                <a href="/Wan" class="navbar__link navbar__link--active">Home</a>
+              </li>
+              <li class="navbar__item">
+                <a href="/index_search.html" class="navbar__link">Search</a>
+              </li>
+              <li class="navbar__item">
+                <a href="/booking" class="navbar__link">Booking</a>
+              </li>
+              <li class="navbar__item">
+                <a href="/Wan" class="navbar__link">About</a>
+              </li>
+              <li class="navbar__item">
+                <a href="/Wan" class="navbar__link">Contact</a>
+              </li>
+              <li class="navbar__item">
+                <a href="/bookTicket" class="navbar__link">BookTicket</a>
+              </li>
+              <li class="navbar__item">
+                <a href="/Wan/add_flight" class="navbar__link">AddFlight</a>
+              </li>
+            </ul>
+          </nav>
+          <!-- cta action -->
+          <div class="header__action">
+            <a href="/index_signin" class="header__action--login">Log in</a>
+            <a href="/index_signup" class="btn header__action--signup">Sign up</a>
+          </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <img
+          class="hero__img "
+          th:src="@{/img/plane_0.svg}"
+          alt="Plane_0"
+        />
+        <div class="hero__content">
+            <h1 class="hero__heading">VietHub</h1>
+            <h1 class="hero__heading">Add Flight</h1>
+        </div> 
+      </section>
+
+    <!-- main -->
+    <main>
+      <div class="container">
+          <form th:action="@{/{role}/add_flight(role=${role})}" method="POST">
+              <div class="fields">
+                  <div class="input-field">
+                      <label>Flight ID:</label>
+                      <input type="text" name="maChuyenBay" placeholder="Enter flight ID" required>
+                  </div>
+                  <div class="input-field">
+                      <label>Plane ID:</label>
+                      <select name="maMB" required>
+                          <option disabled selected>Select PlaneID</option>
+                          <option th:each="maybay: ${maybay}" th:value="${maybay.maMB}" th:text="${maybay.maMB}"></option>
+                      </select>
+                  </div>
+                  <div class="input-field">
+                      <label>From:</label>
+                      <select name="maSanBayDi" required>
+                          <option disabled selected>Select station</option>
+                          <option th:each="sanbay: ${sanbay}" th:value="${sanbay.maSanBay}" th:text="${sanbay.maSanBay}"></option>
+                      </select>
+                  </div>
+                  <div class="input-field">
+                      <label>To:</label>
+                      <select name="maSanBayDen" required>
+                          <option disabled selected>Select station</option>
+                          <option th:each="sanbay: ${sanbay}" th:value="${sanbay.maSanBay}" th:text="${sanbay.maSanBay}"></option>
+                      </select>
+                  </div>
+                  <div class="input-field">
+                      <label>Time-Date:</label>
+                      <input type="datetime-local" name="ngayGioBay" placeholder="Enter time and date" required>
+                  </div>
+                  <div class="input-field">
+                      <label>Duration:</label>
+                      <input type="text" name="thoiGianBay" placeholder="Enter duration(HH:mm:ss)" required>
+                  </div>
+                  <div class="input-field">
+                      <label>Prestige Class Number:</label>
+                      <input type="number" name="soLuong1" placeholder="Enter the chair number of prestige class" required>
+                  </div>
+                  <div class="input-field">
+                      <label>Economy Class Number:</label>
+                      <input type="number" name="soLuong2" placeholder="Enter the chair number of economy class" required>
+                  </div>
+                  <div class="input-field">
+                      <label>Price:</label>
+                      <input type="number" name="donGia" placeholder="Enter price" required>
+                  </div>
+              </div>
+              <div class="container_inter">
+                  <div class="add_station_title">
+                      <div class="inter_title">Intermediate Stations</div>
+                      <div class="btn_sign">
+                          <button class="btn_add_sign">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="25" height="29" viewBox="0 0 448 512">
+                                  <path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3-32-32s-14.3-32-32-32H256V80z" fill="currentColor"/>
+                              </svg>
+                          </button>
+                      </div>
+                  </div>
+                  <div class="add_station">
+                      <div class="add_planeStation">
+                          <div class="air_plane">
+                              <img class="img_plane" th:src="@{/favicon/airplane.svg}"/>
+                          </div>
+                          <div class="input-field">
+                              <label>Station:</label>
+                              <select type="text" name="maSanBayTG1">
+                                <option disabled selected>Select station</option>
+                                <option th:each="sanbay: ${sanbay}" th:value="${sanbay.maSanBay}" th:text="${sanbay.maSanBay}"></option>
+                              </select>
+                          </div>
+                          <div class="input-field">
+                              <label>Stop Time:</label>
+                              <input type="text" name="thoiGianDung1" placeholder="Stoptime(HH:mm:ss)"></input>
+                          </div>
+                          <div class="input-field">
+                              <label>Note:</label>
+                              <input type="text" name="ghiChu1" placeholder="Enter note"></input>
+                          </div>
+                      </div>
+                      <div class="btn_sign">
+                          <button class="btn_add_sign">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="25" height="29" viewBox="0 0 448 512">
+                                  <path d="M432 256c0 17.7-14.3 32-32 32L48 288c-17.7 0-32-14.3-32-32s14.3-32 32-32l352 0c17.7 0 32 14.3 32 32z"/>
+                              </svg>
+                          </button>
+                      </div>
+                  </div>
+                  <div class="add_station">
+                      <div class="add_planeStation">
+                          <div class="air_plane">
+                              <img class="img_plane" th:src="@{/favicon/airplane.svg}"/>
+                          </div>
+                          <div class="input-field">
+                              <label>Station:</label>
+                              <select type="text" name="maSanBayTG1">
+                                <option disabled selected>Select station</option>
+                                <option th:each="sanbay: ${sanbay}" th:value="${sanbay.maSanBay}" th:text="${sanbay.maSanBay}"></option>
+                              </select>
+                          </div>
+                          <div class="input-field">
+                              <label>Stop Time:</label>
+                              <input type="text" name="thoiGianDung2" placeholder="Stoptime(HH:mm:ss)"></input>
+                          </div>
+                          <div class="input-field">
+                              <label>Note:</label>
+                              <input type="text" name="ghiChu2" placeholder="Enter note"></input>
+                          </div>
+                      </div>
+                      <div class="btn_sign">
+                          <button class="btn_add_sign">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="25" height="29" viewBox="0 0 448 512">
+                                  <path d="M432 256c0 17.7-14.3 32-32 32L48 288c-17.7 0-32-14.3-32-32s14.3-32 32-32l352 0c17.7 0 32 14.3 32 32z"/>
+                              </svg>
+                          </button>
+                      </div>
+                  </div>
+              </div>
+              <div class="btn_center">
+                  <button class="btn_confirm_add">Confirm</button>
+              </div>
+          </form>
+      </div>
+  </main>
+
+  
+  </body>
+</html>

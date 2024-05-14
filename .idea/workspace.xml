@@ -4,33 +4,168 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="33e43ac2-3257-406e-9a59-2538f9d7a7b3" name="Changes" comment="" />
+    <list default="true" id="33e43ac2-3257-406e-9a59-2538f9d7a7b3" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vscode/settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/.vscode/settings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/qlbvmb/config/DataSourceConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/qlbvmb/config/DataSourceConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/qlbvmb/controller/AddFlight.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/qlbvmb/controller/AddFlight.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/qlbvmb/model/Chuyenbay.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/qlbvmb/model/Chuyenbay.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/qlbvmb/model/CtHangve.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/qlbvmb/model/CtHangve.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/qlbvmb/service/FlightService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/qlbvmb/service/FlightService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/QLBVMB.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/asses/booking/icons8-arrow-50.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/asses/booking/icons8-arrow-64.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/asses/booking/icons8-calendar-64.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/asses/booking/icons8-human-64.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/asses/booking/reshot-icon-right-arrow-UCA8NGYZDJ.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/asses/css/reset.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/asses/css/responsive.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/asses/css/style_booking.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/asses/css/style_home.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/asses/css/style_search.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/asses/favicon/App Store.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/asses/favicon/Face.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/asses/favicon/Google Play.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/asses/favicon/Inlink.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/asses/favicon/Logo_Gr.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/asses/favicon/Logo_Img.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/asses/favicon/Logo_Name.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/asses/favicon/payment.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/asses/favicon/twitter.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/asses/img/Booking_Tickets.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/asses/img/Change_Tickets.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/asses/img/Check_Info.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/asses/img/Da_Nang.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/asses/img/Ha_Noi.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/asses/img/Han_Quoc.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/asses/img/Ho_Chi_Minh.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/asses/img/Nhat_Ban.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/asses/img/Our_Services.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/asses/img/Phone.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/asses/img/Plane_Home.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/asses/img/Plane_Search.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/asses/img/Search_Fly.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/asses/img/Thai_Lan.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/asses/img/Trung_Quoc.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/asses/img/Vung_Tau.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/asses/img/plane_0.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/asses/partner/img_11.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/asses/partner/img_12.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/asses/partner/img_13.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/asses/partner/img_14.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/asses/partner/img_15.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/asses/partner/img_16.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/asses/partner/img_21.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/asses/partner/img_22.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/asses/partner/img_23.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/asses/partner/img_24.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/asses/partner/img_25.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/asses/partner/img_26.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/index_booking.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/index_booking.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/index_search.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/index_search.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/QLBVMB.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/qlbvmb/config/DataSourceConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/qlbvmb/config/DataSourceConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/qlbvmb/controller/AddFlight.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/qlbvmb/controller/AddFlight.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/qlbvmb/model/Chuyenbay.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/qlbvmb/model/Chuyenbay.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/qlbvmb/model/CtHangve.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/qlbvmb/model/CtHangve.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/qlbvmb/service/FlightService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/qlbvmb/service/FlightService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/asses/booking/icons8-arrow-50.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/asses/booking/icons8-arrow-64.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/asses/booking/icons8-calendar-64.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/asses/booking/icons8-human-64.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/asses/booking/reshot-icon-right-arrow-UCA8NGYZDJ.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/asses/css/reset.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/asses/css/responsive.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/asses/css/style_booking.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/asses/css/style_home.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/asses/css/style_search.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/asses/favicon/App Store.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/asses/favicon/Face.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/asses/favicon/Google Play.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/asses/favicon/Inlink.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/asses/favicon/Logo_Gr.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/asses/favicon/Logo_Img.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/asses/favicon/Logo_Name.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/asses/favicon/payment.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/asses/favicon/twitter.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/asses/img/Booking_Tickets.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/asses/img/Change_Tickets.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/asses/img/Check_Info.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/asses/img/Da_Nang.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/asses/img/Ha_Noi.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/asses/img/Han_Quoc.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/asses/img/Ho_Chi_Minh.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/asses/img/Nhat_Ban.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/asses/img/Our_Services.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/asses/img/Phone.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/asses/img/Plane_Home.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/asses/img/Plane_Search.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/asses/img/Search_Fly.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/asses/img/Thai_Lan.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/asses/img/Trung_Quoc.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/asses/img/Vung_Tau.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/asses/img/plane_0.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/asses/partner/img_11.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/asses/partner/img_12.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/asses/partner/img_13.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/asses/partner/img_14.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/asses/partner/img_15.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/asses/partner/img_16.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/asses/partner/img_21.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/asses/partner/img_22.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/asses/partner/img_23.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/asses/partner/img_24.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/asses/partner/img_25.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/asses/partner/img_26.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/index_booking.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/index_booking.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/index_search.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/index_search.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "customColor": "",
-  "associatedIndex": 5
-}]]></component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 5
+}</component>
   <component name="ProjectId" id="2f8pLvU0wbayzeivyBoT11Thc5r" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "kotlin-language-version-configured": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Admin/Documents/VSocde/.vscode/Java/QLBVMBTest&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
+  <component name="RunManager">
+    <configuration name="QlbvmbApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <module name="QLBVMB" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.qlbvmb.QlbvmbApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -48,6 +183,8 @@
       <option name="presentableId" value="Default" />
       <updated>1713192508055</updated>
       <workItem from="1713192509237" duration="1301000" />
+      <workItem from="1714292891902" duration="129000" />
+      <workItem from="1714298656806" duration="863000" />
     </task>
     <servers />
   </component>

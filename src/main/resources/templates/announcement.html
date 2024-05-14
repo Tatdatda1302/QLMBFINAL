@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="shortcut icon"
+      th:href="@{/favicon/Logo_Img.svg}"
+      type="VietHub Airline"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wdth,wght@0,75..100,300..800;1,75..100,300..800&family=Sora:wght@100..800&display=swap"
+      rel="stylesheet"/>
+
+    <!-- font icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    
+    <!-- reset css -->
+    <link rel="stylesheet" th:href="@{/css/reset.css}" />
+    <!-- style css -->
+    <link rel="stylesheet" th:href="@{/css/style_adding.css}" />
+    
+    <title>VietHub Airline</title>
+  </head>
+  <body>
+
+    <!-- header -->
+    <header class="header">
+        <div class="menu">
+          <!-- Logo -->
+          <img
+              th:src="@{/favicon/Logo_Gr.svg}"
+              alt="Shine smile"
+              class="logo header__logo"
+          />
+          <!-- Navbar  -->
+          <nav class="navbar">
+            <ul class="navbar__list" id="navbar__list--pc">
+              <li class="navbar__item">
+                <a href="/index_home.html" class="navbar__link navbar__link--active">Home</a>
+              </li>
+              <li class="navbar__item">
+                <a href="/index_search.html" class="navbar__link">Search</a>
+              </li>
+              <li class="navbar__item">
+                <a href="/booking" class="navbar__link">Booking</a>
+              </li>
+              <li class="navbar__item">
+                <a href="/index_home.html" class="navbar__link">About</a>
+              </li>
+              <li class="navbar__item">
+                <a href="/index_home.html" class="navbar__link">Contact</a>
+              </li>
+              <li class="navbar__item">
+                <a href="/bookTicket" class="navbar__link">BookTicket</a>
+              </li>
+              <li class="navbar__item">
+                <a href="/add_flight" class="navbar__link">AddFlight</a>
+              </li>
+            </ul>
+          </nav>
+          <!-- cta action -->
+          <div class="header__action">
+            <a href="/index_signin" class="header__action--login">Log in</a>
+            <a href="/index_signup" class="btn header__action--signup">Sign up</a>
+          </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <img
+          class="hero__img "
+          th:src="@{/img/plane_0.svg}"
+          alt="Plane_0"
+        />
+        <div class="response__content">
+            <h1 class="response__heading" th:text="${response}"></h1>
+        </div>
+        
+    </section>
+
+    <div class="flights">
+      <h1>All Flights</h1>
+      <div th:each="flight : ${flightInfo}">
+          <p><strong>Flight ID:</strong> <span th:text="${flight.maChuyenBay}"></span></p>
+          <p><strong>Aircraft ID:</strong> <span th:text="${flight.maMB}"></span></p>
+          <p><strong>Departure Airport ID:</strong> <span th:text="${flight.maSanBayDi}"></span></p>
+          <p><strong>Arrival Airport ID:</strong> <span th:text="${flight.maSanBayDen}"></span></p>
+          <p><strong>Departure Time:</strong> <span th:text="${flight.ngayGioBay}"></span></p>
+          <p><strong>Flight Duration:</strong> <span th:text="${flight.thoiGianBay}"></span></p>
+          <p><strong>Price:</strong> <span th:text="${flight.donGia}"></span></p>
+          <hr>
+      </div>
+  </div>
+    </body>
+</html>

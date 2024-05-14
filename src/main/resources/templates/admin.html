@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Admin Page</title>
+</head>
+<body>
+	<h1>Admin Page</h1>
+	<p>Username: <span th:text="${user.username}"></span></p>
+    <p>Role: <span th:text="${user.authorities}"></span></p>
+	
+	<a th:href="@{/{role}/BCDT_Thang(role=${user.authorities})}">BCDT</a><br>
+	<a th:href="@{/{role}/ThamSo(role=${user.authorities})}">ThayDoiThamSo</a><br>
+	<a th:href="@{/{role}/Airport(role=${user.authorities})}">SanBay</a><br>
+	<a th:href="@{/{role}/HangMB(role=${user.authorities})}">HangMB</a><br>
+	<a th:href="@{/{role}/Maybay(role=${user.authorities})}">Maybay</a><br>
+	<a th:href="@{/{role}/HangVe(role=${user.authorities})}">HangVe</a><br>
+	<a th:href="@{/{role}/LoaiHK(role=${user.authorities})}">LoaiHK</a><br>
+	<a href="/Wan/login">Logout</a>
+
+	<h2>User Details</h2>
+	<table border="1">
+		<tr>
+			<th>Username</th>
+			<th>Password</th>
+			<th>Email</th>
+			<th>DinhDanh</th>
+			<th>Roles</th>
+		</tr>
+		<tr th:each="customers : ${customers}">
+			<td th:value="${customers.userName}" th:text="${customers.userName}"></td>
+			<td th:value="${customers.passWord}" th:text="${customers.passWord}"></td>
+			<td th:value="${customers.Email}" th:text="${customers.Email}"></td>
+			<td th:value="${customers.dinhDanh}" th:text="${customers.dinhDanh}"></td>
+			<td th:value="${customers.Role}" th:text="${customers.Role}"></td>
+			<td>
+				<a th:href="@{/admin/edit/{id}(id=${customers.ID})}">Edit</a>
+			</td>
+			<td>
+				<a th:href="@{/admin/delete/{id}(id=${customers.ID})}">Delete</a>
+			</td>
+		</tr>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Ticket Page</title>
+</head>
+<body>
+	<h1>Ticket Page</h1>
+    <div th:if="${role == 'STAFF'}">
+        <form th:action="@{/role/FlightTicket(role=${role})}" method="POST">
+            <label for="MaHK">MaHK:</label><br>
+            <select name="maHK" required>
+                <option disabled selected>Select MaHK</option>
+                <option th:each="hanhKhach : ${hanhKhach}" th:value="${hanhKhach.maHK}" th:text="${hanhKhach.maHK}"></option>
+            </select><br>
+            <button type="submit">Search</button>
+        </form><br>
+    </div>
+	<h2>Ticket Details</h2>
+	<table border="1">
+		<tr>
+			<th>MaVe</th>
+			<th>MaChuyenBay</th>
+			<th>MaHangVe</th>
+            <th>MaHK</th>
+            <th>MaLHK</th>
+            <th>SoGhe</th>
+            <th>GiaVe</th>
+            <th>NgayDatVe</th>
+            <th>NgayXuatVe</th>
+		</tr>
+		<tr th:each="flightTicket : ${flightTicket}">
+			<td th:text="${flightTicket.maVe}"></td>
+            <td th:text="${flightTicket.maChuyenBay}"></td>
+            <td th:text="${flightTicket.maHangVe}"></td>
+            <td th:text="${flightTicket.maHK}"></td>
+            <td th:text="${flightTicket.maLHK}"></td>
+            <td th:text="${flightTicket.soGhe}"></td>
+            <td th:text="${flightTicket.giaVe}"></td>
+            <td th:text="${flightTicket.ngayDat}"></td>
+            <td th:text="${flightTicket.ngayXuatVe}"></td>
+            <td>
+                <a th:if="${role == 'STAFF' && flightTicket.ngayXuatVe == null}" th:href="@{/{role}/FlightTicket/{maHK}/{maVe}(role=${role}, maHK=${flightTicket.maHK}, maVe=${flightTicket.maVe})}">Xuất Vé</a>
+            </td>
+		</tr>
+</body>
+</html>

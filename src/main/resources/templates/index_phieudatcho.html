@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Ticket Page</title>
+</head>
+<body>
+	<h1>PhieuDatCho Page</h1>
+	<h2>PhieuDatCho Details</h2>
+	<table border="1">
+		<tr>
+			<th>SoPhieuDatCho</th>
+			<th>MaChuyenBay</th>
+			<th>MaHangVe</th>
+            <th>MaHK</th>
+            <th>MaLHK</th>
+            <th>SoGhe</th>
+            <th>GiaVe</th>
+            <th>NgayDatVe</th>
+            <th>TinhTrang</th>
+		</tr>
+		<tr th:each="phieuDatCho : ${phieuDatCho}">
+            <td th:text="${phieuDatCho.soPhieuDatCho}"></td>
+            <td th:text="${phieuDatCho.maChuyenBay}"></td>
+            <td th:text="${phieuDatCho.maHangVe}"></td>
+            <td th:text="${phieuDatCho.maHK}"></td>
+            <td th:text="${phieuDatCho.maLHK}"></td>
+            <td th:text="${phieuDatCho.soGhe}"></td>
+            <td th:text="${phieuDatCho.giaVe}"></td>
+            <td th:text="${phieuDatCho.ngayDat}"></td>
+            <td th:text="${phieuDatCho.tinhTrang}"></td>
+        </tr>
+</body>
+</html>

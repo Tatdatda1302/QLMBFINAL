@@ -7,4 +7,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface CTHangVeRepo extends CrudRepository<CtHangve, CTHVID>{
+    List<CtHangve> findByMaHangveAndMaChuyenBay(String maHangVe, String maChuyenBay);
 }

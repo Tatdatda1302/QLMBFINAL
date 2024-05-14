@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Annual Revenue Report</title>
+</head>
+<body>
+    <h1>Annual Revenue Report</h1>
+    <form th:action="@{/{role}/BCDT_Thang(role=${role})}" method="POST">
+        <label for="year">Enter Month:</label><br>
+        <input type="number" name="month" placeholder="Enter month"/><br>
+        <label for="year">Enter Year:</label><br>
+        <input type="number" name="year" placeholder="Enter year" required /><br>
+        <input type="submit" value="Generate Report" />
+    </form><br>
+
+    <h2>CT_BCDT_Thang</h2>
+    <table border="1">
+        <tr>
+            <th>Month</th>
+            <th>Year</th>
+            <th>MaChuyenBay</th>
+            <th>SoVeHang1</th>
+            <th>SoveHang2</th>
+            <th>DoanhThu</th>
+            <th>TiLe</th>
+        </tr>
+        <tr th:each="ct_bcdt_thang : ${ct_bcdt_thang}">
+            <td th:text="${ct_bcdt_thang.thang}"></td>
+            <td th:text="${ct_bcdt_thang.nam}"></td>
+            <td th:text="${ct_bcdt_thang.maChuyenBay}"></td>
+            <td th:text="${ct_bcdt_thang.soVeHang1}"></td>
+            <td th:text="${ct_bcdt_thang.soVeHang2}"></td>
+            <td th:text="${ct_bcdt_thang.doanhThu}"></td>
+            <td th:text="${ct_bcdt_thang.tiLe}"></td>
+        </tr>
+    </table>
+
+    <h2>CT_BCDT_Nam</h2>
+    <table border="1">
+        <tr>
+            <th>Month</th>
+            <th>Year</th>
+            <th>SoChuyenBay</th>
+            <th>DoanhThu</th>
+            <th>TiLe</th>
+        </tr>
+        <tr th:each="tct_bcdt_nam : ${tct_bcdt_nam}">
+            <td th:text="${tct_bcdt_nam.thang}"></td>
+            <td th:text="${tct_bcdt_nam.nam}"></td>
+            <td th:text="${tct_bcdt_nam.soChuyenBay}"></td>
+            <td th:text="${tct_bcdt_nam.doanhThu}"></td>
+            <td th:text="${tct_bcdt_nam.tiLe}"></td>
+        </tr>
+    </table>
+
+    <h2>Results</h2>
+    <table border="1">
+        <tr>
+            <th>Year</th>
+            <th>Total Revenue</th>
+        </tr>
+        <tr th:each="bcdt_nam : ${bcdt_nam}">
+            <td th:text="${bcdt_nam.nam}"></td>
+            <td th:text="${bcdt_nam.tongDoanhThu}"></td>
+        </tr>
+    </table>
+
+</body>
+</html>

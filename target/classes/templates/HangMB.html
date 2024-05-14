@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Admin Page</title>
+</head>
+<body>
+    <h2>HangMBSX Details</h2>
+    <table border="1">
+        <tr>
+            <th>HangMBSX Code</th>
+            <th>HangMBSX Name</th>
+        </tr>
+        <tr th:each="hangMBSX : ${hangMBSX}">
+            <td th:value="${hangMBSX.maHMB}" th:text="${hangMBSX.maHMB}"></td>
+            <td th:value="${hangMBSX.tenHMB}" th:text="${hangMBSX.tenHMB}"></td>
+            <td>
+                <a th:href="@{/{role}/deleteHangMB/{maHMB}(role=${role} ,maHMB=${hangMBSX.maHMB})}">Delete</a>
+            </td>
+        </tr>
+    </table>
+    <a th:href="@{/{role}/addHangMBSX(role=${role})}">Add HangMBSX</a><br>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Admin Page</title>
+</head>
+<body>
+    <h2>HangVe Details</h2>
+    <table border="1">
+        <tr>
+            <th>HangVe Code</th>
+            <th>HangVe Name</th>
+            <th>HangVe Price Ratio</th>
+        </tr>
+        <tr th:each="hangVe : ${hangVe}">
+            <td th:value="${hangVe.maHangVe}" th:text="${hangVe.maHangVe}"></td>
+            <td th:value="${hangVe.tenHangVe}" th:text="${hangVe.tenHangVe}"></td>
+            <td th:value="${hangVe.tiLeGiaHangVe}" th:text="${hangVe.tiLeGiaHangVe}"></td>
+            <td>
+                <a th:href="@{/{role}/deleteHangVe/{maHangVe}(role=${role} ,maHangVe=${hangVe.maHangVe})}">Delete</a>
+            </td>
+        </tr>
+    </table>
+    <a th:href="@{/{role}/addHangVe(role=${role})}">Add HangVe</a><br>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Admin Page</title>
+</head>
+<body>
+    <form th:action="@{/{role}/addMaybay(role=${role})}" method="POST">
+        <label for="maMB">Maybay Code:</label><br>
+        <input type="text" id="maMB" name="maMB"><br>
+        <label for="tenMB">Maybay Name:</label><br>
+        <input type="text" id="tenMB" name="tenMB"><br>
+        <label for="maHMB">HangMBSX Code:</label><br>
+        <select id="maHMB" name="maHMB">
+            <option th:each="hang : ${hangMBSX}" th:value="${hang.maHMB}" th:text="${hang.maHMB}"></option>
+        </select><br>
+        <label for="slGhe">Seat Quantity:</label><br>
+        <input type="text" id="slGhe" name="slGhe"><br>
+        <input type="submit" value="Add Maybay">
+    </form>
+</body>
+</html>

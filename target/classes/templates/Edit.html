@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Admin Page</title>
+</head>
+<body>
+    <h1>Edit page</h1>
+    <h2>User Details</h2>
+    <form th:object="${customer}" th:action="@{/admin/edit/{id}(id=${customer.ID})}" method="POST">
+        <table border="1">
+            <tr>
+                <th>Username</th>
+                <th>Password</th>
+                <th>Roles</th>
+            </tr>
+            <tr>
+                <td th:value="${customer.userName}" th:text="${customer.userName}"></td>
+                <td th:value="${customer.passWord}" th:text="${customer.passWord}"></td>
+                <td>
+                    <input type="text" name="Role"/>
+                </td>
+            </tr>
+        </table>
+        <button type="submit">Edit</button>
+    </form>
+</body>
+</html>

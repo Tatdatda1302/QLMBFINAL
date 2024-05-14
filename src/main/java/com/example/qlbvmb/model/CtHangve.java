@@ -22,4 +22,16 @@ public class CtHangve implements java.io.Serializable{
 
     @Column(name = "SoLuong")
     private int soLuong;
+
+    @Column(name = "SoGheDat")
+    private int soGheDat;
+
+    @Column(name = "SoGheBan")
+    private int soGheBan;
+
+    @Column(name = "SoGheConLai")
+    private int soGheConLai;
+
+    @Column(name = "DonGiaHV")
+    private double donGiaHV;
 }

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Staff Page</title>
+</head>
+<body>
+    <h1>This is staff page</h1>
+    <p>Username: <span th:text="${user.username}"></span></p>
+    <p>Role: <span th:text="${user.authorities}"></span></p>
+
+    <a th:href="@{/{role}/add_flight(role=${user.authorities})}">Add Flight</a><br>
+    <a th:href="@{/{role}/SearchFlight(role=${user.authorities})}">SearchFlight</a><br>
+    <a th:href="@{/{role}/FlightTicket(role=${user.authorities})}">SearchTicket</a><br>
+    <a th:href="@{/{role}/PhieuDatCho(role=${user.authorities})}">PhieuDatCho</a><br>
+    <a th:href="@{/{role}/BCDT_Nam(role=${user.authorities})}">BCDT_Nam</a><br>
+    <a th:href="@{/{role}/BCDT_Thang(role=${user.authorities})}">BCDT_Thang</a><br>
+    <a href="/Wan/login">Logout</a>
+</body>
+</html>

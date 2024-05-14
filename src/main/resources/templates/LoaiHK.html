@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Admin Page</title>
+</head>
+<body>
+    <h2>LoaiHK Details</h2>
+    <table border="1">
+        <tr>
+            <th>LoaiHK Code</th>
+            <th>LoaiHK Name</th>
+            <th>LoaiHK Ratio</th>
+        </tr>
+        <tr th:each="loaiHK : ${loaiHK}">
+            <td th:value="${loaiHK.maLHK}" th:text="${loaiHK.maLHK}"></td>
+            <td th:value="${loaiHK.tenLHK}" th:text="${loaiHK.tenLHK}"></td>
+            <td th:value="${loaiHK.tiLeLHK}" th:text="${loaiHK.tiLeLHK}"></td>
+            <td>
+                <a th:href="@{/{role}/deleteLoaiHK/{maLHK}(role=${role} ,maLHK=${loaiHK.maLHK})}">Delete</a>
+            </td>
+        </tr>
+    </table>
+    <a th:href="@{/{role}/addLoaiHK(role=${role})}">Add LoaiHK</a><br>
+</body>
+</html>

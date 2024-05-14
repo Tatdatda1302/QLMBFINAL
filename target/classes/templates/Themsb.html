@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Admin Page</title>
+</head>
+<body>
+    <form th:action="@{/{role}/addAirport(role=${role})}" method="POST">
+        <label for="maSanBay">Airport Code:</label><br>
+        <input type="text" id="maSanBay" name="maSanBay"><br>
+        <label for="tenSanBay">Airport Name:</label><br>
+        <input type="text" id="tenSanBay" name="tenSanBay"><br>
+        <label for="diaChi">Address:</label><br>
+        <input type="text" id="diaChi" name="diaChi"><br>
+        <input type="submit" value="Add Airport">
+    </form>
+</body>
+</html>
