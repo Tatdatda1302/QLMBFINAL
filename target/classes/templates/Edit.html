@@ -7,22 +7,62 @@
 <body>
     <h1>Edit page</h1>
     <h2>User Details</h2>
-    <form th:object="${customer}" th:action="@{/admin/edit/{id}(id=${customer.ID})}" method="POST">
+    <form th:object="${customer}" th:action="@{/{role}/edit/{id}(id=${customer.ID}, role=${role})}" method="POST">
         <table border="1">
             <tr>
                 <th>Username</th>
-                <th>Password</th>
-                <th>Roles</th>
+                <td name="userName" th:value="${customer.userName}" th:text="${customer.userName}"></td>
+                <td><a onclick="editParameter(this.parentElement.previousElementSibling)"><span>Edit</span></a></td>
             </tr>
             <tr>
-                <td th:value="${customer.userName}" th:text="${customer.userName}"></td>
-                <td th:value="${customer.passWord}" th:text="${customer.passWord}"></td>
-                <td>
-                    <input type="text" name="Role"/>
-                </td>
+                <th>Password</th>
+                <td name="passWord" th:value="${customer.passWord}" th:text="${customer.passWord}"></td>
+                <td><a onclick="editParameter(this.parentElement.previousElementSibling)"><span>Edit</span></a></td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td name="Email" th:value="${customer.Email}" th:text="${customer.Email}"></td>
+                <td><a onclick="editParameter(this.parentElement.previousElementSibling)"><span>Edit</span></a></td>
+            </tr>
+            <tr>
+                <th>DinhDanh</th>
+                <td name="dinhDanh" th:value="${customer.dinhDanh}" th:text="${customer.dinhDanh}"></td>
+                <td><a onclick="editParameter(this.parentElement.previousElementSibling)"><span>Edit</span></a></td>
+            </tr>
+            <tr th:if="${customer.Role} == 'ADMIN'">
+                <th>Roles</th>
+                <td name="Role" th:value="${customer.Role}" th:text="${customer.Role}"></td>
+                <td><a onclick="editParameter(this.parentElement.previousElementSibling)"><span>Edit</span></a></td>
             </tr>
         </table>
-        <button type="submit">Edit</button>
+        <button onclick="saveChanges()">Save</button>
     </form>
+
+    <script>
+
+        function editParameter(element) {
+          
+            // Tạo phần tử input
+            var input = document.createElement('input');
+            
+            // Gán giá trị hiện tại của ô chứa tham số vào phần tử input
+            input.value = element.innerText.trim();
+
+            input.name = element.getAttribute('name');
+
+            // Thay thế nội dung của ô chứa tham số bằng phần tử input
+            element.innerHTML = '';
+            element.appendChild(input);
+
+                        
+            input.selectionStart = input.selectionEnd = input.value.length;
+            
+            // Xác định sự kiện khi người dùng kết thúc chỉnh sửa
+            input.addEventListener('blur', function() {
+        });
+            
+            input.select();
+        }
+    </script>
 </body>
 </html>

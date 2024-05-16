@@ -8,6 +8,7 @@ import com.example.qlbvmb.service.FlightService;
 import com.example.qlbvmb.service.UserService;
 import com.example.qlbvmb.model.Chuyenbay;
 import com.example.qlbvmb.model.CtHangve;
+import com.example.qlbvmb.model.DSGhe;
 import com.example.qlbvmb.model.FlightTicket;
 import com.example.qlbvmb.model.HanhKhach;
 import java.util.ArrayList;
@@ -117,5 +118,31 @@ public class SearchTicket {
         }
         model.addAttribute("phieuDatCho", phieuDatCho);
         return "index_phieudatcho";
+    }
+
+    @GetMapping("/{role}/PhieuDatCho/{maHK}/delete/{id}")
+    public String deletePhieuDatCho(@PathVariable("role") String role, @PathVariable("id") String id, @PathVariable("maHK") int maHK, Model model) {
+        PhieuDatCho phieuDatCho = flightService.getPhieuDatCho(id, maHK);
+        phieuDatCho.setTinhTrang("Bị hủy");
+
+
+        CtHangve ctHangve = flightService.getVe(phieuDatCho.getMaHangVe(), phieuDatCho.getMaChuyenBay());
+        ctHangve.setSoGheConLai(ctHangve.getSoGheConLai() + 1);
+        ctHangve.setSoGheDat(ctHangve.getSoGheDat() - 1);
+        if(phieuDatCho.getTinhTrang().equals("Đã xuất vé")){
+            ctHangve.setSoGheBan(ctHangve.getSoGheBan() - 1);
+        }
+        flightService.createCtHangve(ctHangve);
+
+        Chuyenbay chuyenbay = flightService.getFlightById(phieuDatCho.getMaChuyenBay());
+        DSGhe dsghe = new DSGhe();
+        dsghe.setSoGhe(phieuDatCho.getSoGhe());
+        dsghe.setMaMB(chuyenbay.getMaMB());
+        dsghe.setMaHangVe(phieuDatCho.getMaHangVe());
+        dsghe.setGhiChu(phieuDatCho.getMaChuyenBay());
+        flightService.createDSGhe(dsghe);
+
+        flightService.createPhieuDatCho(phieuDatCho);
+        return "redirect:/{role}/PhieuDatCho/{maHK}";
     }
 }

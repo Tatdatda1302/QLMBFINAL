@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Staff Page</title>
+    <title>User Page</title>
 </head>
 <body>
     <h1>This is user page</h1>
@@ -11,6 +11,7 @@
     <a th:href="@{/{role}/SearchFlight(role=${user.authorities})}">SearchFlight</a><br>
     <a th:href="@{/{role}/FlightTicket/{maHK}(role=${user.authorities}, maHK=${hanhKhach.maHK})}">SearchTicket</a><br>
     <a th:href="@{/{role}/PhieuDatCho/{maHK}(role=${user.authorities}, maHK=${hanhKhach.maHK})}">PhieuDatCho</a><br>
+    <a th:href="@{/{role}/edit/{id}(id=${customer.ID}, role=${user.authorities})}">Edit</a><br>
     <a href="/Wan/login">Logout</a>
 </body>
 </html>
