@@ -40,13 +40,10 @@ public class SecurityConfig {
     SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.csrf(csrf -> csrf.disable())
             .authorizeHttpRequests(authorizeRequests -> authorizeRequests
-                .requestMatchers("/*").permitAll()
-                // .requestMatchers("/staff/**").authenticated()
-                // .requestMatchers("/admin/**").authenticated()
-                // .requestMatchers("/user/**").authenticated()
+                .requestMatchers("/login", "/login-error").permitAll()
+                .requestMatchers("/user/**").hasAnyAuthority("USER")
                 .requestMatchers("/staff/**").hasAnyAuthority("STAFF")
                 .requestMatchers("/admin/**").hasAnyAuthority("ADMIN")
-
                 .anyRequest().authenticated())
             .formLogin(formLogin -> formLogin
                 .loginPage("/login")
