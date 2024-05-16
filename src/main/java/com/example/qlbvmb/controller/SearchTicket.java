@@ -125,6 +125,7 @@ public class SearchTicket {
         PhieuDatCho phieuDatCho = flightService.getPhieuDatCho(id, maHK);
         phieuDatCho.setTinhTrang("Bị hủy");
 
+        flightService.deleteTicket(phieuDatCho.getSoPhieuDatCho());
 
         CtHangve ctHangve = flightService.getVe(phieuDatCho.getMaHangVe(), phieuDatCho.getMaChuyenBay());
         ctHangve.setSoGheConLai(ctHangve.getSoGheConLai() + 1);

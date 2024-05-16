@@ -29,7 +29,7 @@
             <td th:text="${phieuDatCho.giaVe}"></td>
             <td th:text="${phieuDatCho.ngayDat}"></td>
             <td th:text="${phieuDatCho.tinhTrang}"></td>
-            <td th:if="${phieuDatCho.tinhTrang} != 'Bị hủy'">
+            <td th:if="${phieuDatCho.tinhTrang != 'Bị hủy' && phieuDatCho.tinhTrang != 'Đã xuất vé'}">
                 <a th:href="@{/{role}/PhieuDatCho/{maHK}/delete/{id}(role=${role}, id=${phieuDatCho.soPhieuDatCho}, maHK=${phieuDatCho.maHK})}">Delete</a>
             </td>
         </tr>

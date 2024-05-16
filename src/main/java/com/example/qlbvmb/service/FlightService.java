@@ -186,6 +186,10 @@ public class FlightService {
         return loaiHK_repo.save(loaiHK);
     }
 
+    public void deleteTicket(String maVe) {
+        flightTicket_repo.deleteById(maVe);
+    }
+
     public boolean isFlightExist(String maChuyenbay) {
         List<Chuyenbay> chuyenbay = flight_repo.findByMaChuyenBay(maChuyenbay);
         return !chuyenbay.isEmpty();
