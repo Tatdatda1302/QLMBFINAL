@@ -267,6 +267,10 @@ public class FlightService {
         return flightTicket_repo.findByMaHK(maHK);
     }
 
+    public TrungGian getTrungGianByMaChuyenBay(String maChuyenBay) {
+        return trunggian_repo.findByMaChuyenBay(maChuyenBay);
+    }
+
     @Transactional
     public void deleteGhe(int soGhe, String maMB, String maHangVe, String maChuyenBay) {
         soghe_repo.deleteBySoGheAndMaMBAndMaHangVeAndGhiChu(soGhe, maMB, maHangVe, maChuyenBay);

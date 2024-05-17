@@ -1,6 +1,7 @@
 package com.example.qlbvmb.controller;
 import com.example.qlbvmb.model.Chuyenbay;
 import com.example.qlbvmb.model.SanBay;
+import com.example.qlbvmb.model.TrungGian;
 import com.example.qlbvmb.service.FlightService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -47,16 +48,20 @@ public class GetFlight {
         LocalDate ngayKhoiHanh = LocalDate.parse(ngayKhoiHanhStr);
 
         Iterable<Chuyenbay> chuyenbay = flightService.getFlight(maSanBayDi, maSanBayDen, ngayKhoiHanh);
+        List<TrungGian> trunggians = new ArrayList<>();
 
         List<FlightWithCTHV> flightWithCTHV = new ArrayList<>();
         for(Chuyenbay flight : chuyenbay) {
             String maChuyenBay = flight.getMaChuyenBay();
             Iterable<CtHangve> ctHangve = flightService.getCtHangVe(maHangVe, maChuyenBay);
+            TrungGian trungGian = flightService.getTrungGianByMaChuyenBay(maChuyenBay);
+            trunggians.add(trungGian);
             for (CtHangve cthangve : ctHangve) {
                 flightWithCTHV.add(new FlightWithCTHV(flight, cthangve));
             }
         }
         model.addAttribute("flightWithCTHV", flightWithCTHV);
+        model.addAttribute("trunggians", trunggians);
         return "index_search";
     }
 }

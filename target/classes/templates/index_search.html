@@ -59,5 +59,19 @@
             </td>
         </tr>
     </table>
+    <table border="1">
+        <tr>
+            <th>MaSanBayTG</th>
+            <th>MaChuyenBay</th>
+            <th>ThoiGianDung</th>
+            <th>GhiChu</th>
+        </tr>
+        <tr th:each="trunggian : ${trunggians}" th:if="${trunggian != null}">
+            <td th:text="${trunggians.maSanBayTG}"></td>
+            <td th:text="${trunggians.maChuyenBay}"></td>
+            <td th:text="${trunggians.thoiGianDung}"></td>
+            <td th:text="${trunggians.ghiChu}"></td>
+        </tr>
+    </table>
 </body>
 </html>
