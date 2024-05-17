@@ -214,6 +214,7 @@
       </form>
 
       <!-- result 1-->
+      <div class="container_result">
       <section class="result" th:each="flightWithCTHV : ${flightWithCTHV}">
         <div class="container">
           <div class="result__container">
@@ -260,8 +261,11 @@
           </div>
         </div>
       </section>
+      </div>
 
-      <button class="detailsButton" style="display: none;">Details</button>
+      <div class="containerDetails">
+      <button class="btn__details">Details</button>
+      </div>
 
       <!-- itinerary-->
       <section class="itinerary" style="display: none">
