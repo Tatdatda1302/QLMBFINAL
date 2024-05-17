@@ -330,3 +330,13 @@ form {
   font-weight: 400;
   line-height: 1.86;
 }
+/* Pass */
+.Pass {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-top: 10px;
+  color: red;
+  font-style: italic;
+}

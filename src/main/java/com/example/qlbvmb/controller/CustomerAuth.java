@@ -28,6 +28,11 @@ public class CustomerAuth {
     @Autowired
     PasswordEncoder passwordEncoder;
 
+    @GetMapping("/home")
+    public String showPage() {
+        return "index";
+    }
+
     @GetMapping("/login")
     public String showLoginPage() {
         return "index_signin";

@@ -17,9 +17,9 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.time.LocalDate;
 import java.time.ZoneId;
-
 import com.example.qlbvmb.model.CtHangve;
 import com.example.qlbvmb.model.FlightWithCTHV;
+import com.example.qlbvmb.model.HangVe;
 
 
 @Controller
@@ -32,8 +32,10 @@ public class GetFlight {
     @GetMapping("/{role}/SearchFlight")
     public String showBookTicketPage(@PathVariable("role") String role, Model model) {
         Iterable<SanBay> sanbay = flightService.getAllSanbay();
+        Iterable<HangVe> hangve = flightService.getAllHangVe();
         model.addAttribute("role", role);
         model.addAttribute("sanbay", sanbay);
+        model.addAttribute("hangve", hangve);
         return "index_search";
     }
 
