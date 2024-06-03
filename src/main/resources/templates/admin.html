@@ -1,23 +1,182 @@
 <!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Admin Page</title>
-</head>
-<body>
-	<h1>Admin Page</h1>
-	<p>Username: <span th:text="${user.username}"></span></p>
-    <p>Role: <span th:text="${user.authorities}"></span></p>
-	
-	<a th:href="@{/{role}/BCDT_Thang(role=${user.authorities})}">BCDT</a><br>
-	<a th:href="@{/{role}/ThamSo(role=${user.authorities})}">ThayDoiThamSo</a><br>
-	<a th:href="@{/{role}/Airport(role=${user.authorities})}">SanBay</a><br>
-	<a th:href="@{/{role}/HangMB(role=${user.authorities})}">HangMB</a><br>
-	<a th:href="@{/{role}/Maybay(role=${user.authorities})}">Maybay</a><br>
-	<a th:href="@{/{role}/HangVe(role=${user.authorities})}">HangVe</a><br>
-	<a th:href="@{/{role}/LoaiHK(role=${user.authorities})}">LoaiHK</a><br>
-	<a th:href="@{/{role}/PhanQuyen(role=${user.authorities})}">PhanQuyen</a><br>
-	<a href="/Wan/login">Logout</a>
+<html lang="en">
 
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="shortcut icon" th:href="@{/favicon/Logo_Img.svg}" type="VietHub Airline" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <!-- font -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wdth,wght@0,75..100,300..800;1,75..100,300..800&family=Sora:wght@100..800&display=swap"
+    rel="stylesheet" />
+
+  <!-- font icon -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+
+  <!-- reset css -->
+  <link rel="stylesheet" th:href="@{/css/reset.css}" />
+  <!-- style css -->
+  <link rel="stylesheet" th:href="@{/css/style_decentralization_admin.css}" />
+
+  <title>VietHub Airline</title>
+</head>
+
+<body>
+  <!-- header -->
+  <header class="header">
+    <div class="menu">
+      <!-- Logo -->
+      <img th:src="@{/favicon/Logo_Gr.svg}" alt="Shine smile" class="logo header__logo" />
+      <!-- Navbar  -->
+      <nav class="navbar">
+        <ul class="navbar__list" id="navbar__list--pc">
+          <li class="navbar__item">
+            <a th:href="@{/role(role=${user.authorities})}" class="navbar__link">Home</a>
+          </li>
+          <li class="navbar__item">
+            <a th:href="@{/role(role=${user.authorities})}" class="navbar__link">About</a>
+          </li>
+          <li class="navbar__item">
+            <a th:href="@{/role(role=${user.authorities})}" class="navbar__link">Contact</a>
+          </li>
+          <li class="navbar__item">
+            <a th:href="@{/ADMIN}" class="navbar__link navbar__link--active">Decentralization</a>
+          </li>
+          <li class="navbar__item">
+            <a th:href="@{/{role}/BCDT_Thang(role=${user.authorities})}" class="navbar__link">Report</a>
+          </li>
+          <li class="navbar__item">
+            <a th:href="@{/{role}/Regulations(role=${user.authorities})}" class="navbar__link">Regulations</a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- cta action -->
+      <div th:if="${user.username != null}" class="congratulation__action">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" viewBox="0 0 448 512">
+          <path
+            d="M304 128a80 80 0 1 0 -160 0 80 80 0 1 0 160 0zM96 128a128 128 0 1 1 256 0A128 128 0 1 1 96 128zM49.3 464H398.7c-8.9-63.3-63.3-112-129-112H178.3c-65.7 0-120.1 48.7-129 112zM0 482.3C0 383.8 79.8 304 178.3 304h91.4C368.2 304 448 383.8 448 482.3c0 16.4-13.3 29.7-29.7 29.7H29.7C13.3 512 0 498.7 0 482.3z" />
+        </svg>
+        <p class="user_name" th:text="${user.username}">Admin</p>
+      </div>
+      <div th:if="${user.username == null}" class="header__action">
+        <a href="/Wan/login" class="header__action--login">Sign in</a>
+        <a href="/Wan/signup" class="btn header__action--signup">Sign up</a>
+      </div>
+    </div>
+
+    <section class="info__personal" style="display: none;">
+      <div class="info__name">
+        <h2 class="name__heading" th:text="${user.username}"></h2>
+        <p class="name__desc" th:text="${user.authorities}"></p>
+        <div class="underlined"></div>
+      </div>
+      <div class="user_functions">
+        <a href="#">
+          <div class="log_out">
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" viewBox="0 0 512 512" fill="#00256C">
+              <path
+                d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 192 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l210.7 0-73.4 73.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l128-128zM160 96c17.7 0 32-14.3 32-32s-14.3-32-32-32L96 32C43 32 0 75 0 128L0 384c0 53 43 96 96 96l64 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-64 0c-17.7 0-32-14.3-32-32l0-256c0-17.7 14.3-32 32-32l64 0z" />
+            </svg>
+            <a class="name__functions" href="/Wan/logout"> Log out</a>
+          </div>
+        </a>
+      </div>
+    </section>
+  </header>
+
+  <!-- main -->
+  <main>
+    <!-- result -->
+    <section class="planes">
+      <div class="container">
+        <!-- title -->
+        <div class="add-booking">
+          <h1 class="planes_heading">Admin Management</h1>
+          <div class="add-booking__icon" id="btnAdd">
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" viewBox="0 0 640 512" fill="#00256C">
+              <path
+                d="M96 128a128 128 0 1 1 256 0A128 128 0 1 1 96 128zM0 482.3C0 383.8 79.8 304 178.3 304h91.4C368.2 304 448 383.8 448 482.3c0 16.4-13.3 29.7-29.7 29.7H29.7C13.3 512 0 498.7 0 482.3zM504 312V248H440c-13.3 0-24-10.7-24-24s10.7-24 24-24h64V136c0-13.3 10.7-24 24-24s24 10.7 24 24v64h64c13.3 0 24 10.7 24 24s-10.7 24-24 24H552v64c0 13.3-10.7 24-24 24s-24-10.7-24-24z" />
+            </svg>
+            <a class="add__tickets">Add Account</a>
+          </div>
+        </div>
+
+        <!-- onclick -->
+        <dialog id="dialog_add_role">
+          <div class="wrapper">
+            <form th:action="@{/ADMIN/ThemUser}" method="POST">
+              <div class="field_add">
+                <label class="label">HoTen:</label>
+                <input required class="input" type="text" name="hoTen" placeholder="Enter full name" />
+                <label class="label">ID:</label>
+                <input required class="input" type="text" name="dinhDanh" placeholder="Enter ID" pattern="\d{12}" title="User ID must be exactly 12 digits."/>
+                <label class="label">PhoneNumber:</label>
+                <input required class="input" type="text" name="soDienThoai" placeholder="Enter Phone Number" pattern="^(\+84|0)(3|5|7|8|9)\d{8}$" title="Phone number must be a valid Vietnamese number."/>
+                <label class="label">Email:</label>
+                <input required class="input" type="email" name="email" placeholder="Enter Email" />
+                <label class="label">Username:</label>
+                <input required class="input" type="text" name="userName" placeholder="Enter Username" pattern="^(?=.*[0-9])(?=.*[a-zA-Z]).{6,}$" title="Username must be at least 6 characters long and contain at least one letter and one number." />
+                <label class="label">Password:</label>
+                <input required class="input" type="text" name="passWord" placeholder="Enter Password" pattern="^(?=.*[0-9]).{4,}$" title="Password must be at least 4 characters long and contain at least one number." />
+                <label class="label">Role:</label>
+                <select required class="input" name="Role">
+                  <option disabled selected>Select Role</option>
+                  <option value="ADMIN">ADMIN</option>
+                  <option value="STAFF">STAFF</option>
+                  <option value="USER">USER</option>
+                </select>
+                <div class="button">
+                  <input type="submit" id="confirmAdd" class="btn" value="Confirm" />
+                  <input type="button" id="cancelAdd" class="btn" value="Cancel" />
+                </div>
+              </div>
+            </form>
+          </div>
+        </dialog>
+
+        <!-- table -->
+        <table id="table_planes" class="table">
+          <tr>
+            <th style="width: 15%">User_ID</th>
+            <th style="width: 15%">Username</th>
+            <th style="width: 15%">Email</th>
+            <th style="width: 15%">ID</th>
+            <th>Role</th>
+            <th style="width: 20%">Action</th>
+            
+          </tr>
+
+
+          <tr th:each="customers : ${customers}">
+            <td th:value="${customers.ID}" th:text="${customers.ID}"></td>
+            <td th:value="${customers.userName}" th:text="${customers.userName}"></td>
+            <td th:value="${customers.Email}" th:text="${customers.Email}"></td>
+            <td th:value="${customers.dinhDanh}" th:text="${customers.dinhDanh}"></td>
+            <td th:value="${customers.Role}" th:text="${customers.Role}"></td>
+            <td>
+              <a th:href="@{/{role}/edit/{id}(id=${customers.ID}, role=${user.authorities})}">
+                <button class="btn-delete">Edit</button></a>
+              <a th:href="@{/{role}/delete/{id}(id=${customers.ID}, role=${user.authorities})}">
+                <button class="btn-delete">Delete</button></a>
+            </td>
+            <!-- <td>
+              <a class="btn-delete"
+                th:href="@{/{role}/delete/{id}(id=${customers.ID}, role=${user.authorities})}">Delete</a>
+            </td> -->
+          </tr>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <!--Phan java script-->
+
+  <script th:src="@{/js/main_search.js}"></script>
+  <script th:src="@{/js/admin_decentralization.js}"></script>
 </body>
+
 </html>

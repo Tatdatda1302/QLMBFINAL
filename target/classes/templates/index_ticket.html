@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
@@ -44,4 +44,183 @@
             </td>
 		</tr>
 </body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="shortcut icon"
+      th:href="@{/favicon/Logo_Img.svg}"
+      type="VietHub Airline"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wdth,wght@0,75..100,300..800;1,75..100,300..800&family=Sora:wght@100..800&display=swap"
+      rel="stylesheet"/>
+
+    <!-- font icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    
+    <!-- reset css -->
+    <link rel="stylesheet" th:href="@{/css/reset.css}"/>
+    <!-- style css -->
+    <link rel="stylesheet" th:href="@{/css/style_reservation_staff.css}" />
+    
+    <title>VietHub Airline</title>
+  </head>
+  <body>
+
+    <!-- header -->
+    <header class="header">
+        <div class="menu">
+          <!-- Logo -->
+          <img
+              th:src="@{/favicon/Logo_Gr.svg}"
+              alt="Shine smile"
+              class="logo header__logo"
+          />
+          <!-- Navbar  -->
+          <nav class="navbar">
+            <ul class="navbar__list" id="navbar__list--pc">
+              <li class="navbar__item">
+                <a th:href="@{/STAFF}" class="navbar__link">Home</a>
+              </li>
+              <li class="navbar__item">
+                <a th:href="@{/{role}/SearchFlight(role=${user.authorities})}" class="navbar__link">Search</a>
+              </li>
+              <li class="navbar__item">
+                <a th:href="@{/STAFF}" class="navbar__link">About</a>
+              </li>
+              <li class="navbar__item">
+                <a th:href="@{/STAFF}" class="navbar__link">Contact</a>
+              </li>
+              <li class="navbar__item" th:if="${role == 'STAFF'}">
+                <a th:href="@{/{role}/add_flight(role=${user.authorities})}" class="navbar__link">AddFlight</a>
+              </li>
+              <li class="navbar__item">
+                <a th:href="@{/{role}/FlightTicket(role=${user.authorities})}" class="navbar__link navbar__link--active">SearchTicket</a>
+              </li>
+              <li class="navbar__item" th:if="${role == 'STAFF'}">
+                <a th:href="@{/{role}/BCDT_Thang(role=${user.authorities})}" class="navbar__link">Report</a>
+              </li>
+            </ul>
+          </nav>
+    
+          <!-- cta action -->
+          <div th:if="${user.username != null}" class="congratulation__action">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" viewBox="0 0 448 512">
+              <path
+                d="M304 128a80 80 0 1 0 -160 0 80 80 0 1 0 160 0zM96 128a128 128 0 1 1 256 0A128 128 0 1 1 96 128zM49.3 464H398.7c-8.9-63.3-63.3-112-129-112H178.3c-65.7 0-120.1 48.7-129 112zM0 482.3C0 383.8 79.8 304 178.3 304h91.4C368.2 304 448 383.8 448 482.3c0 16.4-13.3 29.7-29.7 29.7H29.7C13.3 512 0 498.7 0 482.3z" />
+            </svg>
+            <p class="user_name" th:text="${user.username}">User</p>
+          </div>
+          <div th:if="${user.username == null}" class="header__action">
+            <a href="/Wan/login" class="header__action--login">Sign in</a>
+            <a href="/Wan/signup" class="btn header__action--signup">Sign up</a>
+          </div>
+        </div>
+    
+        <section class="info__personal" style="display: none;">
+          <div class="info__name">
+            <h2 class="name__heading" th:text="${user.username}"></h2>
+            <p class="name__desc" th:text="${user.authorities}"></p>
+            <div class="underlined"></div>
+          </div>
+          <div class="user_functions">
+            <a href="\templates\index_profile.html">
+              <div class="personal__page">
+    
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" viewBox="0 0 448 512" fill="#00256C">
+                  <path
+                    d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z" />
+                </svg>
+                <a class="name__functions" th:href="@{/{role}/edit/{id}(id=${customer.ID}, role=${user.authorities})}"> Personal Page</a>
+              </div>
+            </a>
+            <a href="\templates\index_reservation.html">
+              <div class="booked__tickets">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" viewBox="0 0 576 512" fill="#00256C">
+                  <path
+                    d="M0 24C0 10.7 10.7 0 24 0H69.5c22 0 41.5 12.8 50.6 32h411c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3H170.7l5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5H488c13.3 0 24 10.7 24 24s-10.7 24-24 24H199.7c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5H24C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z" />
+                </svg>
+                <a class="name__functions" th:href="@{/{role}/PhieuDatCho(role=${user.authorities})}"> Booked Tickets</a>
+              </div>
+            </a>
+            <a href="#">
+              <div class="log_out">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" viewBox="0 0 512 512" fill="#00256C">
+                  <path
+                    d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 192 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l210.7 0-73.4 73.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l128-128zM160 96c17.7 0 32-14.3 32-32s-14.3-32-32-32L96 32C43 32 0 75 0 128L0 384c0 53 43 96 96 96l64 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-64 0c-17.7 0-32-14.3-32-32l0-256c0-17.7 14.3-32 32-32l64 0z" />
+                </svg>
+                <a class="name__functions" href="/Wan/logout"> Log out</a>
+              </div>
+            </a>
+          </div>
+        </section>
+    </div>
+    </header>
+
+    <!-- main -->
+    <main>
+
+      <!-- hero -->
+      
+      <h1 class="heading">LIST OF TICKETS</h1>
+      <form th:action="@{/role/FlightTicket(role=${role})}" method="POST">
+        <div class="container_bar">
+                <div class="container_bar_search_input">
+                    <svg class="container_bar_img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="35" height="35" fill="#00256C" ><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"/></svg>
+                    <select name="maHK" required>
+                        <option value="" disabled selected>Search Passanger ID ...</option>
+                        <option th:each="hanhKhach : ${hanhKhach}" th:value="${hanhKhach.maHK}" th:text="${hanhKhach.maHK + ' (' + hanhKhach.hoTen + ')'}"></option>
+                    </select>
+                </div>
+            <button id="btnSearchClass" class="btn_bar_remove" type="submit">Search</button>
+        </div>
+        </form>
+    
+      <table id="table_class" class="table">
+        <thead>
+          <tr>
+            <th>Ticket ID</th>
+            <th>Flight Number</th>
+            <th>Class ID</th>
+            <th>Passanger ID</th>
+            <th>Passanger Type</th>
+            <th>Seat ID</th>
+            <th>Price Ticket</th>
+            <th>Date of Reservation</th>
+            <th>Ticket Issue Date</th>
+            <th>Issue Flight Ticket</th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr th:each="flightTicket : ${flightTicket}">
+                <td th:text="${flightTicket.maVe}"></td>
+                <td th:text="${flightTicket.maChuyenBay}"></td>
+                <td th:text="${flightTicket.maHangVe}"></td>
+                <td th:text="${flightTicket.maHK}"></td>
+                <td th:text="${flightTicket.maLHK}"></td>
+                <td th:text="${flightTicket.soGhe}"></td>
+                <td th:text="${flightTicket.giaVe}"></td>
+                <td th:text="${flightTicket.ngayDat}"></td>
+                <td th:text="${flightTicket.ngayXuatVe}"></td>
+                <td>
+                    <a th:if="${role == 'STAFF' && flightTicket.ngayXuatVe == null}" th:href="@{/{role}/FlightTicket/{maHK}/{maVe}(role=${role}, maHK=${flightTicket.maHK}, maVe=${flightTicket.maVe})}"><button class="issue-ticket-btn">Issue Ticket</button></a>
+                </td>
+        </tbody>
+      </table>
+    </section>
+
+
+      
+<script th:src="@{/js/reservation_staff.js}"></script>
+</body>
 </html>
+    

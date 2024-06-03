@@ -1,0 +1,376 @@
+* {
+    box-sizing: border-box;
+  }
+  html {
+    font-size: 62.5%;
+  }
+  body {
+    font-size: 1.6rem;
+    font-family: "Sora", sans-serif;
+  }
+  :root {
+    --font-heading: "Sora";
+    --font-content: "Open Sans";
+    --primary-color: #21a9de;
+    --header-bg: #00256c;
+    --partners-bg: #f6fbff;
+  }
+  
+  /* ========== common ========== */
+  /* se co nhung the khong an theo thuoc tinh chung */
+  input,
+  textarea,
+  select,
+  button {
+    font-family: inherit;
+    font-size: inherit;
+  }
+  .container {
+    width: 1400px;
+    margin: 0 auto;
+    max-width: calc(100% - 48px);
+  }
+  a {
+    text-decoration: none;
+  }
+  
+  .btn:hover {
+    /* Lam mo nen */
+    opacity: 0.9;
+  }
+  .section-heading {
+    color: var(--header-bg);
+    font-size: 5rem;
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -1px;
+  }
+  .section-desc {
+    color: #575f66;
+    font-size: 1.8rem;
+    font-weight: 300;
+    line-height: 1.67;
+  }
+  .control {
+    display: flex;
+    column-gap: 18px;
+    align-items: center;
+  }
+  .control__btn {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #575f66;
+    background: #fff;
+    cursor: pointer;
+    transition: 0.25s;
+  }
+  .control__btn:hover {
+    background: var(--primary-color);
+    border-color: var(--primary-color);
+    color: #fff;
+  }
+  .control__btn--next {
+    rotate: 180deg;
+  }
+  
+  /* ========== header ========== */
+  .header {
+    background: var(--header-bg);
+    min-width: 100vw;
+  }
+  .menu {
+    padding: 10px;
+    width: 1400px;
+    margin: 0 auto;
+    max-width: calc(100% - 48px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .navbar__list {
+    display: flex;
+  }
+  .header__action--login,
+  .navbar__link {
+    padding: 8px 21px;
+    color: #c9d2da;
+    font-size: 1.6rem;
+    font-weight: 300;
+    line-height: 1.75;
+  }
+  .navbar__link:hover,
+  .navbar__link--active {
+    color: #fff;
+    /* font-weight: 400; -> ko dung vi no se day cac ptu khi weight thay doi */
+    text-shadow: 1px 0 0 currentColor;
+    line-height: 1.75;
+  }
+  .header__action--signup {
+    min-width: 104px;
+    line-height: 44px;
+    font-size: 1.6rem;
+  }
+  .header__action--login {
+    margin-right: 7px;
+  }
+  
+  /* ========== main ========== */
+  
+  
+  /* ===== how  ===== */
+  .book{
+    padding: 40px 0;
+    background: #f6fbff;
+  }
+  .book__heading {
+    text-align: center;
+  }
+  .book__list {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    column-gap: 30px;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .book-item {
+    text-align: center;
+    padding: 20px;
+    border: 16px solid #eaf6ff;
+    border-radius: 4px;
+    background: #fff;
+    /* hieu ung */
+    transition: 0.25s;
+  }
+  .book-item:hover {
+    border-color: var(--primary-color);
+    transition: 0.25s;
+    transform: translateY(-16px);
+  }
+  .book-item__heading {
+    margin-top: 18px;
+    color: #10375c;
+    font-size: 2.6rem;
+    font-weight: 600;
+    line-height: 1.39;
+  }
+  
+  /* title */
+  .planes{
+    padding-bottom: 70px;
+  }
+  .add-booking {
+    margin: 0 30px;
+    padding-top: 60px;
+    width: 92%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  
+  }
+  .add-booking__icon {
+    
+    display: flex;
+    align-items: end;
+    justify-content: center;
+    gap: 10px;
+  }
+  .add-booking:hover .add-booking__icon {
+    cursor: pointer;
+    transform: scale(1.1);
+  }
+  .add__tickets {
+    color: var(--header-bg);
+  }
+  .btn-delete{
+    width: 70px;
+    height: 30px;
+    background-color: red;
+    border: transparent;
+    border-radius: 10px;
+    color: #fff;
+  }
+  .btn-delete:hover {
+    opacity: 0.9;
+    cursor: pointer;
+    background-color: var(--header-bg);
+  }
+  .btn-delete:active {
+    background-color: #fff;
+    color: #00256c;
+  }
+  h1 {
+    color: #00256c;
+    font-size: 45px;
+    font-weight: bold;
+  }
+  
+  
+  /* table */
+  table {
+    margin-left: 30px;
+    margin-top: 40px;
+    width: 96%;
+  }
+  th {
+    height: 50px;
+    background-color: #a0d1ff;
+    font-size: 2.2rem;
+    color: #fff;
+    font-weight: 500;
+  }
+  table,
+  th,
+  td {
+    border: 1px solid #00256c;
+    border-collapse: collapse;
+    text-align: center;
+  }
+  th,
+  td {
+    padding:10px;
+  }
+  tr:hover {
+    background-color: rgb(193, 231, 234);
+  }
+  
+  /* onClick */
+  dialog {
+    width: 40%;
+    border-radius: 10px;
+    border-color: transparent;
+  }
+  dialog .wrapper {
+    padding: 10px;
+  }
+  .field_add {
+    display: grid;
+    align-items: center;
+    align-content: center;
+    gap: 15px;
+  }
+  .label {
+    padding: 0 15px;
+    color: #00256c;
+  }
+  .input {
+    color: black;
+    border-radius: 5px;
+    border: 1px solid #00256c;
+    padding: 0 10px;
+    margin: 0 15px;
+    height: 40px;
+  }
+  .btn {
+    width: 200px;
+    background-color: #00256c;
+    color: #fff;
+    margin: 0 15px;
+    height: 40px;
+    border-radius: 10px;
+    justify-self: center;
+  }
+  .btn:hover {
+    opacity: 0.9;
+    cursor: pointer;
+    background-color: var(--header-bg);
+  }
+  .btn:active {
+    background-color: #fff;
+    color: #00256c;
+  }
+  .button{
+    margin-top: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+  
+  /* test */
+  .congratulation__action {
+    width: 150px;
+    height: 40px;
+    background: #fff;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+  .user_name {
+    color: #00256c;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.3;
+  }
+  .congratulation__action:hover {
+    cursor: pointer;
+    opacity: 0.9;
+  }
+  
+  /* test */
+  .info__personal {
+    padding: 20px;
+    width: 250px;
+    height: 150px;
+    background: #fff;
+    text-align: center;
+  
+    position: fixed;
+    right: 0; /* Đặt vị trí ở phía trái */
+    display: none;
+    position: absolute;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+  }
+  .name__heading {
+    margin-top: 10px;
+    color: #00256c;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.3;
+  }
+  .name__desc {
+    color: #9e9e9e;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.3;
+  }
+  .underlined {
+    margin: 10px 0 10px;
+    width: 270px;
+    height: 1px;
+    background: #d9d9d9;
+  }
+  .name__id,
+  .name__functions {
+    color: #00256c;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.3;
+  }
+  .personal__page,
+  .booked__tickets,
+  .log_out {
+    padding-left: 20px;
+    margin: 10px auto;
+    width: 250px;
+    height: 45px;
+  
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  .personal__page:hover,
+  .booked__tickets:hover,
+  .log_out:hover {
+    border-radius: 10px;
+    background: #d9d9d9;
+  }
+  
+  
+  

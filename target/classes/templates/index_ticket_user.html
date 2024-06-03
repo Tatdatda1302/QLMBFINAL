@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="shortcut icon"
+      th:href="@{/favicon/Logo_Img.svg}"
+      type="VietHub Airline"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wdth,wght@0,75..100,300..800;1,75..100,300..800&family=Sora:wght@100..800&display=swap"
+      rel="stylesheet"/>
+
+    <!-- font icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    
+    <!-- reset css -->
+    <link rel="stylesheet" th:href="@{/css/reset.css}" />
+    <!-- style css -->
+    <link rel="stylesheet" th:href="@{/css/style_reservation.css}" />
+    
+    <title>VietHub Airline</title>
+  </head>
+  <body>
+
+    <!-- header -->
+    <header class="header">
+      <div class="menu">
+        <!-- Logo -->
+          <img
+            th:src="@{/favicon/Logo_Gr.svg}"
+            alt="Shine smile"
+            class="logo header__logo"
+        />
+        <!-- Navbar  -->
+        <nav class="navbar">
+          <ul class="navbar__list" id="navbar__list--pc">
+            <li class="navbar__item">
+              <a th:href="@{/{role}(role=${user.authorities})}" class="navbar__link">Home</a>
+            </li>
+            <li class="navbar__item">
+              <a th:href="@{/{role}/SearchFlight(role=${user.authorities})}" class="navbar__link">Search</a>
+            </li>
+            <li class="navbar__item">
+              <a th:href="@{/{role}(role=${user.authorities})}" class="navbar__link">About</a>
+            </li>
+            <li class="navbar__item">
+              <a th:href="@{/{role}(role=${user.authorities})}" class="navbar__link">Contact</a>
+            </li>
+            <li class="navbar__item">
+              <a th:href="@{/{role}/FlightTicket/{maHK}(role=${user.authorities}, maHK=${maHK})}" class="navbar__link navbar__link--active">SearchTicket</a>
+            </li>
+          </ul>
+        </nav>
+        <!-- cta action -->
+        <div th:if="${user.username != null}" class="congratulation__action">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" viewBox="0 0 448 512">
+            <path
+              d="M304 128a80 80 0 1 0 -160 0 80 80 0 1 0 160 0zM96 128a128 128 0 1 1 256 0A128 128 0 1 1 96 128zM49.3 464H398.7c-8.9-63.3-63.3-112-129-112H178.3c-65.7 0-120.1 48.7-129 112zM0 482.3C0 383.8 79.8 304 178.3 304h91.4C368.2 304 448 383.8 448 482.3c0 16.4-13.3 29.7-29.7 29.7H29.7C13.3 512 0 498.7 0 482.3z" />
+          </svg>
+          <p class="user_name" th:text="${user.username}">User</p>
+        </div>
+        <div th:if="${user.username == null}" class="header__action">
+          <a href="/Wan/login" class="header__action--login">Sign in</a>
+          <a href="/Wan/signup" class="btn header__action--signup">Sign up</a>
+        </div>
+      </div>
+  
+      <section class="info__personal" style="display: none;">
+        <div class="info__name">
+          <h2 class="name__heading" th:text="${user.username}"></h2>
+          <p class="name__desc" th:text="${user.authorities}"></p>
+          <div class="underlined"></div>
+        </div>
+        <div class="user_functions">
+          <a href="\templates\index_profile.html">
+            <div class="personal__page">
+  
+              <svg xmlns="http://www.w3.org/2000/svg" width="30" viewBox="0 0 448 512" fill="#00256C">
+                <path
+                  d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z" />
+              </svg>
+              <a class="name__functions" th:href="@{/{role}/edit/{id}(id=${customer.ID}, role=${user.authorities})}"> Personal Page</a>
+            </div>
+          </a>
+          <a href="\templates\index_reservation.html">
+            <div class="booked__tickets">
+              <svg xmlns="http://www.w3.org/2000/svg" width="30" viewBox="0 0 576 512" fill="#00256C">
+                <path
+                  d="M0 24C0 10.7 10.7 0 24 0H69.5c22 0 41.5 12.8 50.6 32h411c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3H170.7l5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5H488c13.3 0 24 10.7 24 24s-10.7 24-24 24H199.7c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5H24C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z" />
+              </svg>
+              <a class="name__functions" th:href="@{/{role}/PhieuDatCho/{maHK}(role=${user.authorities}, maHK=${maHK})}"> Booked Tickets</a>
+            </div>
+          </a>
+          <a href="#">
+            <div class="log_out">
+              <svg xmlns="http://www.w3.org/2000/svg" width="30" viewBox="0 0 512 512" fill="#00256C">
+                <path
+                  d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 192 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l210.7 0-73.4 73.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l128-128zM160 96c17.7 0 32-14.3 32-32s-14.3-32-32-32L96 32C43 32 0 75 0 128L0 384c0 53 43 96 96 96l64 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-64 0c-17.7 0-32-14.3-32-32l0-256c0-17.7 14.3-32 32-32l64 0z" />
+              </svg>
+              <a class="name__functions" href="/Wan/logout"> Log out</a>
+            </div>
+          </a>
+        </div>
+      </section>
+    </header>
+
+    <!-- main -->
+    <main>
+
+        <!-- hero-->
+        <section class="hero">
+            <img
+              class="hero__img "
+              th:src="@{/img/Plane_Search.svg}"
+              alt="Plane_0"
+            />
+            <div class="hero__content">
+              <h1 class="hero__heading">LIST OF TICKETS</h1>
+        </section>
+
+        <!-- result 1-->
+        <section class="result" th:each="CB : ${CB}">
+            <div class="container"> 
+                <div class="result__container">
+                    <div class="information">
+        
+                        <div class="class__result">
+                            <div class="class"><h1 class="res-ticketid" th:text="${CB.ticket.maVe}"></h1> </div>
+                            <div class="class"><h1 class="res-class" th:text="${CB.ticket.maHangVe}"></h1></div></div>
+        
+                        <div class="pnrfromto__result">
+                            <div class="pnr__result">
+                                <h1 class="res-from-to">FLIGHT NUMBER</h1>    
+                                <p class="res-name" th:text="${CB.ticket.maChuyenBay}"></p>
+                            </div>
+                            <div class="from__result">
+                                <h1 class="res-from-to">FROM</h1>
+                                <p class="res-name" th:text=${CB.chuyenbay.maSanBayDi}></p>
+                            </div>
+                            <div class="to__result">
+                                <h1 class="res-from-to">TO</h1>
+                                <p class="res-name" th:text=${CB.chuyenbay.maSanBayDen}></p>
+                            </div>
+                        </div>
+        
+                        <div class="customer_result">
+                            <div class="customerid_result">
+                                <h1 class="res-from-to">CUSTOMER ID</h1>    
+                                <p class="res-name" th:text="${CB.ticket.maHK}"></p>
+                            </div>
+                            <div class="customertype_result">
+                                <h1 class="res-from-to">CUSTOMER TYPE</h1>
+                                <p class="res-name" th:text="${CB.ticket.maLHK}"></p>
+                            </div>
+                            <div class="seat__result">
+                                <h1 class="res_feature">SEAT</h1>    
+                                <p class="res_time" th:text="${CB.ticket.soGhe}"></p>
+                            </div>
+                        </div>
+        
+                        <div class="das_result">
+                            <div class="departure__result">
+                                <h1 class="res_feature">DEPARTURE</h1>    
+                                <p class="res_date" th:text="${CB.chuyenbay.ngayGioBay}"></p>
+                            </div>
+                            <div class="arrival__result">
+                                <h1 class="res_feature">FLIGHT TIME</h1>    
+                                <p class="res_time" th:text="${CB.chuyenbay.thoiGianBay}"></p>
+                            </div>
+                            <div class="issue_result">
+                                <h1 class="res-from-to">ISSUED DATE</h1>
+                                <p class="res_time" th:text="${CB.ticket.ngayXuatVe}"></p>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <div class="airplane">
+                        <div class="airplane-ticket">
+                            <div class="airtic">
+                            </div>
+                            <div class="res-price" th:text="${CB.ticket.giaVe + ' VND'}"></div>
+                        </div>
+                    </div>
+                </div>  
+            </div>
+        </section>
+    </main>
+    <script> 
+    window.addEventListener('load', function() {
+
+      const congratsAction = document.querySelector('.congratulation__action');
+      const infoPersonal = document.querySelector('.info__personal');
+  
+      let isInfoPersonalVisible = false;
+  
+      congratsAction.addEventListener('click', function() {
+  
+        if (!isInfoPersonalVisible) {
+          infoPersonal.style.display = 'block';
+          isInfoPersonalVisible = true;
+        } else {
+          infoPersonal.style.display = 'none';
+          isInfoPersonalVisible = false;
+        }
+      });
+    });
+    </script>
+
+  </body>
+</html>

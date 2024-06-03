@@ -41,4 +41,5 @@ public class PhieuDatCho implements java.io.Serializable{
 
     @Column(name = "TinhTrang")
     private String tinhTrang;
+
 }

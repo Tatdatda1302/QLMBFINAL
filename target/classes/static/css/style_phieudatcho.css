@@ -1,0 +1,454 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  html {
+    font-size: 62.5%;
+  }
+  
+  body {
+    font-size: 1.6rem;
+    font-family: "Sora", sans-serif;
+  }
+  
+  :root {
+    --font-heading: "Sora";
+    --font-content: "Open Sans";
+    --primary-color: #21a9de;
+    --header-bg: #00256c;
+    --partners-bg: #f6fbff;
+  }
+  
+  /* ========== common ========== */
+  
+  /* se co nhung the khong an theo thuoc tinh chung */
+  
+  input,
+  textarea,
+  select,
+  button {
+    font-family: inherit;
+    font-size: inherit;
+  }
+  
+  .container {
+    width: 1170px;
+    margin: 0 auto;
+    max-width: calc(100% - 48px);
+  }
+  
+  a {
+    text-decoration: none;
+  }
+  
+  .btn {
+    /* box chua */
+    display: inline-block;
+    min-width: 205px;
+    line-height: 60px;
+    border-radius: 30px;
+    background: var(--primary-color);
+    /* text */
+    text-align: center;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 400;
+  }
+  
+  .btn:hover {
+    /* Lam mo nen */
+    opacity: 0.9;
+  }
+  
+  .section-heading {
+    color: var(--header-bg);
+    font-size: 5rem;
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -1px;
+  }
+  
+  .section-desc {
+    color: #575f66;
+    font-size: 1.8rem;
+    font-weight: 300;
+    line-height: 1.67;
+  }
+  
+  .control {
+    display: flex;
+    column-gap: 18px;
+    align-items: center;
+  }
+  
+  .control__btn {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #575f66;
+    background: #fff;
+    cursor: pointer;
+    transition: 0.25s;
+  }
+  
+  .control__btn:hover {
+    background: var(--primary-color);
+    border-color: var(--primary-color);
+    color: #fff;
+  }
+  
+  .control__btn--next {
+    rotate: 180deg;
+  }
+  
+  /* ========== header ========== */
+  
+  .header {
+    background: var(--header-bg);
+    min-width: 100vw;
+  }
+  .heading {
+    text-align: center;
+    margin: 40px;
+    color: var(--header-bg);
+    font-size: 50px;
+    font-weight: 700;
+  }
+  
+  .menu {
+    padding: 10px;
+    width: 1400px;
+    margin: 0 auto;
+    max-width: calc(100% - 48px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .navbar__list {
+    display: flex;
+  }
+  
+  .header__action--login,
+  .navbar__link {
+    padding: 8px 21px;
+    color: #c9d2da;
+    font-size: 1.6rem;
+    font-weight: 300;
+    line-height: 1.75;
+  }
+  
+  .navbar__link:hover,
+  .navbar__link--active {
+    color: #fff;
+    /* font-weight: 400; -> ko dung vi no se day cac ptu khi weight thay doi */
+    text-shadow: 1px 0 0 currentColor;
+    line-height: 1.75;
+  }
+  
+  .header__action--signup {
+    min-width: 104px;
+    line-height: 44px;
+    font-size: 1.6rem;
+  }
+  
+  .header__action--login {
+    margin-right: 7px;
+  }
+  
+  /* ========== main ========== */
+  
+  /* ===== hero ===== */
+  
+  .hero__heading {
+    color: rgba(0, 100, 222, 0.41);
+    text-align: center;
+    font-size: 7rem;
+    font-weight: 900;
+    line-height: 1.14;
+    letter-spacing: -1.4px;
+  }
+  
+  .hero__desc {
+    margin-top: 30px;
+    color: #c9d2da;
+    font-size: 1.8rem;
+    font-weight: 400;
+    line-height: 1.67;
+    width: 458px;
+    text-align: center;
+  }
+  
+  .hero__row {
+    margin-top: 40px;
+    display: flex;
+    align-items: center;
+    column-gap: 40px;
+  }
+  
+  .hero__phone {
+    color: #fff;
+    font-size: 1.8rem;
+    font-weight: 400;
+    line-height: 1.67;
+  }
+  
+  .hero {
+    display: flex;
+    position: relative;
+  }
+  
+  .hero__content {
+    margin: 50px 20px 130px; /* Giảm margin-top và margin-bottom */
+    width: 57.1%;
+    position: absolute;
+    top: 0; /* Đặt phần content lên đỉnh */
+    left: 50%; /* Căn giữa theo chiều ngang */
+    transform: translateX(
+      -50%
+    ); /* Dịch chuyển lùi lại 50% theo chiều ngang để căn giữa */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  .hero__img {
+    min-width: 100vw;
+    object-fit: cover;
+  }
+  
+  /* Dinh dang cho thanh tim kiem*/
+  
+  .btn_bar_remove {
+    background-color: #00256c;
+    width: calc(100% / 6 - 50px);
+    height: 45px;
+    color: #fff;
+    border-radius: 10px;
+    border-color: #00256c;
+  }
+  
+  .btn_bar_remove:hover {
+    /* Lam mo nen */
+    opacity: 0.9;
+  }
+  
+  .btn_bar_remove:active {
+    /* Lam mo nen */
+    background-color: #f7f7f7;
+    color: #00256c;
+  }
+  
+  .input {
+    margin: 10px;
+    padding: 10px;
+    width: 300px;
+    border-radius: 10px;
+    color: #00256c;
+    border-color: #00256c;
+  }
+  
+  .container_bar {
+    margin: 20px 0 auto;
+    width: 900px;
+    display: flex;
+    padding: 10px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  
+  /* Thêm margin cho các phần tử con */
+  .container_bar > * {
+    margin-right: 10px; /* Thêm khoảng cách 10px giữa các phần tử */
+  }
+  
+  /* Không cần margin cho phần tử cuối cùng */
+  .container_bar > *:last-child {
+    margin-right: 0; /* Không có margin cho phần tử cuối cùng */
+  }
+  
+  .container_bar_search_input {
+    padding-left: 120px; /* Giảm khoảng cách bên trái */
+    padding-right: 1px; /* Thêm khoảng cách bên phải */
+  }
+  
+  .container_bar_search_input svg {
+    margin-top: 0px;
+  }
+  
+  h1 {
+    padding: 30px;
+    color: #00256c;
+    font-size: 45px;
+    font-weight: bold;
+    text-align: center;
+  }
+  
+  /* dinh dang table va cac thanh phan ben trong*/
+  
+  table {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    width: 85vw; /* Sử dụng đơn vị đo lường vw cho chiều rộng */
+    border-collapse: collapse;
+  }
+  
+  th {
+    background-color: #a0d1ff;
+    font-size: 15px;
+  }
+  
+  td {
+    font-size: 15px;
+  }
+  
+  table,
+  th,
+  td {
+    border: 1px solid #00256c;
+    border-collapse: collapse;
+    text-align: center;
+  }
+  
+  th,
+  td {
+    padding: 10px 5px; /* Giảm padding để làm cho nội dung nhỏ hơn */
+    white-space: nowrap; /* Ngăn chặn việc quấn dòng */
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .table_title {
+    text-decoration-thickness: 3px;
+  }
+  
+  tr:hover {
+    background-color: rgb(193, 231, 234);
+  }
+  
+  /* test */
+  .congratulation__action {
+    width: 150px;
+    height: 40px;
+    background: #fff;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+  .user_name {
+    color: #00256c;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.3;
+  }
+  .congratulation__action:hover {
+    cursor: pointer;
+    opacity: 0.9;
+  }
+  
+  /* test */
+  .info__personal {
+    padding: 20px;
+    width: 250px;
+    height: 260px;
+    background: #fff;
+    text-align: center;
+  
+    position: fixed;
+    right: 0; /* Đặt vị trí ở phía trái */
+    display: none;
+    position: absolute;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+  }
+  
+  .name__heading {
+    margin-top: 10px;
+    color: #00256c;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.3;
+  }
+  .name__desc {
+    color: #9e9e9e;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.3;
+  }
+  .underlined {
+    margin: 10px 0 10px;
+    width: 270px;
+    height: 1px;
+    background: #d9d9d9;
+  }
+  
+  .name__id,
+  .name__functions {
+    color: #00256c;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.3;
+  }
+  
+  .personal__page,
+  .booked__tickets,
+  .log_out {
+    padding-left: 20px;
+    margin: 10px auto;
+    height: 45px;
+  
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  .personal__page:hover,
+  .booked__tickets:hover,
+  .log_out:hover {
+    border-radius: 10px;
+    background: #d9d9d9;
+  }
+  
+  /* issue ticket */
+  
+  .issue-ticket-btn {
+    display: inline-block;
+    padding: 5px 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .issue-ticket-btn:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  .btn-delete{
+    width: 70px;
+    height: 30px;
+    background-color: red;
+    border: transparent;
+    border-radius: 10px;
+    color: #fff;
+  }
+  .btn-save:hover,
+  .btn-delete:hover {
+    opacity: 0.9;
+    cursor: pointer;
+    background-color: var(--header-bg);
+  }
+  .btn-save:active,
+  .btn-delete:active {
+    background-color: #fff;
+    color: #00256c;
+  }
+  

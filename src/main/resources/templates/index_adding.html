@@ -23,6 +23,7 @@
     <link rel="stylesheet" th:href="@{/css/reset.css}" />
     <!-- style css -->
     <link rel="stylesheet" th:href="@{/css/style_adding.css}" />
+    <!-- <link rel="stylesheet" th:href="@{/css/style_search.css}" /> -->
     
     <title>VietHub Airline</title>
   </head>
@@ -41,33 +42,80 @@
           <nav class="navbar">
             <ul class="navbar__list" id="navbar__list--pc">
               <li class="navbar__item">
-                <a href="/Wan" class="navbar__link navbar__link--active">Home</a>
+                <a th:href="@{/STAFF}" class="navbar__link">Home</a>
               </li>
               <li class="navbar__item">
-                <a href="/index_search.html" class="navbar__link">Search</a>
+                <a th:href="@{/{role}/SearchFlight(role=${user.authorities})}" class="navbar__link">Search</a>
               </li>
               <li class="navbar__item">
-                <a href="/booking" class="navbar__link">Booking</a>
+                <a th:href="@{/STAFF}" class="navbar__link">About</a>
               </li>
               <li class="navbar__item">
-                <a href="/Wan" class="navbar__link">About</a>
+                <a th:href="@{/STAFF}" class="navbar__link">Contact</a>
+              </li>
+              <li class="navbar__item" th:if="${role == 'STAFF'}">
+                <a th:href="@{/{role}/add_flight(role=${user.authorities})}" class="navbar__link navbar__link--active">AddFlight</a>
               </li>
               <li class="navbar__item">
-                <a href="/Wan" class="navbar__link">Contact</a>
+                <a th:href="@{/{role}/FlightTicket(role=${user.authorities})}" class="navbar__link">SearchTicket</a>
               </li>
-              <li class="navbar__item">
-                <a href="/bookTicket" class="navbar__link">BookTicket</a>
-              </li>
-              <li class="navbar__item">
-                <a href="/Wan/add_flight" class="navbar__link">AddFlight</a>
+              <li class="navbar__item" th:if="${role == 'STAFF'}">
+                <a th:href="@{/{role}/BCDT_Thang(role=${user.authorities})}" class="navbar__link">Report</a>
               </li>
             </ul>
           </nav>
+    
           <!-- cta action -->
-          <div class="header__action">
-            <a href="/index_signin" class="header__action--login">Log in</a>
-            <a href="/index_signup" class="btn header__action--signup">Sign up</a>
+          <div th:if="${user.username != null}" class="congratulation__action">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" viewBox="0 0 448 512">
+              <path
+                d="M304 128a80 80 0 1 0 -160 0 80 80 0 1 0 160 0zM96 128a128 128 0 1 1 256 0A128 128 0 1 1 96 128zM49.3 464H398.7c-8.9-63.3-63.3-112-129-112H178.3c-65.7 0-120.1 48.7-129 112zM0 482.3C0 383.8 79.8 304 178.3 304h91.4C368.2 304 448 383.8 448 482.3c0 16.4-13.3 29.7-29.7 29.7H29.7C13.3 512 0 498.7 0 482.3z" />
+            </svg>
+            <p class="user_name" th:text="${user.username}">User</p>
           </div>
+          <div th:if="${user.username == null}" class="header__action">
+            <a href="/Wan/login" class="header__action--login">Sign in</a>
+            <a href="/Wan/signup" class="btn header__action--signup">Sign up</a>
+          </div>
+        </div>
+    
+        <section class="info__personal" style="display: none;">
+          <div class="info__name">
+            <h2 class="name__heading" th:text="${user.username}"></h2>
+            <p class="name__desc" th:text="${user.authorities}"></p>
+            <div class="underlined"></div>
+          </div>
+          <div class="user_functions">
+            <a href="\templates\index_profile.html">
+              <div class="personal__page">
+    
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" viewBox="0 0 448 512" fill="#00256C">
+                  <path
+                    d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z" />
+                </svg>
+                <a class="name__functions" th:href="@{/{role}/edit/{id}(id=${customer.ID}, role=${user.authorities})}"> Personal Page</a>
+              </div>
+            </a>
+            <a href="\templates\index_reservation.html">
+              <div class="booked__tickets">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" viewBox="0 0 576 512" fill="#00256C">
+                  <path
+                    d="M0 24C0 10.7 10.7 0 24 0H69.5c22 0 41.5 12.8 50.6 32h411c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3H170.7l5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5H488c13.3 0 24 10.7 24 24s-10.7 24-24 24H199.7c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5H24C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z" />
+                </svg>
+                <a class="name__functions" th:href="@{/{role}/PhieuDatCho(role=${user.authorities})}"> Booked Tickets</a>
+              </div>
+            </a>
+            <a href="#">
+              <div class="log_out">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" viewBox="0 0 512 512" fill="#00256C">
+                  <path
+                    d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 192 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l210.7 0-73.4 73.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l128-128zM160 96c17.7 0 32-14.3 32-32s-14.3-32-32-32L96 32C43 32 0 75 0 128L0 384c0 53 43 96 96 96l64 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-64 0c-17.7 0-32-14.3-32-32l0-256c0-17.7 14.3-32 32-32l64 0z" />
+                </svg>
+                <a class="name__functions" href="/Wan/logout"> Log out</a>
+              </div>
+            </a>
+          </div>
+        </section>
         </div>
     </header>
 
@@ -121,13 +169,21 @@
                       <label>Duration:</label>
                       <input type="text" name="thoiGianBay" placeholder="Enter duration(HH:mm:ss)" required>
                   </div>
-                  <div class="input-field">
-                      <label>Prestige Class Number:</label>
-                      <input type="number" name="soLuong1" placeholder="Enter the chair number of prestige class" required>
+                  <div class="input-field" th:if="${count >= 1}">
+                      <label th:text="${hangve[0].tenHangVe} + ' Number:'"></label>
+                      <input type="number" min=0 name="soLuong1" th:placeholder="'Enter the chair number of ' + ${hangve[0].tenHangVe}" required>
                   </div>
-                  <div class="input-field">
-                      <label>Economy Class Number:</label>
-                      <input type="number" name="soLuong2" placeholder="Enter the chair number of economy class" required>
+                  <div class="input-field" th:if="${count >= 2}">
+                      <label th:text="${hangve[1].tenHangVe} + ' Number:'"></label>
+                      <input type="number" min=0 name="soLuong2" th:placeholder="'Enter the chair number of ' + ${hangve[1].tenHangVe}" required>
+                  </div>
+                  <div class="input-field" th:if="${count >= 3}">
+                    <label th:text="${hangve[2].tenHangVe} + ' Number:'"></label>
+                    <input type="number" min=0 name="soLuong3" th:placeholder="'Enter the chair number of ' + ${hangve[2].tenHangVe}" required>
+                  </div>
+                  <div class="input-field" th:if="${count >= 4}">
+                    <label th:text="${hangve[3].tenHangVe} + ' Number:'"></label>
+                    <input type="number" min=0 name="soLuong4" th:placeholder="'Enter the chair number of ' + ${hangve[3].tenHangVe}" required>
                   </div>
                   <div class="input-field">
                       <label>Price:</label>
@@ -137,15 +193,15 @@
               <div class="container_inter">
                   <div class="add_station_title">
                       <div class="inter_title">Intermediate Stations</div>
-                      <div class="btn_sign">
+                      <!-- <div class="btn_sign">
                           <button class="btn_add_sign">
                               <svg xmlns="http://www.w3.org/2000/svg" width="25" height="29" viewBox="0 0 448 512">
                                   <path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3-32-32s-14.3-32-32-32H256V80z" fill="currentColor"/>
                               </svg>
                           </button>
-                      </div>
+                      </div> -->
                   </div>
-                  <div class="add_station">
+                  <div class="add_station" th:if="${thamso.soSanBayTGToiDa >= 1}">
                       <div class="add_planeStation">
                           <div class="air_plane">
                               <img class="img_plane" th:src="@{/favicon/airplane.svg}"/>
@@ -166,22 +222,22 @@
                               <input type="text" name="ghiChu1" placeholder="Enter note"></input>
                           </div>
                       </div>
-                      <div class="btn_sign">
+                      <!-- <div class="btn_sign">
                           <button class="btn_add_sign">
                               <svg xmlns="http://www.w3.org/2000/svg" width="25" height="29" viewBox="0 0 448 512">
                                   <path d="M432 256c0 17.7-14.3 32-32 32L48 288c-17.7 0-32-14.3-32-32s14.3-32 32-32l352 0c17.7 0 32 14.3 32 32z"/>
                               </svg>
                           </button>
-                      </div>
+                      </div> -->
                   </div>
-                  <div class="add_station">
+                  <div class="add_station" th:if="${thamso.soSanBayTGToiDa >= 2}">
                       <div class="add_planeStation">
                           <div class="air_plane">
                               <img class="img_plane" th:src="@{/favicon/airplane.svg}"/>
                           </div>
                           <div class="input-field">
                               <label>Station:</label>
-                              <select type="text" name="maSanBayTG1">
+                              <select type="text" name="maSanBayTG2">
                                 <option disabled selected>Select station</option>
                                 <option th:each="sanbay: ${sanbay}" th:value="${sanbay.maSanBay}" th:text="${sanbay.maSanBay}"></option>
                               </select>
@@ -195,22 +251,216 @@
                               <input type="text" name="ghiChu2" placeholder="Enter note"></input>
                           </div>
                       </div>
-                      <div class="btn_sign">
+                      <!-- <div class="btn_sign">
                           <button class="btn_add_sign">
                               <svg xmlns="http://www.w3.org/2000/svg" width="25" height="29" viewBox="0 0 448 512">
                                   <path d="M432 256c0 17.7-14.3 32-32 32L48 288c-17.7 0-32-14.3-32-32s14.3-32 32-32l352 0c17.7 0 32 14.3 32 32z"/>
                               </svg>
                           </button>
-                      </div>
+                      </div> -->
                   </div>
-              </div>
+                  <div class="add_station" th:if="${thamso.soSanBayTGToiDa >= 3}">
+                    <div class="add_planeStation">
+                        <div class="air_plane">
+                            <img class="img_plane" th:src="@{/favicon/airplane.svg}"/>
+                        </div>
+                        <div class="input-field">
+                            <label>Station:</label>
+                            <select type="text" name="maSanBayTG3">
+                              <option disabled selected>Select station</option>
+                              <option th:each="sanbay: ${sanbay}" th:value="${sanbay.maSanBay}" th:text="${sanbay.maSanBay}"></option>
+                            </select>
+                        </div>
+                        <div class="input-field">
+                            <label>Stop Time:</label>
+                            <input type="text" name="thoiGianDung3" placeholder="Stoptime(HH:mm:ss)"></input>
+                        </div>
+                        <div class="input-field">
+                            <label>Note:</label>
+                            <input type="text" name="ghiChu3" placeholder="Enter note"></input>
+                        </div>
+                    </div>
+                    <!-- <div class="btn_sign">
+                        <button class="btn_add_sign">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="29" viewBox="0 0 448 512">
+                                <path d="M432 256c0 17.7-14.3 32-32 32L48 288c-17.7 0-32-14.3-32-32s14.3-32 32-32l352 0c17.7 0 32 14.3 32 32z"/>
+                            </svg>
+                        </button>
+                    </div> -->
+                  </div>
+                  <div class="add_station" th:if="${thamso.soSanBayTGToiDa >= 4}">
+                        <div class="add_planeStation">
+                            <div class="air_plane">
+                                <img class="img_plane" th:src="@{/favicon/airplane.svg}"/>
+                            </div>
+                            <div class="input-field">
+                                <label>Station:</label>
+                                <select type="text" name="maSanBayTG4">
+                                  <option disabled selected>Select station</option>
+                                  <option th:each="sanbay: ${sanbay}" th:value="${sanbay.maSanBay}" th:text="${sanbay.maSanBay}"></option>
+                                </select>
+                            </div>
+                            <div class="input-field">
+                                <label>Stop Time:</label>
+                                <input type="text" name="thoiGianDung4" placeholder="Stoptime(HH:mm:ss)"></input>
+                            </div>
+                            <div class="input-field">
+                                <label>Note:</label>
+                                <input type="text" name="ghiChu4" placeholder="Enter note"></input>
+                            </div>
+                        </div>
+                        <!-- <div class="btn_sign">
+                            <button class="btn_add_sign">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="29" viewBox="0 0 448 512">
+                                    <path d="M432 256c0 17.7-14.3 32-32 32L48 288c-17.7 0-32-14.3-32-32s14.3-32 32-32l352 0c17.7 0 32 14.3 32 32z"/>
+                                </svg>
+                            </button>
+                        </div> -->
+                  </div>
+                </div>
               <div class="btn_center">
                   <button class="btn_confirm_add">Confirm</button>
               </div>
           </form>
       </div>
+      <div id="myDiv" style = "display:none" th:text="${thamso.tgBayToiThieu}"></div>
+      <div id="min" style = "display:none" th:text="${thamso.tgDungToiThieu}"></div>
+      <div id="max" style = "display:none" th:text="${thamso.tgDungToiDa}"></div>
   </main>
 
+  <script th:src="@{/js/main_search.js}"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script>
+  $(document).ready(function(){
+      $(".btn_add_sign").click(function(){
+          var clone = $(".add_station:first").clone();
+          $(".container_inter").append(clone);
+      });
+
+      $(document).on('click', '.btn_remove_sign', function(){
+          $(this).closest('.add_station').remove();
+      });
+  });
+  </script>
+  <script>
+    const inputFlight = document.querySelector('input[placeholder="Enter flight ID"]');
+    // plan ID ra mot selection lay tu csdl
+    const inputDuration = document.querySelector('input[placeholder="Enter duration(HH:mm:ss)"]');
+    const inputStoptime = document.querySelectorAll('input[placeholder="Stoptime(HH:mm:ss)"]');
+    const inputDateTime= document.querySelector('input[placeholder="Enter time and date"]');
+    const inputPrestige =document.querySelector('input[placeholder="Enter the chair number of Prestige Class"]');
+    const inputEconomy = document.querySelector('input[placeholder="Enter the chair number of Economy Class"]');
+    const inputPriority = document.querySelector('input[placeholder="Enter the chair number of Priority Class"]');
+    const inputPrice = document.querySelector('input[placeholder="Enter price"]');
+
+
+    inputEconomy.addEventListener('blur', function(e){
+      if (parseInt(inputEconomy.value.trim()) < 0) {
+        // Display error message if value is below 0
+        alert("Error value: the input is below 0");
+      } 
+    });
+    // inputEconomy.focus();
+    inputPrice.addEventListener('blur', function(e){
+      if (parseInt(inputPrice.value.trim()) < 0) {
+        // Display error message if value is below 0
+        alert("Error value: the input is below 0");
+      } 
+    });
+    // inputPrice.focus();
+    inputPrestige.addEventListener('blur', function(e){
+      if (parseInt(inputPrestige.value.trim()) < 0) {
+        // Display error message if value is below 0
+        alert("Error value: the input is below 0");
+      } 
+    });
+    // inputPrestige.focus();
+    inputDuration.addEventListener('blur', function(e){
+      if (parseInt(inputDuration.value.trim())<0 || parseInt(inputDuration.value.trim())>30){
+        alert("Error value: the input is below 0 or larger than specified parameters");}
+    });
+    // inputDuration.focus();
+
+    document.addEventListener("DOMContentLoaded", function () {
+      const input = document.getElementById('inputDateTime');
+      const today = new Date();
+      const tomorrow = new Date(today);
   
+      // Add 1 day to the current date
+      tomorrow.setDate(tomorrow.getDate() + 2);
+  
+      // Format the date as YYYY-MM-DDTHH:mm, which is the format required for datetime-local inputs
+      const minDate = tomorrow.toISOString().slice(0, 16);
+  
+      // Set the min attribute of the input to the formatted date
+      inputDateTime.min = minDate;
+  });
+
+  inputDuration.addEventListener('blur',function(e){
+        if (!validateTime(inputDuration.value.trim())){
+          alert('Error value: enter the input with syntax: HH:mm:ss');
+        }
+        else{
+          var a = inputDuration.value.split(':'); // split it at the colons
+          // minutes are worth 60 seconds. Hours are worth 60 minutes.
+          var seconds = (parseInt(a[0])) * 60 * 60 + (parseInt(a[1])) * 60 + (parseInt(a[2]));
+
+          var specifiedTimeElement = document.getElementById('myDiv');
+          var specifiedTime = specifiedTimeElement.textContent || specifiedTimeElement.innerText;
+          var specifiedSplit=specifiedTime.split(':');
+          var specifiedSecond=(parseInt(specifiedSplit[0])) * 60 * 60 + (parseInt(specifiedSplit[1])) * 60 + (parseInt(specifiedSplit[2]));
+
+          if (seconds < specifiedSecond){
+            alert('Error value: enter the input which has to be equal and greater than specified duration')
+          }
+        }
+      });
+      // inputDuration.focus();
+
+    inputStoptime.forEach(function(element) {
+      element.addEventListener('blur',function(e){
+        if(element.value.trim() === ''){
+
+        }
+        else {
+          if (!validateTime(element.value.trim())){
+            alert('Error value: enter the input with syntax: HH:mm:ss');
+        }
+        else{
+            var a = element.value.split(':'); // split it at the colons
+            // minutes are worth 60 seconds. Hours are worth 60 minutes.
+            var seconds = (parseInt(a[0])) * 60 * 60 + (parseInt(a[1])) * 60 + (parseInt(a[2]));
+
+            var minElement = document.getElementById('min');
+            var min = minElement.textContent || minElement.innerText;
+            console.log(min);
+            var minSplit=min.split(':');
+            var minSecond=(parseInt(minSplit[0])) * 60 * 60 + (parseInt(minSplit[1])) * 60 + (parseInt(minSplit[2]));
+
+            var maxElement = document.getElementById('max');
+            var max = maxElement.textContent || maxElement.innerText;
+            console.log(max);
+            var maxSplit=max.split(':');
+            var maxSecond=(parseInt(maxSplit[0])) * 60 * 60 + (parseInt(maxSplit[1])) * 60 + (parseInt(maxSplit[2]));
+
+            if (seconds < minSecond || seconds > maxSecond){
+                alert('Error value: enter the input which has to be in the range of specified duration')
+            }
+        }
+        }
+    });
+  });
+
+      function validateTime(input) {
+        // Regular expression to match the format hh:mm:ss
+        var regex = /^([0-1]?[0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])$/;
+    
+        // Test the input against the regular expression
+        return regex.test(input);
+    }
+
+    
+
+</script>
   </body>
 </html>

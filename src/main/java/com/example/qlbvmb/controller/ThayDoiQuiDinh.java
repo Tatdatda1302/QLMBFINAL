@@ -7,8 +7,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.ui.Model;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.context.SecurityContextHolder;
 
 import com.example.qlbvmb.service.FlightService;
+import com.example.qlbvmb.model.CustomerUserDetails;
 import com.example.qlbvmb.model.ThamSo;
 import jakarta.servlet.http.HttpServletRequest;
 
@@ -20,10 +22,12 @@ public class ThayDoiQuiDinh {
 
     @GetMapping("/{role}/ThamSo")
     public String thayDoiThamSo(@PathVariable("role") String role, Model model){
+        CustomerUserDetails user = (CustomerUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        model.addAttribute("user", user);
         model.addAttribute("role", role);
         ThamSo thamso = flightService.getThamSo();
         model.addAttribute("thamso", thamso);
-        return "Thamso";
+        return "Thamso"; 
     }
 
     @PostMapping("/{role}/ThamSo")

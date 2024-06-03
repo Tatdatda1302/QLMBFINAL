@@ -1,69 +1,267 @@
+
 <!DOCTYPE html>
-<html>
-<head>
-    <title>Annual Revenue Report</title>
-</head>
-<body>
-    <h1>Annual Revenue Report</h1>
-    <form th:action="@{/{role}/BCDT_Thang(role=${role})}" method="POST">
-        <label for="year">Enter Month:</label><br>
-        <input type="number" name="month" placeholder="Enter month" value="0"/><br>
-        <label for="year">Enter Year:</label><br>
-        <input type="number" name="year" placeholder="Enter year" required /><br>
-        <input type="submit" value="Generate Report" />
-    </form><br>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="shortcut icon"
+      th:href="@{/favicon/Logo_Img.svg}"
+      type="VietHub Airline"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
-    <h2>CT_BCDT_Thang</h2>
-    <table border="1">
-        <tr>
-            <th>Month</th>
-            <th>Year</th>
-            <th>MaChuyenBay</th>
-            <th>SoVeHang1</th>
-            <th>SoveHang2</th>
-            <th>DoanhThu</th>
-            <th>TiLe</th>
-        </tr>
-        <tr th:each="ct_bcdt_thang : ${ct_bcdt_thang}">
-            <td th:text="${ct_bcdt_thang.thang}"></td>
-            <td th:text="${ct_bcdt_thang.nam}"></td>
-            <td th:text="${ct_bcdt_thang.maChuyenBay}"></td>
-            <td th:text="${ct_bcdt_thang.soVeHang1}"></td>
-            <td th:text="${ct_bcdt_thang.soVeHang2}"></td>
-            <td th:text="${ct_bcdt_thang.doanhThu}"></td>
-            <td th:text="${ct_bcdt_thang.tiLe}"></td>
-        </tr>
-    </table>
+    <!-- font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wdth,wght@0,75..100,300..800;1,75..100,300..800&family=Sora:wght@100..800&display=swap"
+      rel="stylesheet"/>
 
-    <h2>CT_BCDT_Nam</h2>
-    <table border="1">
-        <tr>
-            <th>Month</th>
-            <th>Year</th>
-            <th>SoChuyenBay</th>
-            <th>DoanhThu</th>
-            <th>TiLe</th>
-        </tr>
-        <tr th:each="tct_bcdt_nam : ${tct_bcdt_nam}">
-            <td th:text="${tct_bcdt_nam.thang}"></td>
-            <td th:text="${tct_bcdt_nam.nam}"></td>
-            <td th:text="${tct_bcdt_nam.soChuyenBay}"></td>
-            <td th:text="${tct_bcdt_nam.doanhThu}"></td>
-            <td th:text="${tct_bcdt_nam.tiLe}"></td>
-        </tr>
-    </table>
+    <!-- font icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    
+    <!-- reset css -->
+    <link rel="stylesheet" th:href="@{/css/reset.css}"/>
+    <!-- style css -->
+    <link rel="stylesheet" th:href="@{/css/style_report.css}" />
+    
+    <title>VietHub Airline</title>
+  </head>
+  <body>
 
-    <h2>Results</h2>
-    <table border="1">
-        <tr>
-            <th>Year</th>
-            <th>Total Revenue</th>
-        </tr>
-        <tr th:each="bcdt_nam : ${bcdt_nam}">
-            <td th:text="${bcdt_nam.nam}"></td>
-            <td th:text="${bcdt_nam.tongDoanhThu}"></td>
-        </tr>
-    </table>
+      <!-- header -->
+      <header class="header">
+          <div class="menu">
+            <!-- Logo -->
+            <img
+                th:src="@{/favicon/Logo_Gr.svg}"
+                alt="Shine smile"
+                class="logo header__logo"
+            />
+            <!-- Navbar  -->
+            <nav class="navbar">
+              <ul class="navbar__list" id="navbar__list--pc">
+                <li class="navbar__item">
+                  <a th:href="@{/role(role=${user.authorities})}" class="navbar__link">Home</a>
+                </li>
+                <li class="navbar__item" th:if="${role != 'ADMIN'}">
+                  <a th:href="@{/{role}/SearchFlight(role=${user.authorities})}" class="navbar__link">Search</a>
+                </li>
+                <li class="navbar__item">
+                  <a th:href="@{/role(role=${user.authorities})}" class="navbar__link">About</a>
+                </li>
+                <li class="navbar__item">
+                  <a th:href="@{/role(role=${user.authorities})}" class="navbar__link">Contact</a>
+                </li>
+                <li class="navbar__item" th:if="${role == 'STAFF'}">
+                  <a th:href="@{/{role}/add_flight(role=${user.authorities})}" class="navbar__link">AddFlight</a>
+                </li>
+                <li class="navbar__item" th:if="${role != 'ADMIN'}">
+                  <a th:href="@{/{role}/FlightTicket(role=${user.authorities})}" class="navbar__link">SearchTicket</a>
+                </li>
+                <li class="navbar__item" th:if="${role == 'ADMIN'}">
+                  <a th:href="@{/ADMIN}" class="navbar__link">Decentralization</a>
+                </li>
+                <li class="navbar__item">
+                  <a th:href="@{/{role}/BCDT_Thang(role=${user.authorities})}" class="navbar__link navbar__link--active">Report</a>
+                </li>
+                <li class="navbar__item" th:if="${role == 'ADMIN'}">
+                  <a th:href="@{/{role}/Regulations(role=${user.authorities})}" class="navbar__link">Regulations</a>
+                </li>
+              </ul>
+            </nav>
+           <!-- cta action -->
+           <div th:if="${user.username != null}" class="congratulation__action">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" viewBox="0 0 448 512">
+              <path
+                d="M304 128a80 80 0 1 0 -160 0 80 80 0 1 0 160 0zM96 128a128 128 0 1 1 256 0A128 128 0 1 1 96 128zM49.3 464H398.7c-8.9-63.3-63.3-112-129-112H178.3c-65.7 0-120.1 48.7-129 112zM0 482.3C0 383.8 79.8 304 178.3 304h91.4C368.2 304 448 383.8 448 482.3c0 16.4-13.3 29.7-29.7 29.7H29.7C13.3 512 0 498.7 0 482.3z" />
+            </svg>
+            <p class="user_name" th:text="${user.username}">Admin</p>
+          </div>
+          <div th:if="${user.username == null}" class="header__action">
+            <a href="/Wan/login" class="header__action--login">Sign in</a>
+            <a href="/Wan/signup" class="btn header__action--signup">Sign up</a>
+          </div>
+        </div>
+    
+        <section class="info__personal" style="display: none;">
+          <div class="info__name">
+            <h2 class="name__heading" th:text="${user.username}"></h2>
+            <p class="name__desc" th:text="${user.authorities}"></p>
+            <div class="underlined"></div>
+          </div>
+          <div class="user_functions">
+            <a th:if="${role == 'STAFF'}" href="\templates\index_profile.html">
+              <div class="personal__page">
+    
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" viewBox="0 0 448 512" fill="#00256C">
+                  <path
+                    d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z" />
+                </svg>
+                <a class="name__functions" th:href="@{/{role}/edit/{id}(id=${customer.ID}, role=${user.authorities})}"> Personal Page</a>
+              </div>
+            </a>
+            <a th:if="${role == 'STAFF'}" href="\templates\index_reservation.html">
+              <div class="booked__tickets">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" viewBox="0 0 576 512" fill="#00256C">
+                  <path
+                    d="M0 24C0 10.7 10.7 0 24 0H69.5c22 0 41.5 12.8 50.6 32h411c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3H170.7l5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5H488c13.3 0 24 10.7 24 24s-10.7 24-24 24H199.7c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5H24C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z" />
+                </svg>
+                <a class="name__functions" th:href="@{/{role}/PhieuDatCho(role=${user.authorities})}"> Booked Tickets</a>
+              </div>
+            </a>
+            <a href="#">
+              <div class="log_out">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" viewBox="0 0 512 512" fill="#00256C">
+                  <path
+                    d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 192 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l210.7 0-73.4 73.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l128-128zM160 96c17.7 0 32-14.3 32-32s-14.3-32-32-32L96 32C43 32 0 75 0 128L0 384c0 53 43 96 96 96l64 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-64 0c-17.7 0-32-14.3-32-32l0-256c0-17.7 14.3-32 32-32l64 0z" />
+                </svg>
+                <a class="name__functions" href="/Wan/logout"> Log out</a>
+              </div>
+            </a>
+          </div>
+        </section>
+          </div>
+      </header>
 
-</body>
+      <!-- main -->
+      <main>
+        <section class="report">
+          <div class="container">
+            
+            <!-- heading -->
+            <h1 class="report_heading">REPORT</h1>
+
+            <div class="container_report">
+              <!-- search -->
+              <form th:action="@{/{role}/BCDT_Thang(role=${role})}" method="POST">
+                <div class="container_left">
+                  <div class="report_types">
+                    <button type="button" id="btn_yearlyReport" class="btn_bar">Yearly report</button>
+                    <button type="button" id="btn_monthlyReport" class="btn_bar">Monthly report</button>
+                  </div>
+                
+                  <!-- style="search_yearly" -->
+                  <div id="search_yearly" class="search_yearly">
+                    <input class="input" type="number" min=1 name="year1" placeholder="Select year" required/>
+                  </div>
+
+                  <!-- style="search_monthly" -->
+                  <div id="search_monthly" class="search_monthly" style="display: none;">
+                    <input class="input" type="number" min=1 name="year2" placeholder="Select year"/>
+                    <input class="input" type="number" min=1 max=12 name="month" placeholder="Select month"/>
+                  </div>
+                </div><br>
+                <div class="preparation">
+                  <button type="submit" id="btnSearch" class="btn_bar">Report preparation</button>
+                </div>
+              </form>
+    
+              <!-- table -->
+              <div class="container_right">
+
+                <!-- table for monthly report -->
+                <table id="table_monthly" class="table">
+                  
+                  <!-- Title for yearly report -->
+                  <div class="table_title">
+                    <tr>
+                      <th>Month</th>
+                      <th>Year</th>
+                      <th>Flight Code</th>
+                      <th>1st class ticket</th>
+                      <th>2nd class ticket</th>
+                      <th>Total Revenue</th>
+                      <th>Rate</th>
+                    </tr>
+                  </div>
+                  
+                  <!-- result 1 -->
+                  <div class="table_row">
+                    <tr th:each="ct_bcdt_thang : ${ct_bcdt_thang}">
+                        <td th:text="${ct_bcdt_thang.thang}"></td>
+                        <td th:text="${ct_bcdt_thang.nam}"></td>
+                        <td th:text="${ct_bcdt_thang.maChuyenBay}"></td>
+                        <td th:text="${ct_bcdt_thang.soVeHang1}"></td>
+                        <td th:text="${ct_bcdt_thang.soVeHang2}"></td>
+                        <td th:text="${ct_bcdt_thang.doanhThu}"></td>
+                        <td th:text="${ct_bcdt_thang.tiLe}"></td>
+                    </tr>
+                  </div>
+
+
+                </table>
+                
+                <!-- table for yearly report -->
+                <table id="table_yearly" class="table" >
+    
+                  <!-- title -->
+                  <div class="table_title">
+                    <tr>
+                      <th>Month</th>
+                      <th>Year</th>
+                      <th>Number of flights</th>
+                      <th>Total Revenue</th>
+                      <th>Rate</th>
+                    </tr>
+                  </div>
+                  
+                  <!-- result 1 -->
+                  <div class="table_row">
+                    <tr th:each="tct_bcdt_nam : ${tct_bcdt_nam}">
+                        <td th:text="${tct_bcdt_nam.thang}"></td>
+                        <td th:text="${tct_bcdt_nam.nam}"></td>
+                        <td th:text="${tct_bcdt_nam.soChuyenBay}"></td>
+                        <td th:text="${tct_bcdt_nam.doanhThu}"></td>
+                        <td th:text="${tct_bcdt_nam.tiLe}"></td>
+                    </tr>
+                  </div>
+                </table>
+
+                <table id="table_yearly" class="table" >
+    
+                  <!-- title -->
+                  <div class="table_title">
+                    <tr>
+                      <th>Year</th>
+                      <th>Total Revenue</th>  
+                    </tr>
+                  </div>
+                  
+                  <!-- result 1 -->
+                  <div class="table_row">
+                    <tr th:each="bcdt_nam : ${bcdt_nam}">
+                        <td th:text="${bcdt_nam.nam}"></td>
+                        <td th:text="${bcdt_nam.tongDoanhThu}"></td>
+                    </tr>
+                  </div>
+                </table>
+
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+    <script th:src="@{/js/report.js}"></script>
+    <script>
+      // JavaScript to set the maximum value of the input to the current year
+      document.querySelector('input[name="year1"]').max = new Date().getFullYear();
+      document.querySelector('input[name="year2"]').max = new Date().getFullYear();
+  </script>
+  <script>
+    document.getElementById('btn_yearlyReport').addEventListener('click', function() {
+        document.querySelector('input[name="year1"]').required = true;
+        document.querySelector('input[name="year2"]').required = false;
+        document.querySelector('input[name="month"]').required = false;
+    });
+
+    document.getElementById('btn_monthlyReport').addEventListener('click', function() {
+        document.querySelector('input[name="year1"]').required = false;
+        document.querySelector('input[name="year2"]').required = true;
+        document.querySelector('input[name="month"]').required = true;
+    });
+</script>
+  </body>
 </html>
+    

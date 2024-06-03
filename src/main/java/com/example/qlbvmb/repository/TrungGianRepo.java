@@ -7,5 +7,5 @@ import java.util.List;
 
 @Repository
 public  interface TrungGianRepo extends CrudRepository<TrungGian, TrungGianID>{
-    TrungGian findByMaChuyenBay(String maChuyenBay);
+    List<TrungGian> findByMaChuyenBay(String maChuyenBay);
 }

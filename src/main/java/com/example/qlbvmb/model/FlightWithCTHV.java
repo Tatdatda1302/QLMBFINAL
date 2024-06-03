@@ -9,4 +9,5 @@ import lombok.NoArgsConstructor;
 public class FlightWithCTHV {
     private Chuyenbay flight;
     private CtHangve cthangve;
+    private long TgDatVeChamNhat;
 }

@@ -1,0 +1,207 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<body>
+<a th:href="@{/{role}/ThamSo(role=${role})}">ThayDoiThamSo</a><br>
+<a th:href="@{/{role}/Airport(role=${role})}">SanBay</a><br>
+<a th:href="@{/{role}/HangMB(role=${role})}">HangMB</a><br>
+<a th:href="@{/{role}/Maybay(role=${role})}">Maybay</a><br>
+<a th:href="@{/{role}/HangVe(role=${role})}">HangVe</a><br>
+<a th:href="@{/{role}/LoaiHK(role=${role})}">LoaiHK</a><br>
+
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" th:href="@{/favicon/Logo_Img.svg}" type="VietHub Airline" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- font -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wdth,wght@0,75..100,300..800;1,75..100,300..800&family=Sora:wght@100..800&display=swap"
+        rel="stylesheet" />
+
+    <!-- font icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- reset css -->
+    <link rel="stylesheet" th:href="@{/css/reset.css}" />
+    <!-- style css -->
+    <link rel="stylesheet" th:href="@{/css/style_regulations.css}" />
+
+    <title>VietHub Airline</title>
+</head>
+
+<body>
+
+    <!-- header -->
+    <header class="header">
+        <div class="menu">
+            <!-- Logo -->
+            <img th:src="@{/favicon/Logo_Gr.svg}" alt="Shine smile" class="logo header__logo" />
+            <!-- Navbar  -->
+            <nav class="navbar">
+                <ul class="navbar__list" id="navbar__list--pc">
+                    <li class="navbar__item">
+                        <a th:href="@{/role(role=${user.authorities})}" class="navbar__link">Home</a>
+                    </li>
+                    <li class="navbar__item">
+                        <a th:href="@{/role(role=${user.authorities})}" class="navbar__link">About</a>
+                    </li>
+                    <li class="navbar__item">
+                        <a th:href="@{/role(role=${user.authorities})}" class="navbar__link">Contact</a>
+                    </li>
+                    <li class="navbar__item">
+                        <a th:href="@{/ADMIN}" class="navbar__link">Decentralization</a>
+                    </li>
+                    <li class="navbar__item">
+                        <a th:href="@{/{role}/BCDT_Thang(role=${role})}" class="navbar__link">Report</a>
+                    </li>
+                    <li class="navbar__item">
+                        <a th:href="@{/{role}/Regulations(role=${role})}" class="navbar__link navbar__link--active">Regulations</a>
+                    </li>
+                </ul>
+            </nav>
+            <!-- cta action -->
+            <div th:if="${user.username != null}" class="congratulation__action">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" viewBox="0 0 448 512">
+                  <path
+                    d="M304 128a80 80 0 1 0 -160 0 80 80 0 1 0 160 0zM96 128a128 128 0 1 1 256 0A128 128 0 1 1 96 128zM49.3 464H398.7c-8.9-63.3-63.3-112-129-112H178.3c-65.7 0-120.1 48.7-129 112zM0 482.3C0 383.8 79.8 304 178.3 304h91.4C368.2 304 448 383.8 448 482.3c0 16.4-13.3 29.7-29.7 29.7H29.7C13.3 512 0 498.7 0 482.3z" />
+                </svg>
+                <p class="user_name" th:text="${user.username}">Admin</p>
+              </div>
+              <div th:if="${user.username == null}" class="header__action">
+                <a href="/Wan/login" class="header__action--login">Sign in</a>
+                <a href="/Wan/signup" class="btn header__action--signup">Sign up</a>
+              </div>
+            </div>
+        
+            <section class="info__personal" style="display: none;">
+              <div class="info__name">
+                <h2 class="name__heading" th:text="${user.username}"></h2>
+                <p class="name__desc" th:text="${user.authorities}"></p>
+                <div class="underlined"></div>
+              </div>
+              <div class="user_functions">
+                <a href="#">
+                  <div class="log_out">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" viewBox="0 0 512 512" fill="#00256C">
+                      <path
+                        d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 192 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l210.7 0-73.4 73.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l128-128zM160 96c17.7 0 32-14.3 32-32s-14.3-32-32-32L96 32C43 32 0 75 0 128L0 384c0 53 43 96 96 96l64 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-64 0c-17.7 0-32-14.3-32-32l0-256c0-17.7 14.3-32 32-32l64 0z" />
+                    </svg>
+                    <a class="name__functions" href="/Wan/logout"> Log out</a>
+                  </div>
+                </a>
+              </div>
+            </section>
+        </div>
+    </header>
+
+    <!-- main -->
+    <main>
+
+        <!-- menu -->
+        <section class="book">
+            <div class="container">
+                <div class="book__list">
+                    <!-- item 1 -->
+                    <section class="book-item">
+                        <a th:href="@{/{role}/Airport(role=${role})}">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="70" viewBox="0 0 576 512" fill="#00256C">
+                                <path
+                                    d="M575.8 255.5c0 18-15 32.1-32 32.1h-32l.7 160.2c0 2.7-.2 5.4-.5 8.1V472c0 22.1-17.9 40-40 40H456c-1.1 0-2.2 0-3.3-.1c-1.4 .1-2.8 .1-4.2 .1H416 392c-22.1 0-40-17.9-40-40V448 384c0-17.7-14.3-32-32-32H256c-17.7 0-32 14.3-32 32v64 24c0 22.1-17.9 40-40 40H160 128.1c-1.5 0-3-.1-4.5-.2c-1.2 .1-2.4 .2-3.6 .2H104c-22.1 0-40-17.9-40-40V360c0-.9 0-1.9 .1-2.8V287.6H32c-18 0-32-14-32-32.1c0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7L564.8 231.5c8 7 12 15 11 24z" />
+                            </svg>
+                            <div class="book-item__body">
+                                <h3 class="book-item__heading">Airport</h3>
+
+                            </div>
+                        </a>
+                    </section>
+
+                    <!-- item 2 -->
+                    <section class="book-item">
+                        <a th:href="@{/{role}/Maybay(role=${role})}">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="70" viewBox="0 0 512 512" fill="#00256C">
+                                <path
+                                    d="M192 93.7C192 59.5 221 0 256 0c36 0 64 59.5 64 93.7l0 66.3L497.8 278.5c8.9 5.9 14.2 15.9 14.2 26.6v56.7c0 10.9-10.7 18.6-21.1 15.2L320 320v80l57.6 43.2c4 3 6.4 7.8 6.4 12.8v42c0 7.8-6.3 14-14 14c-1.3 0-2.6-.2-3.9-.5L256 480 145.9 511.5c-1.3 .4-2.6 .5-3.9 .5c-7.8 0-14-6.3-14-14V456c0-5 2.4-9.8 6.4-12.8L192 400V320L21.1 377C10.7 380.4 0 372.7 0 361.8V305.1c0-10.7 5.3-20.7 14.2-26.6L192 160V93.7z" />
+                            </svg>
+                            <div class="book-item__body">
+                                <h3 class="book-item__heading">Plane</h3>
+
+                            </div>
+                        </a>
+                    </section>
+
+                    <!-- item 3 -->
+                    <section class="book-item">
+                        <a th:href="@{/{role}/HangMB(role=${role})}">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="70" viewBox="0 0 576 512" fill="#00256C">
+                                <path
+                                    d="M64 32C46.3 32 32 46.3 32 64V304v48 80c0 26.5 21.5 48 48 48H496c26.5 0 48-21.5 48-48V304 152.2c0-18.2-19.4-29.7-35.4-21.1L352 215.4V152.2c0-18.2-19.4-29.7-35.4-21.1L160 215.4V64c0-17.7-14.3-32-32-32H64z" />
+                            </svg>
+                            <div class="book-item__body">
+                                <h3 class="book-item__heading">Manu</h3>
+                            </div>
+                        </a>
+                    </section>
+
+                    <!-- item 4 -->
+                    <section class="book-item">
+                        <a th:href="@{/{role}/HangVe(role=${role})}">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="70" viewBox="0 0 576 512" fill="#00256C">
+                                <path
+                                    d="M64 64C28.7 64 0 92.7 0 128v64c0 8.8 7.4 15.7 15.7 18.6C34.5 217.1 48 235 48 256s-13.5 38.9-32.3 45.4C7.4 304.3 0 311.2 0 320v64c0 35.3 28.7 64 64 64H512c35.3 0 64-28.7 64-64V320c0-8.8-7.4-15.7-15.7-18.6C541.5 294.9 528 277 528 256s13.5-38.9 32.3-45.4c8.3-2.9 15.7-9.8 15.7-18.6V128c0-35.3-28.7-64-64-64H64zm64 112l0 160c0 8.8 7.2 16 16 16H432c8.8 0 16-7.2 16-16V176c0-8.8-7.2-16-16-16H144c-8.8 0-16 7.2-16 16zM96 160c0-17.7 14.3-32 32-32H448c17.7 0 32 14.3 32 32V352c0 17.7-14.3 32-32 32H128c-17.7 0-32-14.3-32-32V160z" />
+                            </svg>
+                            <div class="book-item__body">
+                                <h3 class="book-item__heading">Ticket</h3>
+
+                            </div>
+                        </a>
+                    </section>
+
+                    <!-- item 5 -->
+                    <section class="book-item">
+                        <a th:href="@{/{role}/LoaiHK(role=${role})}">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="70" viewBox="0 0 512 512" fill="#00256C">
+                                <path
+                                    d="M256 288A144 144 0 1 0 256 0a144 144 0 1 0 0 288zm-94.7 32C72.2 320 0 392.2 0 481.3c0 17 13.8 30.7 30.7 30.7H481.3c17 0 30.7-13.8 30.7-30.7C512 392.2 439.8 320 350.7 320H161.3z" />
+                            </svg>
+                            <div class="book-item__body">
+                                <h3 class="book-item__heading">Passenger</h3>
+
+                            </div>
+                        </a>
+                    </section>
+
+                    <!-- item 6 -->
+                    <section class="book-item">
+                        <a th:href="@{/{role}/ThamSo(role=${role})}">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="70" viewBox="0 0 512 512" fill="#00256C">
+                                <path
+                                    d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z" />
+                            </svg>
+                            <div class="book-item__body">
+                                <h3 class="book-item__heading">Parameter</h3>
+
+                            </div>
+                        </a>
+                    </section>
+                </div>
+            </div>
+        </section>
+
+
+
+    </main>
+
+    <script th:src="@{/js/user_main.js}"></script>
+    <script th:src="@{/js/admin_regulation.js}"></script>
+
+</body>
+
+</html>

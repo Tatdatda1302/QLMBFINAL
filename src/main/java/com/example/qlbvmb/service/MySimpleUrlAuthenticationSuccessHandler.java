@@ -20,19 +20,19 @@ public class MySimpleUrlAuthenticationSuccessHandler implements AuthenticationSu
         authorities.forEach(authority -> {
             if(authority.getAuthority().equals("STAFF")) {
                 try {
-                    redirectStrategy.sendRedirect(request, response, "/staff");
+                    redirectStrategy.sendRedirect(request, response, "/STAFF");
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
             } else if(authority.getAuthority().equals("ADMIN")) {
                 try {
-                    redirectStrategy.sendRedirect(request, response, "/admin");
+                    redirectStrategy.sendRedirect(request, response, "/ADMIN");
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
             } else {
                 try {
-                    redirectStrategy.sendRedirect(request, response, "/user");
+                    redirectStrategy.sendRedirect(request, response, "/USER");
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

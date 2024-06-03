@@ -1,0 +1,375 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  html {
+    font-size: 62.5%;
+  }
+  
+  body {
+    font-size: 1.6rem;
+    font-family: "Sora", sans-serif;
+  }
+  
+  :root {
+    --font-heading: "Sora";
+    --font-content: "Open Sans";
+    --primary-color: #21A9DE;
+    --header-bg: #00256C;
+    --partners-bg: #F6FBFF;
+  }
+  
+  
+  /* ========== common ========== */
+  
+  
+  /* se co nhung the khong an theo thuoc tinh chung */
+  
+  input,
+  textarea,
+  select,
+  button {
+    font-family: inherit;
+    font-size: inherit;
+  }
+  
+  .container {
+    width: 1170px;
+    margin: 0 auto;
+    max-width: calc(100% - 48px);
+  }
+  
+  a {
+    text-decoration: none;
+  }
+  
+  .btn {
+    /* box chua */
+    display: inline-block;
+    min-width: 205px;
+    line-height: 60px;
+    border-radius: 30px;
+    background: var(--primary-color);
+    /* text */
+    text-align: center;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 400;
+  }
+  
+  .btn:hover {
+    /* Lam mo nen */
+    opacity: 0.9;
+  }
+  
+  .section-heading {
+    color: var(--header-bg);
+    font-size: 5rem;
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -1px;
+  }
+  
+  .section-desc {
+    color: #575f66;
+    font-size: 1.8rem;
+    font-weight: 300;
+    line-height: 1.67;
+  }
+  
+  .control {
+    display: flex;
+    column-gap: 18px;
+    align-items: center;
+  }
+  
+  .control__btn {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #575f66;
+    background: #fff;
+    cursor: pointer;
+    transition: 0.25s;
+  }
+  
+  .control__btn:hover {
+    background: var(--primary-color);
+    border-color: var(--primary-color);
+    color: #fff;
+  }
+  
+  .control__btn--next {
+    rotate: 180deg;
+  }
+  
+  
+  /* ========== header ========== */
+  
+  .header {
+    background: var(--header-bg);
+    min-width: 100vw;
+  }
+  
+  .menu {
+    padding: 10px;
+    width: 1400px;
+    margin: 0 auto;
+    max-width: calc(100% - 48px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .navbar__list {
+    display: flex;
+  }
+  
+  .header__action--login,
+  .navbar__link {
+    padding: 8px 21px;
+    color: #c9d2da;
+    font-size: 1.6rem;
+    font-weight: 300;
+    line-height: 1.75;
+  }
+  
+  .navbar__link:hover,
+  .navbar__link--active {
+    color: #fff;
+    /* font-weight: 400; -> ko dung vi no se day cac ptu khi weight thay doi */
+    text-shadow: 1px 0 0 currentColor;
+    line-height: 1.75;
+  }
+  
+  .header__action--signup {
+    min-width: 104px;
+    line-height: 44px;
+    font-size: 1.6rem;
+  }
+  
+  .header__action--login {
+    margin-right: 7px;
+  }
+  
+  
+  /* ========== main ========== */
+  
+  /* heading */
+  .report_heading{
+    text-align: center;
+    margin: 60px;
+    color: var(--header-bg);
+    font-size: 45px;
+    font-weight: 700;
+  }
+  
+  /* search */
+  .container_report{
+    display: flex;
+    align-items:start;
+    gap: 70px;
+  }
+  
+  .report_types{
+    width: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  /* container_left */
+  
+  .container_left{
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .preparation .btn_bar{
+    width: 400px;
+  }
+  
+  .search_yearly .input {
+    padding: 10px;
+    width: 400px;
+    height: 50px;
+    border-radius: 10px;
+    border-color: var(--header-bg);
+  }
+  .search_monthly{
+    display: flex; 
+    align-items: center;
+    gap: 20px;
+  }
+  .search_monthly .input{
+    width: 190px;
+    padding: 10px;
+    height: 50px;
+    border-radius: 10px;
+    border-color: var(--header-bg);
+  }
+  
+  .btn_bar {
+    width: 190px;
+    color: #FFF;
+    border-radius: 10px;
+    background-color: #00256C;
+    height: 50px;
+    border-color: #00256C;
+  }
+  
+  .btn_bar:hover {
+    opacity: 0.9;
+  }
+  .btn_bar:active {
+    /* Lam mo nen */  background-color: #f7f7f7;
+    color: #00256C;
+  }
+  
+  /* container_right */
+  .container_right{
+    width: 700px;
+  }
+  
+  table{
+    width: 100%;
+    margin-bottom: 50px;
+  }
+  
+  
+  th {
+    background-color: #a0d1ff;
+    color: #000;
+    font-weight: 500;
+    font-size: 18px;
+  }
+  
+  th,
+  td {
+    padding: 20px 10px 20px;
+    border: 1px solid var(--header-bg);
+    text-align: center;
+  }
+  
+  tr:hover {
+    background-color: rgb(193, 231, 234);
+  }
+  
+  
+  /* report_total */
+  .report_bottom{
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    margin-top: 30px;
+  
+  }
+  .report_total{
+    display: flex;
+  
+  }
+  .report_price,
+  .report_desc{
+    margin: 10px;
+  
+  }
+  .report_bottom .btn_bar{
+    margin: 10px;
+    width: 220px;
+    height: 40px;
+  }
+  
+  
+  /* test */
+  .congratulation__action {
+    width: 150px;
+    height: 40px;
+    background: #fff;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+  .user_name {
+    color: #00256c;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.3;
+  }
+  .congratulation__action:hover {
+    cursor: pointer;
+    opacity: 0.9;
+  }
+  
+  /* test */
+  .info__personal {
+    padding: 20px;
+    width: 250px;
+    height: 260px;
+    background: #fff;
+    text-align: center;
+  
+    position: fixed;
+    right: 0; /* Đặt vị trí ở phía trái */
+    display: none;
+    position: absolute;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+  }
+ 
+  
+  .name__heading {
+    margin-top: 10px;
+    color: #00256c;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.3;
+  }
+  .name__desc {
+    color: #9e9e9e;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.3;
+  }
+  .underlined {
+    margin: 10px 0 10px;
+    width: 270px;
+    height: 1px;
+    background: #d9d9d9;
+  }
+  
+  .name__id,
+  .name__functions {
+    color: #00256c;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.3;
+  }
+  
+  .personal__page,
+  .booked__tickets,
+  .log_out {
+    padding-left: 20px;
+    margin: 10px auto;
+    width: 250px;
+    height: 45px;
+  
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  .personal__page:hover,
+  .booked__tickets:hover,
+  .log_out:hover {
+    border-radius: 10px;
+    background: #d9d9d9;
+  }
+  

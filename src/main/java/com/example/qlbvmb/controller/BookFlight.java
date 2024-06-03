@@ -2,6 +2,8 @@ package com.example.qlbvmb.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
+
 import com.example.qlbvmb.service.FlightService;
 import com.example.qlbvmb.model.DSGhe;
 import org.springframework.ui.Model;
@@ -16,10 +18,13 @@ import com.example.qlbvmb.model.Chuyenbay;
 import com.example.qlbvmb.model.SanBay;
 import com.example.qlbvmb.model.PhieuDatCho;
 import com.example.qlbvmb.model.CtHangve;
+import com.example.qlbvmb.model.Customer;
+import com.example.qlbvmb.model.CustomerUserDetails;
 import com.example.qlbvmb.model.FlightTicket;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import java.time.LocalDate;
 import com.example.qlbvmb.model.HanhKhach;
+import com.example.qlbvmb.model.LoaiHK;
 import com.example.qlbvmb.service.UserService;
 import jakarta.servlet.http.HttpServletRequest;
 import java.sql.Timestamp;
@@ -37,7 +42,15 @@ public class BookFlight {
 
     @GetMapping("/{role}/BookFlight/{maChuyenBay}/{HV}")
     public String showBookTicketPage(@PathVariable("role") String role, @PathVariable("maChuyenBay") String maChuyenBay, @PathVariable("HV") String maHangve, Model model) {
+        CustomerUserDetails user = (CustomerUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        model.addAttribute("user", user);
         model.addAttribute("role", role);
+        Customer customer = userService.getUser(user.getUsername());
+        model.addAttribute("customer", customer);
+        HanhKhach hanhKhach = userService.getHanhKhach(customer.getDinhDanh());
+        model.addAttribute("hanhKhach", hanhKhach);
+        Iterable<LoaiHK> loaiHK = flightService.getAllLoaiHK();
+        model.addAttribute("loaiHK", loaiHK);
         Chuyenbay chuyenbay = flightService.getFlightById(maChuyenBay);
         model.addAttribute("maHangve", maHangve);
         model.addAttribute("chuyenbay", chuyenbay);
@@ -60,15 +73,21 @@ public class BookFlight {
                             @ModelAttribute PhieuDatCho phieuDatCho,
                             @ModelAttribute DSGhe dsghe,
                             @ModelAttribute FlightTicket flightTicket,
-                            @ModelAttribute HanhKhach hanhKhach,
+                            @ModelAttribute HanhKhach hanhKhach1,
                             @ModelAttribute CT_BCDT_Thang ctbct,
                             @ModelAttribute CT_BCDT_Nam ctbcn,
                             @ModelAttribute BCDT_Nam bcnam,
                             HttpServletRequest request) {
 
+        CustomerUserDetails user = (CustomerUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        model.addAttribute("user", user);
+        Customer customer = userService.getUser(user.getUsername());
+        model.addAttribute("customer", customer);
+        HanhKhach hanhKhach = userService.getHanhKhach(customer.getDinhDanh());
+        model.addAttribute("hanhKhach", hanhKhach);
         String dinhDanh = request.getParameter("dinhDanh");
         if(!userService.isHanhKhachExist(dinhDanh)){
-            userService.createNewHanhKhach(hanhKhach);
+            userService.createNewHanhKhach(hanhKhach1);
         }
         HanhKhach HK = userService.getHanhKhach(dinhDanh);
         Chuyenbay chuyenbay = flightService.getFlightById(maChuyenBay);
@@ -90,16 +109,9 @@ public class BookFlight {
         phieuDatCho.setMaLHK(request.getParameter("maLHK"));
         phieuDatCho.setSoGhe(Integer.parseInt(request.getParameter("soGhe")));
         phieuDatCho.setSoPhieuDatCho(phieuDatCho.getMaChuyenBay() + phieuDatCho.getMaHangVe() + phieuDatCho.getSoGhe());
-        if(phieuDatCho.getMaLHK().equals("NL")){
-            phieuDatCho.setGiaVe(ctHangve.getDonGiaHV());
-        }
-        else if (phieuDatCho.getMaLHK().equals("TE")){
-            phieuDatCho.setGiaVe(ctHangve.getDonGiaHV()*0.75);
-        }
-        else if (phieuDatCho.getMaLHK().equals("SS")){
-            phieuDatCho.setGiaVe(ctHangve.getDonGiaHV()*0.1);
-        }
-        phieuDatCho.setTinhTrang("Đã đặt vé");
+        LoaiHK loaiHK = flightService.getLoaiHKById(phieuDatCho.getMaLHK());
+        phieuDatCho.setGiaVe(loaiHK.getTiLeLHK()*ctHangve.getDonGiaHV());
+        phieuDatCho.setTinhTrang("Booked");
         flightService.createPhieuDatCho(phieuDatCho);
 
         flightService.deleteGhe(phieuDatCho.getSoGhe(), chuyenbay.getMaMB(), maHangve, maChuyenBay);

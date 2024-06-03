@@ -33,20 +33,54 @@ public class CustomerAuth {
         return "index";
     }
 
+    @GetMapping("/logout")
+    public String logout() {
+        return "redirect:/login";
+    }
+
+    // @GetMapping("/Home/{role}")
+    // public String showPage(@PathVariable("role") String role, Model model) {
+    //     model.addAttribute("role", role);
+    //     return "index";
+    // }
+
     @GetMapping("/login")
     public String showLoginPage() {
         return "index_signin";
     }
 
+    @GetMapping("/{role}")
+    public String showPage(@PathVariable("role") String role, Model model) {
+        CustomerUserDetails user = (CustomerUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        model.addAttribute("user", user);
+        model.addAttribute("role", role);
+        if(user.getAuthorities().toString().equals("[ADMIN]")) {
+            Iterable<Customer> customers = userService.getAllUser();
+            model.addAttribute("customers", customers);
+            return "redirect:/ADMIN";
+        }
+        if(user.getAuthorities().toString().equals("[STAFF]")) {
+            return "redirect:/STAFF";
+        }
+        else {
+            Customer customer = userService.getUser(user.getUsername());
+            HanhKhach hanhKhach = userService.getHanhKhach(customer.getDinhDanh());
+            model.addAttribute("hanhKhach", hanhKhach);
+            model.addAttribute("customer", customer);
+            return "redirect:/USER";
+        }
+    }
 
-    @GetMapping("/staff")
+    @GetMapping("/STAFF")
     public String showStaffPage(Model model) {
         CustomerUserDetails user = (CustomerUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         model.addAttribute("user", user);
+        Customer customer = userService.getUser(user.getUsername());
+        model.addAttribute("customer", customer);
         return "staff";
     }
 
-    @GetMapping("/user")
+    @GetMapping("/USER")
     public String showUserPage(Model model) {
         CustomerUserDetails user = (CustomerUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         Customer customer = userService.getUser(user.getUsername());
@@ -57,7 +91,7 @@ public class CustomerAuth {
         return "user";
     }
     
-    @GetMapping("/admin")
+    @GetMapping("/ADMIN")
     public String showAdminPage(Model model) {
         CustomerUserDetails user = (CustomerUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         model.addAttribute("user", user);
@@ -66,26 +100,33 @@ public class CustomerAuth {
         return "admin";
     }
 
-    @GetMapping("/{role}/PhanQuyen")
-    public String showPhanQuyenPage(@PathVariable("role") String role, Model model) {
-        CustomerUserDetails user = (CustomerUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        model.addAttribute("user", user);
-        Iterable<Customer> customers = userService.getAllUser();
-        model.addAttribute("customers", customers);
-        model.addAttribute("role", role);
-        return "PhanQuyen";
-    }
+    // @GetMapping("/{role}/PhanQuyen")
+    // public String showPhanQuyenPage(@PathVariable("role") String role, Model model) {
+    //     CustomerUserDetails user = (CustomerUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+    //     model.addAttribute("user", user);
+    //     Iterable<Customer> customers = userService.getAllUser();
+    //     model.addAttribute("customers", customers);
+    //     model.addAttribute("role", role);
+    //     return "PhanQuyen";
+    // }
     
     @GetMapping("/{role}/edit/{id}")
     public String showEditCustomerPage(@PathVariable("role") String role, @PathVariable("id") int id, Model model) {
+        CustomerUserDetails user = (CustomerUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        model.addAttribute("user", user);
         Customer customer = userService.getUserById(id);
         model.addAttribute("customer", customer);
+        HanhKhach hanhKhach = userService.getHanhKhach(customer.getDinhDanh());
+        model.addAttribute("hanhKhach", hanhKhach);
         model.addAttribute("role", role);
         return "Edit";
     }
 
     @PostMapping("/{role}/edit/{id}")
-    public String editCustomer(@PathVariable("role") String role ,@PathVariable("id") int id, HttpServletRequest request) {
+    public String editCustomer(@PathVariable("role") String role ,@PathVariable("id") int id, HttpServletRequest request, Model model) {
+        CustomerUserDetails user = (CustomerUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        model.addAttribute("user", user);
+        model.addAttribute("role", role);
         Customer customer = userService.getUserById(id);
         String username = request.getParameter("userName");
         String password = request.getParameter("passWord");
@@ -99,13 +140,14 @@ public class CustomerAuth {
         if(Role != null) customer.setRole(Role);
         userService.createUser(customer);
         if(role.equals("USER")) return "redirect:/{role}/edit/{id}";
-        return "redirect:/{role}/PhanQuyen";
+        else if(role.equals("STAFF")) return "redirect:/{role}/edit/{id}";
+        return "redirect:/ADMIN";
     }
 
     @GetMapping("/{role}/delete/{id}")
     public String deleteCustomer(@PathVariable("role") String role, @PathVariable("id") int id) {
         userService.deleteUser(id);
-        return "redirect:/{role}/PhanQuyen";
+        return "redirect:/ADMIN";
     }
 
     @GetMapping("/signup")
@@ -188,14 +230,15 @@ public class CustomerAuth {
         return "password";
     }
 
-    @GetMapping("/{role}/ThemUser")
-    public String showThemUserPage() {
-        return "ThemUser";
-    }
+    // @GetMapping("/{role}/ThemUser")
+    // public String showThemUserPage() {
+    //     return "ThemUser";
+    // }
     @PostMapping("/{role}/ThemUser")
     public String ThemUser(HttpServletRequest request,
                         @ModelAttribute Customer customer,
                         @ModelAttribute HanhKhach hanhKhach,
+
                         Model model){
 
         String response;
@@ -205,25 +248,19 @@ public class CustomerAuth {
                 response = "User is already existed for username " + username;
             }
             else {
-                String password1 = request.getParameter("passWord1");
-                String password2 = request.getParameter("passWord2");
-                if(!password1.equals(password2)){
-                    response = "Password does not match";
+                String password = request.getParameter("passWord");
+                String dinhDanh = request.getParameter("dinhDanh");
+                String Email = request.getParameter("email");
+                String role = request.getParameter("Role");
+                if(!userService.isHanhKhachExist(dinhDanh)){
+                    userService.createNewHanhKhach(hanhKhach);
                 }
-                else {
-                    String dinhDanh = request.getParameter("dinhDanh");
-                    String Email = request.getParameter("email");
-                    String role = request.getParameter("Role");
-                    if(!userService.isHanhKhachExist(dinhDanh)){
-                        userService.createNewHanhKhach(hanhKhach);
-                    }
-                    customer.setPassWord(password1);
-                    customer.setEmail(Email);
-                    customer.setDinhDanh(dinhDanh);
-                    customer.setRole(role);
-                    userService.createNewUser(customer);
-                    return "redirect:/admin";
-                }
+                customer.setPassWord(password);
+                customer.setEmail(Email);
+                customer.setDinhDanh(dinhDanh);
+                customer.setRole(role);
+                userService.createNewUser(customer);
+                return "redirect:/admin";
             }
         }
         catch (Exception e) {

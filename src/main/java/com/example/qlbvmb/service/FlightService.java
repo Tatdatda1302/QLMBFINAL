@@ -165,6 +165,11 @@ public class FlightService {
         return !hangve.isEmpty();
     }
 
+    public HangVe getHangVeById(String maHangVe) {
+        List<HangVe> hangve = hangve_repo.findByMaHangVe(maHangVe);
+        return hangve.get(0);
+    }
+
     public void deleteHangVe(String maHangVe) {
         hangve_repo.deleteById(maHangVe);
     }
@@ -178,6 +183,15 @@ public class FlightService {
         return !loaiHK.isEmpty();
     }
 
+    public LoaiHK getLoaiHKById(String maLoaiHK) {
+        List<LoaiHK> loaiHK = loaiHK_repo.findByMaLHK(maLoaiHK);
+        return loaiHK.get(0);
+    }
+    
+    public HangVe getHangVeByHV(String maHangVe) {
+        List<HangVe> hangve = hangve_repo.findByMaHangVe(maHangVe);
+        return hangve.get(0);
+    }
     public void deleteLoaiHK(String maLoaiHK) {
         loaiHK_repo.deleteById(maLoaiHK);
     }
@@ -267,7 +281,7 @@ public class FlightService {
         return flightTicket_repo.findByMaHK(maHK);
     }
 
-    public TrungGian getTrungGianByMaChuyenBay(String maChuyenBay) {
+    public Iterable<TrungGian> getTrungGianByMaChuyenBay(String maChuyenBay) {
         return trunggian_repo.findByMaChuyenBay(maChuyenBay);
     }
 

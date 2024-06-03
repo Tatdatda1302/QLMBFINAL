@@ -110,8 +110,7 @@ document.addEventListener("DOMContentLoaded", function () {
       toggleCreatePassword.querySelector("i").classList.remove("fa-eye");
       toggleCreatePassword.querySelector("i").classList.add("fa-eye-slash");
     } else {
-      createPasswordField.type = "password";
-      toggleCreatePassword.querySelector("i").classList.remove("fa-eye-slash");
+          toggleCreatePassword.querySelector("i").classList.remove("fa-eye-slash");
       toggleCreatePassword.querySelector("i").classList.add("fa-eye");
     }
   });
@@ -124,7 +123,8 @@ document.addEventListener("DOMContentLoaded", function () {
     } else {
       confirmPasswordField.type = "password";
       toggleConfirmPassword.querySelector("i").classList.remove("fa-eye-slash");
-      toggleConfirmPassword.querySelector("i").classList.add("fa-eye");
+   createPasswordField.type = "password";
+     toggleConfirmPassword.querySelector("i").classList.add("fa-eye");
     }
   });
   

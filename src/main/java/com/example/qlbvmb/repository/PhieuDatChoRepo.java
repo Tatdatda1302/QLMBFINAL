@@ -15,6 +15,6 @@ public interface PhieuDatChoRepo extends CrudRepository<PhieuDatCho, String>{
     List<PhieuDatCho> findByMaChuyenBay(String maChuyenBay);
 
     @Modifying
-    @Query("UPDATE PhieuDatCho p SET p.tinhTrang = 'Bị hủy' WHERE p.maChuyenBay = :maChuyenBay")
+    @Query("UPDATE PhieuDatCho p SET p.tinhTrang = 'Cancelled' WHERE p.maChuyenBay = :maChuyenBay")
     void updateByNgayDatVe(String maChuyenBay);
 }
